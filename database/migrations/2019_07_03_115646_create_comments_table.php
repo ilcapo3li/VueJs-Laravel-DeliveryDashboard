@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('commentable_id')->nullable();
-            $table->enum('commentable_type', ['video', 'news', 'match', 'channel', 'comment', 'replay']);
+            $table->enum('commentable_type', ['comment', 'replay']);
             $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();

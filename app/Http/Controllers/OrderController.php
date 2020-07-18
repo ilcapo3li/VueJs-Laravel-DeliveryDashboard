@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\DeliveryPrice;
+use App\Order;
 use Illuminate\Http\Request;
 
-class DeliveryPriceController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DeliveryPriceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DeliveryPrice  $deliveryPrice
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(DeliveryPrice $deliveryPrice)
+    public function show(Order $order)
     {
         //
     }
@@ -52,10 +52,10 @@ class DeliveryPriceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DeliveryPrice  $deliveryPrice
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(DeliveryPrice $deliveryPrice)
+    public function edit(Order $order)
     {
         //
     }
@@ -64,10 +64,10 @@ class DeliveryPriceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DeliveryPrice  $deliveryPrice
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DeliveryPrice $deliveryPrice)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -75,10 +75,10 @@ class DeliveryPriceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DeliveryPrice  $deliveryPrice
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeliveryPrice $deliveryPrice)
+    public function destroy(Order $order)
     {
         //
     }

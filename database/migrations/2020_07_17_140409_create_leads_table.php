@@ -17,13 +17,15 @@ class CreateLeadsTable extends Migration {
 			$table->string('email')->unique();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
+			$table->string('phonePrimary')->nullable();
+			$table->string('PhoneSecondary')->nullable();
 			$table->unsignedBigInteger('photo_id')->nullable();
 			$table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');
 			$table->unsignedBigInteger('role_id')->nullable()->default('1');
 			$table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
 			$table->integer('blocked')->default(0);
-			$table->string('phonePrimary')->nullable();
-			$table->string('PhoneSecondary')->nullable();
+			$table->unsignedBigInteger('owner_id')->nullable()->default('1');
+			$table->foreign('owner_id')->references('id')->on('users')->onDelete('set null');
 			$table->rememberToken();
 			$table->timestamps();
 			$table->softDeletes();

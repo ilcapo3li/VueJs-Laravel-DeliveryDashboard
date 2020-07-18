@@ -57,7 +57,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'info',
+      default: 'success',
       validator: value => {
         let acceptedValues = [
           'info',

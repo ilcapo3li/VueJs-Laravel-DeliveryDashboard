@@ -4,18 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeliveryOrdersTable extends Migration {
+class CreateOrdersTable extends Migration {
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('delivery_orders', function (Blueprint $table) {
+		Schema::create('orders', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			/////////////////////////////////////Order Details//////////////////////////
-			$table->unsignedBigInteger('matrial_type_id')->nullable();
-			$table->foreign('matrial_type_id')->references('id')->on('matrial_types');
+			$table->unsignedBigInteger('material_type_id')->nullable();
+			$table->foreign('material_type_id')->references('id')->on('material_types');
 			$table->string('matrial');
 			$table->decimal('wieght', 5, 2)->nullable();
 			$table->decimal('hight', 5, 2)->nullable();
@@ -30,14 +30,14 @@ class CreateDeliveryOrdersTable extends Migration {
 			$table->dateTime('collecting_at')->nullable();
 			$table->unsignedBigInteger('collected_by')->nullable();
 			$table->foreign('collected_by')->references('id')->on('users');
-			$table->unsignedBigInteger('statue_id')->nullable();
-			$table->foreign('statue_id')->references('id')->on('delivery_statuses');
+			$table->unsignedBigInteger('status_id')->nullable();
+			$table->foreign('status_id')->references('id')->on('statuses');
 			$table->text('note')->nullable();
 			/////////////////////zone and cost else lat long calc////////////////////
 			$table->unsignedBigInteger('zone_id')->nullable();
 			$table->foreign('zone_id')->references('id')->on('zones');
 			$table->unsignedBigInteger('price_id')->nullable();
-			$table->foreign('price_id')->references('id')->on('delivery_prices');
+			$table->foreign('price_id')->references('id')->on('prices');
 			$table->unsignedBigInteger('home_id')->nullable();
 			$table->foreign('home_id')->references('id')->on('locations');
 			$table->unsignedBigInteger('away_id')->nullable();
@@ -55,6 +55,6 @@ class CreateDeliveryOrdersTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('delivery_orders');
+		Schema::dropIfExists('orders');
 	}
 }

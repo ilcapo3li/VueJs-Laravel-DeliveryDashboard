@@ -245,30 +245,29 @@ __webpack_require__.r(__webpack_exports__);
       return this.$t('dashboard.chartCategories');
     }
   },
-  methods: {
-    initBigChart: function initBigChart(index) {
-      var chartData = {
-        datasets: [{
-          fill: true,
-          borderColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
-          pointBorderColor: 'rgba(255,255,255,0)',
-          pointHoverBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: this.bigLineChart.allData[index]
-        }],
-        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
-      };
-      this.$refs.bigChart.updateGradients(chartData);
-      this.bigLineChart.chartData = chartData;
-      this.bigLineChart.activeIndex = index;
-    }
+  methods: {// initBigChart(index) {
+    //   let chartData = {
+    //     datasets: [{
+    //       fill: true,
+    //       borderColor: config.colors.primary,
+    //       borderWidth: 2,
+    //       borderDash: [],
+    //       borderDashOffset: 0.0,
+    //       pointBackgroundColor: config.colors.primary,
+    //       pointBorderColor: 'rgba(255,255,255,0)',
+    //       pointHoverBackgroundColor: config.colors.primary,
+    //       pointBorderWidth: 20,
+    //       pointHoverRadius: 4,
+    //       pointHoverBorderWidth: 15,
+    //       pointRadius: 4,
+    //       data: this.bigLineChart.allData[index]
+    //     }],
+    //     labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+    //   }
+    //   this.$refs.bigChart.updateGradients(chartData);
+    //   this.bigLineChart.chartData = chartData;
+    //   this.bigLineChart.activeIndex = index;
+    // }
   },
   mounted: function mounted() {
     this.i18n = this.$i18n;
@@ -381,112 +380,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-12" },
-        [
-          _c(
-            "card",
-            { attrs: { type: "chart" } },
-            [
-              _c("template", { slot: "header" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-sm-6",
-                      class: _vm.isRTL ? "text-right" : "text-left"
-                    },
-                    [
-                      _c("h5", { staticClass: "card-category" }, [
-                        _vm._v(_vm._s(_vm.$t("dashboard.totalShipments")))
-                      ]),
-                      _vm._v(" "),
-                      _c("h2", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(_vm.$t("dashboard.performance")))
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "btn-group btn-group-toggle",
-                        class: _vm.isRTL ? "float-left" : "float-right",
-                        attrs: { "data-toggle": "buttons" }
-                      },
-                      _vm._l(_vm.bigLineChartCategories, function(
-                        option,
-                        index
-                      ) {
-                        return _c(
-                          "label",
-                          {
-                            key: option,
-                            staticClass: "btn btn-sm btn-primary btn-simple",
-                            class: {
-                              active: _vm.bigLineChart.activeIndex === index
-                            },
-                            attrs: { id: index }
-                          },
-                          [
-                            _c("input", {
-                              attrs: {
-                                type: "radio",
-                                name: "options",
-                                autocomplete: "off"
-                              },
-                              domProps: {
-                                checked: _vm.bigLineChart.activeIndex === index
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.initBigChart(index)
-                                }
-                              }
-                            }),
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(option) +
-                                "\n                "
-                            )
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "chart-area" },
-                [
-                  _c("line-chart", {
-                    ref: "bigChart",
-                    staticStyle: { height: "100%" },
-                    attrs: {
-                      "chart-id": "big-line-chart",
-                      "chart-data": _vm.bigLineChart.chartData,
-                      "gradient-colors": _vm.bigLineChart.gradientColors,
-                      "gradient-stops": _vm.bigLineChart.gradientStops,
-                      "extra-options": _vm.bigLineChart.extraOptions
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            2
-          )
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c(
         "div",
@@ -614,137 +507,6 @@ var render = function() {
               )
             ],
             2
-          )
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-lg-6 col-md-12" },
-        [
-          _c(
-            "card",
-            {
-              attrs: {
-                type: "tasks",
-                "header-classes": { "text-right": _vm.isRTL }
-              }
-            },
-            [
-              _c(
-                "template",
-                { slot: "header" },
-                [
-                  _c("h6", { staticClass: "title d-inline" }, [
-                    _vm._v(_vm._s(_vm.$t("dashboard.tasks", { count: 5 })))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-category d-inline" }, [
-                    _vm._v(_vm._s(_vm.$t("dashboard.today")))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "base-dropdown",
-                    {
-                      class: { "float-left": _vm.isRTL },
-                      attrs: {
-                        "menu-on-right": "",
-                        tag: "div",
-                        "title-classes": "btn btn-link btn-icon",
-                        "aria-label": "Settings menu"
-                      }
-                    },
-                    [
-                      _c("i", {
-                        staticClass: "tim-icons icon-settings-gear-63",
-                        attrs: { slot: "title" },
-                        slot: "title"
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "#pablo" }
-                        },
-                        [_vm._v(_vm._s(_vm.$t("dashboard.dropdown.action")))]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "#pablo" }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.$t("dashboard.dropdown.anotherAction"))
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "#pablo" }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.$t("dashboard.dropdown.somethingElse"))
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "table-full-width table-responsive" },
-                [_c("task-list")],
-                1
-              )
-            ],
-            2
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-lg-6 col-md-12" },
-        [
-          _c(
-            "card",
-            {
-              staticClass: "card",
-              attrs: { "header-classes": { "text-right": _vm.isRTL } }
-            },
-            [
-              _c(
-                "h4",
-                {
-                  staticClass: "card-title",
-                  attrs: { slot: "header" },
-                  slot: "header"
-                },
-                [_vm._v(_vm._s(_vm.$t("dashboard.simpleTable")))]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "table-responsive" },
-                [_c("user-table")],
-                1
-              )
-            ]
           )
         ],
         1
@@ -1047,7 +809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es6.object.keys */ "./node_modules/core-js/modules/es6.object.keys.js");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var C_Users_Alamir_Work_Desktop_Delivery_master_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var C_work_deliverySchema_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 
 
 
@@ -1060,7 +822,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(C_Users_Alamir_Work_Desktop_Delivery_master_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(C_work_deliverySchema_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var basicOptions = {
   maintainAspectRatio: false,

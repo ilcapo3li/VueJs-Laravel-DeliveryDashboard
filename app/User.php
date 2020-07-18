@@ -54,47 +54,15 @@ class User extends Authenticatable implements JWTSubject
         }
     }
 
-    public function favouriteLeagues()
-    {
-        return $this->belongsToMany(League::class, 'favorites', 'user_id', 'type_id')->where('type', 'league')->with('photo');
-    }
 
-    public function favouriteMatches()
-    {
-        return $this->belongsToMany(Match::class, 'favorites', 'user_id', 'type_id')->where('type', 'match')->with('HomeTeamBadge')->with('AwayTeamBadge');
-    }
 
-    public function favouriteTournamentMatch()
-    {
-        return $this->belongsToMany(ToranmentMatch::class, 'favorites', 'user_id', 'type_id')->where('type', 'tournament_match')->with(['toranmentType', 'homeTeam.photo', 'awayTeam.photo']);
-    }
 
-    public function favouriteVideos()
-    {
-        return $this->belongsToMany(Video::class, 'favorites', 'user_id', 'type_id')->where('type', 'video')->with('photo');
-    }
-
-    public function favouriteNews()
-    {
-        return $this->belongsToMany(NewsPost::class, 'favorites', 'user_id', 'type_id')->where('type', 'news')->with('postPhoto');
-    }
-
-    public function favouriteStandings()
-    {
-        return $this->belongsToMany(Standing::class, 'favorites', 'user_id', 'type_id')->where('type', 'standing')->with('photo');
-    }
-
-    public function favouriteChannels()
-    {
-        return $this->belongsToMany(Channel::class, 'favorites', 'user_id', 'type_id')->where('favorites.type', 'channel')->with('photo');
-    }
-
-    public function favouriteCategories()
-    {
-        return $this->belongsToMany(Category::class, 'favorites', 'user_id', 'type_id')->where('type', 'category')->with('photo');
-    }
 
     ///////////////////test propose//////////////////////
+    // public function favouriteLeagues()
+    // {
+    //     return $this->belongsToMany(League::class, 'favorites', 'user_id', 'type_id')->where('type', 'league')->with('photo');
+    // }
     // public function categories()
     // {
     //     return $this->hasMany(Favorite::class)->where('type','category');
@@ -129,46 +97,5 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
 
-    public function likedVideo()
-    {
-        return $this->hasmany(Like::class)->where('likes.type', 'video');
-    }
-
-    public function likedChannel()
-    {
-        return $this->hasmany(Like::class)->where('likes.type', 'channel');
-    }
-
-    public function likedNews()
-    {
-        return $this->hasmany(Like::class)->where('likes.type', 'news');
-    }
-
-    public function likedComment()
-    {
-        return $this->hasmany(Like::class)->where('likes.type', 'comment');
-    }
-
-    public function newsComments()
-    {
-        return $this->hasMany(Comment::class)->where('commentable_type', 'news');
-    }
-
-    public function videosComments()
-    {
-        return $this->hasMany(Comment::class)->where('commentable_type', 'video');
-    }
-     public function channelComments()
-    {
-        return $this->hasMany(Comment::class)->where('commentable_type', 'channel');
-    }
-
-    public function replayComments()
-    {
-        return $this->hasMany(Comment::class)->where('commentable_type', 'replay');
-    }
-     public function matchComments()
-    {
-        return $this->hasMany(Comment::class)->where('commentable_type', 'match');
-    }
+   
 }

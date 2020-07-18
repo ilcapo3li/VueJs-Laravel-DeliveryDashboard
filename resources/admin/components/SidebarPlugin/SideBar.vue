@@ -45,15 +45,15 @@
     props: {
       title: {
         type: String,
-        default: "Al Match"
+        default: "BiComtics"
       },
       backgroundColor: {
         type: String,
-        default: "blue"
+        default: "green"
       },
       activeColor: {
         type: String,
-        default: "primary",
+        default: "success",
         validator: value => {
           let acceptedValues = [
             "primary",
@@ -105,7 +105,7 @@
         windowWidth: 0,
         isWindows: false,
         hasAutoHeight: false,
-        im:'/default/default.png',
+        im:'/default/default.jpg',
         links: []
       };
     },

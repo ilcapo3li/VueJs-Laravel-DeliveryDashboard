@@ -1,5 +1,5 @@
 const makeUrl = route => {
-    return `http://${location.hostname}:8000/api${route}`;
+    return `http://${location.hostname}/api${route}`;
 };
 
 export default {

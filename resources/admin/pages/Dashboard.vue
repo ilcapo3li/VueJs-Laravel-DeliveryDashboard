@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class="row">
+   <!--  <div class="row">
       <div class="col-12">
         <card type="chart">
           <template slot="header">
@@ -41,7 +41,7 @@
           </div>
         </card>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-lg-4" :class="{'text-right': isRTL}">
         <card type="chart">
@@ -93,7 +93,7 @@
         </card>
       </div>
     </div>
-    <div class="row">
+<!--     <div class="row">
       <div class="col-lg-6 col-md-12">
         <card type="tasks" :header-classes="{'text-right': isRTL}">
           <template slot="header">
@@ -123,7 +123,7 @@
           </div>
         </card>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -235,29 +235,29 @@
       }
     },
     methods: {
-      initBigChart(index) {
-        let chartData = {
-          datasets: [{
-            fill: true,
-            borderColor: config.colors.primary,
-            borderWidth: 2,
-            borderDash: [],
-            borderDashOffset: 0.0,
-            pointBackgroundColor: config.colors.primary,
-            pointBorderColor: 'rgba(255,255,255,0)',
-            pointHoverBackgroundColor: config.colors.primary,
-            pointBorderWidth: 20,
-            pointHoverRadius: 4,
-            pointHoverBorderWidth: 15,
-            pointRadius: 4,
-            data: this.bigLineChart.allData[index]
-          }],
-          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-        }
-        this.$refs.bigChart.updateGradients(chartData);
-        this.bigLineChart.chartData = chartData;
-        this.bigLineChart.activeIndex = index;
-      }
+      // initBigChart(index) {
+      //   let chartData = {
+      //     datasets: [{
+      //       fill: true,
+      //       borderColor: config.colors.primary,
+      //       borderWidth: 2,
+      //       borderDash: [],
+      //       borderDashOffset: 0.0,
+      //       pointBackgroundColor: config.colors.primary,
+      //       pointBorderColor: 'rgba(255,255,255,0)',
+      //       pointHoverBackgroundColor: config.colors.primary,
+      //       pointBorderWidth: 20,
+      //       pointHoverRadius: 4,
+      //       pointHoverBorderWidth: 15,
+      //       pointRadius: 4,
+      //       data: this.bigLineChart.allData[index]
+      //     }],
+      //     labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+      //   }
+      //   this.$refs.bigChart.updateGradients(chartData);
+      //   this.bigLineChart.chartData = chartData;
+      //   this.bigLineChart.activeIndex = index;
+      // }
     },
     mounted() {
       this.i18n = this.$i18n;

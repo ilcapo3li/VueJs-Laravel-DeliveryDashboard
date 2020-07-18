@@ -12,12 +12,6 @@ class Country extends Model
         return $this->hasOne('App\Photo');
     }
 
-    public function toranment()
-    {
-        return $this->hasOne('App\Toranment');
-    }
-    public function leagues()
-    {
-        return $this->hasMany(League::class, 'country_id');
-    }
+ 
+   
 }

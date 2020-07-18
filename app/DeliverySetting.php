@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Locations extends Model
+class DeliverySetting extends Model
 {
     //
 }

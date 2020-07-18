@@ -17,10 +17,7 @@ class Comment extends Model
         return $this->likedComment()->count();
     }
     protected $fillable=['user_id','comment','commentable_id','commentable_type'];
-    public function post()
-    {
-        return $this->belongsTo('App\NewsPost');
-    }
+   
     public function user()
     {
         return $this->belongsTo('App\User');

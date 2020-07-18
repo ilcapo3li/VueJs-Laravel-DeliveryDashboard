@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DeliveryOrder extends Model
+class Status extends Model
 {
     //
 }

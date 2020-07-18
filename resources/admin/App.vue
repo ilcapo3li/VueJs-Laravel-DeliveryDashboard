@@ -6,24 +6,23 @@
       <router-view :key="$route.fullPath"></router-view>
     </div>
   </div>
-  <div v-if="$route.name=='iframe'">
-    <router-view :key="$route.fullPath"></router-view>
-  </div>
-  <div v-if="$route.name=='iframe_channels'">
-    <router-view :key="$route.fullPath"></router-view>
+  <div v-else-if="$route.name === 'login'">
+            <Login></Login>
   </div>
   <div v-else>
-    <Login></Login>
+       <NotFoundPage></NotFoundPage>
   </div>
 </div>
 </template>
 
 <script>
 import Login from "./pages/Login";
+import NotFoundPage from "./pages/NotFoundPage";
+import Profile from "./pages/Profile";
 import apiUrls from './helpers/apiUrls';
   export default {
     name:'App',
-    components:{Login},
+    components:{Login,NotFoundPage},
     created(){
       if(localStorage.getItem('access_token')){
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
@@ -100,12 +99,12 @@ import apiUrls from './helpers/apiUrls';
     font-weight: 600 !important;
 }
 .card .card-header .card-category {
-    color: #325ff4 !important;
+    color: #00c3da !important;
     margin-bottom: 10px !important;
     font-weight: 700 !important;
 }
 .white-content .form-control:focus {
-    border-color: #2a77f6 !important;
+    border-color: #00c3da !important;
 }
 .main-panel { 
   border-top: 3px solid #306bf6 !important;
@@ -115,19 +114,19 @@ a{
     font-weight: 700 !important;
 }
 .white-content .navbar.navbar-transparent .navbar-brand {
-    color: #287ff7 !important;
+    color: #00c3da !important;
 }
 .card-user .author .block.block-one {
-    background: linear-gradient(to right, rgb(47, 111, 246) 0%, rgba(225, 78, 202, 0) 100%) !important;
+    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
   }
   .card-user .author .block.block-two {
-    background: linear-gradient(to right, rgb(47, 111, 246) 0%, rgba(225, 78, 202, 0) 100%) !important;
+    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
   }
   .card-user .author .block.block-three {
-    background: linear-gradient(to right, rgb(47, 111, 246) 0%, rgba(225, 78, 202, 0) 100%) !important;
+    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
   }
   .card-user .author .block.block-four {
-    background: linear-gradient(to right, rgb(47, 111, 246) 0%, rgba(225, 78, 202, 0) 100%) !important;
+    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
   }
   textarea.form-control {
     max-height: 500px !important;
@@ -135,10 +134,21 @@ a{
     resize: auto !important;
     border-bottom: 1.2px solid !important; 
     line-height: 1.3 !important;
-    /* background-color: #f5f6fa !important; */
+}
+.page-item.active .page-link {
+ 
+    background-color: #25cbdf    !important;
+    border-color: #25cbdf    !important;
+}
+.table .thead-light th {
+    background-color: #25cbdf !important;
+    border-color: #25cbdf !important;
+}
+a {
+    color: #13c7dd !important;
 }
 /*.card{
-  background-image:url('/default/default.png') !important;
+  background-image:url('/default/default.jpg')  !important;
 }*/
 </style>
 

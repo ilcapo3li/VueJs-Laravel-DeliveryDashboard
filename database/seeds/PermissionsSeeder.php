@@ -28,7 +28,7 @@ class PermissionsSeeder extends Seeder {
 			$edit_settings,
 			$view_settings,
 			$send_notify,
-			$view_reports,
+			$view_reports
 			// $view_orders,
 			// $edit_orders,
 			// $delete_orders,

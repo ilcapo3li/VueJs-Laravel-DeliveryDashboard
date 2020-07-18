@@ -52,6 +52,14 @@ import apiUrls from '../helpers/apiUrls';
              password:null
           }
         },
+        created() {
+         if(localStorage.getItem('access_token')){
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
+            axios.post(apiUrls.checkAuth()).then((res)=>{ 
+               this.$router.push('/profile')
+            })
+        }
+        },
         methods:{
             LoginForm(){
               axios.post(apiUrls.login(),{

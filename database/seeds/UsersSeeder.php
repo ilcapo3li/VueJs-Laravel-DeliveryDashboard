@@ -7,6 +7,7 @@ use App\Role;
 use App\User;
 use App\Currency;
 use App\DeliverySetting;
+use App\Location;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder {
@@ -59,50 +60,47 @@ class UsersSeeder extends Seeder {
 			'name' => 'Super',
 			'password' => '123456',
 			'email' => 'super@super.com',
-			'role_id' => 3,
+			'role_id' => 4,
 		]);
 
 		User::create([
 			'name' => 'Tayar',
 			'password' => '123456',
 			'email' => 'tayar@tayar.com',
-			'role_id' => 4,
+			'role_id' => 5,
 		]);
 
 		User::create([
 			'name' => 'Supplier',
 			'password' => '123456',
 			'email' => 'supplier@supplier.com',
-			'role_id' => 5,
+			'role_id' => 2,
 		]);
 
 		Lead::create([
 			'name' => 'Lead1',
-            'sender_id' => '5',
+            'owner_id' => '5',
 			'password' => '123456',
 			'email' => 'lead1@lead.com',
-            'phone' =>'01023153933',
-            'address' =>'25 sidibesher Alexandria moustafa kamel',
-            'location' =>   json_encode('{
-                                "country_code": "EG",
-                                "country_name": "Egypt",
-                                "city": "Alexandria",
-                                "postal": 21533,
-                                "latitude": 24.6537,
-                                "longitude": 46.7152,
-                                "IPv4": "51.39.2.101",
-                                "state": "Alexandria"
-                                }');
+            'phonePrimary' =>'01023153933',
+            
 		]);
-
         Lead::create([
             'name' => 'Lead2',
-            'sender_id' => '1',
+            'owner_id' => '1',
             'password' => '123456',
             'email' => 'lead2@lead.com',
-            'phone' =>'01155207824',
-            'address' =>'25 kom-eldeka Alexandria Foad street',
-            'location' =>   json_encode('{
+            'phonePrimary' =>'01155207824',
+            
+        ]);
+
+        Location::create([
+
+        	'type_id'=>'2',
+        	'type'=>'admin',
+
+			'address' =>'25 kom-eldeka Alexandria Foad street',
+            'location' =>   '{
                                 "country_code": "EG",
                                 "country_name": "Egypt",
                                 "city": "Alexandria",
@@ -111,7 +109,76 @@ class UsersSeeder extends Seeder {
                                 "longitude": 46.7152,
                                 "IPv4": "51.39.2.231",
                                 "state": "Alexandria"
-                                }');
+                                }',
+        ]);
+        Location::create([
+
+        	'type_id'=>'1',
+        	'type'=>'agent',
+
+			'address' =>'25 kom-eldeka Alexandria Foad street',
+            'location' =>   '{
+                                "country_code": "EG",
+                                "country_name": "Egypt",
+                                "city": "Alexandria",
+                                "postal": 21426,
+                                "latitude": 24.6537,
+                                "longitude": 46.7152,
+                                "IPv4": "51.39.2.231",
+                                "state": "Alexandria"
+                                }',
+        ]);
+        Location::create([
+
+        	'type_id'=>'5',
+        	'type'=>'supplier',
+
+			'address' =>'25 kom-eldeka Alexandria Foad street',
+            'location' =>   '{
+                                "country_code": "EG",
+                                "country_name": "Egypt",
+                                "city": "Alexandria",
+                                "postal": 21426,
+                                "latitude": 24.6537,
+                                "longitude": 46.7152,
+                                "IPv4": "51.39.2.231",
+                                "state": "Alexandria"
+                                }',
+        ]);
+
+        Location::create([
+
+        	'type_id'=>'1',
+        	'type'=>'lead',
+
+			'address' =>'25 kom-eldeka Alexandria Foad street',
+            'location' =>   '{
+                                "country_code": "EG",
+                                "country_name": "Egypt",
+                                "city": "Alexandria",
+                                "postal": 21426,
+                                "latitude": 24.6537,
+                                "longitude": 46.7152,
+                                "IPv4": "51.39.2.231",
+                                "state": "Alexandria"
+                                }',
+        ]);
+        Location::create([
+
+        	'type_id'=>'2',
+        	'type'=>'lead',
+
+			'address' =>'25 kom-eldeka Alexandria Foad street',
+            'location' =>   '{
+                                "country_code": "EG",
+                                "country_name": "Egypt",
+                                "city": "Alexandria",
+                                "postal": 21426,
+                                "latitude": 24.6537,
+                                "longitude": 46.7152,
+                                "IPv4": "51.39.2.231",
+                                "state": "Alexandria"
+                                }',
         ]);
 
 		Branch::create([
@@ -125,9 +192,18 @@ class UsersSeeder extends Seeder {
 		]);
 
          Currency::create([
-            'ar_name' =>'نيه مصري',
+            'ar_name' =>'Egyptian Pound',
             'en_name' =>'Egyptian Pound',
-            'rate'='0.12'
+            'code' =>'EG',
+            'rate'=>'0.09'
+            
+        ]);
+
+         Currency::create([
+            'ar_name' =>'Saudi Ryal',
+            'en_name' =>'Saudi Ryal',
+            'en_name' =>'SAR',
+            'rate'=>'0.35'
             
         ]);
 
@@ -137,7 +213,7 @@ class UsersSeeder extends Seeder {
             'mQubeCost' => 20.0,
             'kgCost' => 30.0,
             'retriveCost' => 40,
-            'currency_id' => 1 
+            'currency_id' => 1 ,
             
         ]);
 

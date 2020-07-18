@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\DeliveryStatus;
 use Illuminate\Http\Request;
 
-class DeliveryStatusController extends Controller
+class StatusesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class DeliveryStatusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DeliveryStatus  $deliveryStatus
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(DeliveryStatus $deliveryStatus)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class DeliveryStatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DeliveryStatus  $deliveryStatus
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(DeliveryStatus $deliveryStatus)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class DeliveryStatusController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DeliveryStatus  $deliveryStatus
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DeliveryStatus $deliveryStatus)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class DeliveryStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DeliveryStatus  $deliveryStatus
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeliveryStatus $deliveryStatus)
+    public function destroy($id)
     {
         //
     }

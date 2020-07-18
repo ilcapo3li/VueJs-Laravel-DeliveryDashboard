@@ -2,29 +2,30 @@
     <div class="wrapper">
         <side-bar>
             <template slot="links">
-                <div v-if="user.role == 'super'">
+                <div v-if="user.role == 'Super'">
 
+                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')" />
                     <sidebar-link to="/admins" :name="$t('sidebar.admins')" />
-                    <sidebar-link to="/users" :name="$t('sidebar.users')" />
+                    <sidebar-link to="/suppliers" :name="$t('sidebar.supplier')" />
+                    <sidebar-link to="/agents" :name="$t('sidebar.agents')" />
+                    <sidebar-link to="/tayareen" :name="$t('sidebar.tayar')" />
+                    <sidebar-link to="/leads" :name="$t('sidebar.leads')" />
                     <hr />
 
-                    <sidebar-link
-                        to="/zones"
-                        :name="$t('sidebar.zones')"
-                    />
-                    <sidebar-link
-                        to="/countries"
-                        :name="$t('sidebar.countries')"
-                    />
-                    <sidebar-link
-                        to="/cities"
-                        :name="$t('sidebar.cities')"
-                    />
+                    <sidebar-link to="/currencies" :name="$t('sidebar.currencies')" />
+                    <sidebar-link to="/countries" :name="$t('sidebar.countries')" />
+                    <sidebar-link to="/cities" :name="$t('sidebar.cities')" />
+                    <sidebar-link to="/zones" :name="$t('sidebar.zones')" />
+                    <sidebar-link to="/prices" :name="$t('sidebar.pricing')" />
                     <hr />
 
+                    <sidebar-link to="/material/status" :name="$t('sidebar.materialStatus')" />
+                    <sidebar-link to="/delivery/status" :name="$t('sidebar.deliveryStatus')" />
+                    <hr />
                     <sidebar-link to="/notify" :name="$t('sidebar.notify')" />
                     <sidebar-link to="/reports" :name="$t('sidebar.reports')" />
                     <sidebar-link to="/settings" :name="$t('sidebar.settings')" />
+                    <sidebar-link to="/settings" :name="$t('sidebar.deliverySettings')" />
                     <sidebar-link to="/advertisments" :name="$t('sidebar.ads')" />
                     <sidebar-link to="/versions" :name="$t('sidebar.apk')" />
 
@@ -32,7 +33,7 @@
 
                 </div>
 
-                <div v-else>
+                <div v-else-if="user.role == 'Admin'">
                     <div
                         v-for="(permission, index) in user.permissions"
                         v-bind:key="index"
@@ -79,6 +80,12 @@
                         </div>
                         
                     </div>
+                </div>
+                <div v-else-if="user.role == 'Supplier'">
+                </div>
+                <div v-else-if="user.role == 'Agents'">
+                </div>
+                <div v-else-if="user.role == 'Tayar'">
                 </div>
 
             </template>
