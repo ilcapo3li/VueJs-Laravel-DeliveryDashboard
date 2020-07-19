@@ -15,10 +15,12 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('lead_id')->nullable();
+            $table->foreign('lead_id')->references('id')->on('leads');
             $table->integer('type_id')->nullable();
-            $table->enum('type', ['video', 'news', 'comment']);
+            $table->enum('type', ['supplier','agent','tayar','orders']);
+            $table->integer('rate')->nullable();
+            $table->tinyInteger('like')->nullable();
             $table->timestamps();
         });
     }

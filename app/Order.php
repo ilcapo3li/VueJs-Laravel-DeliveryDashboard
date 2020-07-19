@@ -34,7 +34,7 @@ class Order extends Model
     	return $this->belongsTo(MaterialType::class,'material_type_id');
     }
 
-     public function materialType()
+    public function materialType()
     {
     	return $this->belongsTo(Price::class,'price_id');
     } 
