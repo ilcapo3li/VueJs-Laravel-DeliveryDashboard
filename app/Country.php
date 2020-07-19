@@ -2,14 +2,21 @@
 
 namespace App;
 
-use App\League;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    public function photo()
+    
+    $prtected guarded = [];
+
+    public function zones()
     {
-        return $this->hasOne('App\Photo');
+        return $this->hasMany(Zone::class,'country_id');
+    }
+
+     public function cities()
+    {
+    	return $this->hasMany(City::class,'country_id');
     }
 
  

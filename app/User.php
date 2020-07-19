@@ -10,6 +10,8 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    $prtected guarded = [];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -53,6 +55,55 @@ class User extends Authenticatable implements JWTSubject
             $this->attributes['password'] = bcrypt($password);
         }
     }
+
+
+
+    public function admins()
+    {
+        return $this->hasMany(User::class,'role_id')->where('role_id',3);
+    }
+
+    public function suppliers()
+    {
+        return $this->hasMany(User::class,'role_id')where('role_id',2);
+    }
+
+    public function agents()
+    {
+        return $this->hasMany(User::class,'role_id')where('role_id',1);
+    } 
+
+    public function tayar()
+    {
+        return $this->hasMany(User::class,'role_id')where('role_id',5);
+    } 
+
+    public function Leads()
+    {
+        return $this->hasMany(Lead::class, 'owner_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'creator_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'creator_id');
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class, 'type_id')->where('type','user');
+    }
+
+    public function orderCollections()
+    {
+        return $this->hasMany(Order::class, 'collected_by');
+    }
+
+
 
 
 

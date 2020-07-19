@@ -14,7 +14,7 @@ class CreateLocationsTable extends Migration {
 		Schema::create('locations', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->Integer('type_id')->nullable();
-			$table->enum('type', ['agent', 'supplier', 'lead', 'admin'])->nullable();
+			$table->enum('type', ['user', 'lead'])->nullable();
 			$table->text('address')->nullable();
 			$table->json('location')->nullable();
 			$table->unsignedBigInteger('country_id')->nullable();

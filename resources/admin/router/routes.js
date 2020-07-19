@@ -1,9 +1,13 @@
 import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
+
  
 ///////////////////////////////production Admin////////////////////////////////////////
 import Settings from "@/pages/Adminstration/Settings";
 import Notify from "@/pages/Adminstration/Notify";
 import Notes from "@/pages/Adminstration/Notes";
+import Versions from "@/pages/Adminstration/Versions";
+import AllVersions from "@/pages/Adminstration/AllVersions";
+import Ads from "@/pages/Adminstration/Advertisement";
 
 ///////////////////////////////production Leads////////////////////////////////////////
 import Leads from "@/pages/Leads/Leads";
@@ -25,6 +29,11 @@ import Admins from "@/pages/Admin/Admins";
 import AdminAdd from "@/pages/Admin/AdminAdd";
 import AdminEdit from "@/pages/Admin/AdminEdit";
 
+///////////////////////////////production Admin////////////////////////////////////////
+import Tayar from "@/pages/Tayar/Tayar";
+import TayarAdd from "@/pages/Tayar/TayarAdd";
+import TayarEdit from "@/pages/Tayar/TayarEdit";
+
 
 ///////////////////////////////production Currencies////////////////////////////////////////
 import Currencies from "@/pages/Currencies/Currencies";
@@ -45,10 +54,20 @@ import Statuses from "@/pages/Statuses/Statuses";
 import StatusAdd from "@/pages/Statuses/StatusAdd";
 import StatusEdit from "@/pages/Statuses/StatusEdit";
 
+///////////////////////////////production MaterialTypes////////////////////////////////////////
+import MaterialTypes from "@/pages/MaterialTypes/MaterialTypes";
+import MaterialTypeAdd from "@/pages/MaterialTypes/MaterialTypeAdd";
+import MaterialTypeEdit from "@/pages/MaterialTypes/MaterialTypeEdit";
+
 ///////////////////////////////production Orders////////////////////////////////////////
 import Orders from "@/pages/Orders/Orders";
 import OrderAdd from "@/pages/Orders/OrderAdd";
 import OrderEdit from "@/pages/Orders/OrderEdit";
+
+///////////////////////////////production Locations////////////////////////////////////////
+import Locations from "@/pages/Locations/Locations";
+import LocationAdd from "@/pages/Locations/LocationAdd";
+import LocationEdit from "@/pages/Locations/LocationEdit";
 
 ///////////////////////////////production Countries////////////////////////////////////////
 import Countries from "@/pages/Countries/Countries";
@@ -271,6 +290,22 @@ const routes = [
                 name: "status-edit",
                 component: StatusEdit
             },
+               //////////////////////////////////////////////////////
+            {
+                path: "/material-types",
+                name: "material-types",
+                component: MaterialTypes
+            },
+            {
+                path: "/material-types/add",
+                name: "material-types-add",
+                component: MaterialTypeAdd
+            },
+            {
+                path: "/material-types/edit",
+                name: "material-types-edit",
+                component: MaterialTypeEdit
+            },
 
             //////////////////////////////////////////////////////
             {
@@ -287,6 +322,70 @@ const routes = [
                 path: "/currency/edit",
                 name: "currency-edit",
                 component: CurrencyEdit
+            },
+             //////////////////////////////////////////////////////
+            {
+                path: "/countries",
+                name: "countries",
+                component: Countries
+            },
+            {
+                path: "/country/add",
+                name: "country-add",
+                component: CountryAdd
+            },
+            {
+                path: "/country/edit",
+                name: "country-edit",
+                component: CountryEdit
+            },
+             //////////////////////////////////////////////////////
+            {
+                path: "/cities",
+                name: "cities",
+                component: Cities
+            },
+            {
+                path: "/city/add",
+                name: "city-add",
+                component: CityAdd
+            },
+            {
+                path: "/city/edit",
+                name: "city-edit",
+                component: CityEdit
+            },
+             //////////////////////////////////////////////////////
+            {
+                path: "/zones",
+                name: "zones",
+                component: Zones
+            },
+            {
+                path: "/zone/add",
+                name: "zone-add",
+                component: ZoneAdd
+            },
+            {
+                path: "/zone/edit",
+                name: "zone-edit",
+                component: ZoneEdit
+            },
+              //////////////////////////////////////////////////////
+            {
+                path: "/prices",
+                name: "prices",
+                component: Prices
+            },
+            {
+                path: "/Price/add",
+                name: "price-add",
+                component: PriceAdd
+            },
+            {
+                path: "/Price/edit",
+                name: "Price-edit",
+                component: PriceEdit
             },
              //////////////////////////////////////////////////////
             {

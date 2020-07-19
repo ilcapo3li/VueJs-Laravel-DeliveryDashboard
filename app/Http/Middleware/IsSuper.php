@@ -16,7 +16,7 @@ class IsSuper
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role->name=="super"){
+        if(Auth::user()->role->name=="Super"){
             return $next($request);
         }
         else{

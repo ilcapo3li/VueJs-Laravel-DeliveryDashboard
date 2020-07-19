@@ -81,6 +81,7 @@ import apiUrls from './helpers/apiUrls';
     }
   };
 </script>
+
 <style>
 .custom-select{
   color: rgb(0, 0, 0) !important;
@@ -146,6 +147,15 @@ a{
 }
 a {
     color: #13c7dd !important;
+}
+hr {
+    border-top: 2.2px solid rgb(245, 246, 250) !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+}
+.main-panel[data=green] {
+    border-top: 2px solid #00f2c3 !important;
 }
 /*.card{
   background-image:url('/default/default.jpg')  !important;

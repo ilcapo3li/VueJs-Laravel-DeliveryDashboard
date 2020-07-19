@@ -13,6 +13,7 @@ class CreateOrdersTable extends Migration {
 	public function up() {
 		Schema::create('orders', function (Blueprint $table) {
 			$table->bigIncrements('id');
+			$table->string('orderCode');
 			/////////////////////////////////////Order Details//////////////////////////
 			$table->unsignedBigInteger('material_type_id')->nullable();
 			$table->foreign('material_type_id')->references('id')->on('material_types');

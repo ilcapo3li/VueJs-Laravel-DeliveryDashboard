@@ -18,7 +18,7 @@ class Adminstration
     public function handle($request, Closure $next)
     {
         $role = Auth::user()?Auth::user()->role->name:null;
-        if ($role == 'super' || $role == 'admin') {
+        if ($role == 'Super' || $role == 'Admin') {
             return $next($request);
         } else {
             return response()->json(['error' => 'You do not have permission to take this action'], 422);
