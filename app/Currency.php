@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Currency extends Model
 {
-    $prtected guarded = [];
 
 
     public function country()

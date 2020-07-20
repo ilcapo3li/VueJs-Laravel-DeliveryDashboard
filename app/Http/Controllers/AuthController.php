@@ -48,44 +48,41 @@ class AuthController extends Controller
     {
         $valiadator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required|min:6|max:50',
-            'token' => 'required|exists:api_keys,token',
+            'password' => 'required',
         ]);
         $credentials = request(['email', 'password']);
-
-
-        if ($valiadator->fails()) {
+        if ($valiadator->fails()) 
+        {
             return response()->json($valiadator->errors(), 422);
-        } else {
+        } 
+        else 
+        {
             $credentials = request(['email', 'password']);
-            if (!$token = auth()->attempt($credentials)) {
+            dd(auth()->attempt($credentials));
+            if (!$token = auth()->attempt($credentials)) 
+            {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
             DB::table('user_tokens')->insert(['user_id'=>Auth::id(),'token'=>$token]);
-            return $this->respondWithToken($token, request(['token']));
+            return $this->respondWithToken($token);
         }
     }
 
-    public function logout()
+  
+    protected function respondWithToken($token)
     {
-        JWTAuth::invalidate(JWTAuth::getToken());
-
-        auth()->logout();
-    }
-
-    protected function respondWithToken($token, $key)
-    {
-        //////////////set user with app token////////////
-        $user_key = ApiKey::where('token', $key)->first();
-        $user_key->user_id = Auth::id();
-        $user_key->save();
-        /////////////////////////////
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 600,
             'user' => new UserResource(User::find(Auth::id())),
         ]);
+    }
+
+    public function logout()
+    {
+        JWTAuth::invalidate(JWTAuth::getToken());
+        auth()->logout();
     }
 
     public function AuthCheck()

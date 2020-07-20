@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
 {
-    $prtected guarded = [];
 
 
     public function orders()

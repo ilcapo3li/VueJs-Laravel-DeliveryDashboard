@@ -157,6 +157,13 @@ hr {
 .main-panel[data=green] {
     border-top: 2px solid #00f2c3 !important;
 }
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link
+{
+    color: #13c7dd !important;
+    background-color: #c1c1c1 !important;
+    border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
+
+}
 /*.card{
   background-image:url('/default/default.jpg')  !important;
 }*/

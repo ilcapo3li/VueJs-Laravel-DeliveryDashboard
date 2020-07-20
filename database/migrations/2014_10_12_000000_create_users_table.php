@@ -19,10 +19,11 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->unsignedBigInteger('photo_id')->nullable();
 			$table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');
-			$table->unsignedBigInteger('role_id')->nullable()->default('1');
+			$table->unsignedBigInteger('role_id')->nullable();
 			$table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
 			$table->integer('blocked')->default(0);
 			$table->string('phonePrimary')->nullable();
+			$table->timestamp('number_verified_at')->nullable();
 			$table->string('PhoneSecondary')->nullable();
 			$table->rememberToken();
 			$table->timestamps();

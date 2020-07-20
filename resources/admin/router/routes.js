@@ -41,7 +41,7 @@ import CurrencyAdd from "@/pages/Currencies/CurrencyAdd";
 import CurrencyEdit from "@/pages/Currencies/CurrencyEdit";
 
 ///////////////////////////////production Prices////////////////////////////////////////
-import Pricing from "@/pages/Pricing/Prices";
+import Prices from "@/pages/Pricing/Prices";
 import PricingAdd from "@/pages/Pricing/PricingAdd";
 import PricingEdit from "@/pages/Pricing/PricingEdit";
 
@@ -380,12 +380,12 @@ const routes = [
             {
                 path: "/Price/add",
                 name: "price-add",
-                component: PriceAdd
+                component: PricingAdd
             },
             {
                 path: "/Price/edit",
                 name: "Price-edit",
-                component: PriceEdit
+                component: PricingEdit
             },
              //////////////////////////////////////////////////////
             {

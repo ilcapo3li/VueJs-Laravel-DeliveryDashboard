@@ -10,7 +10,6 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
-    $prtected guarded = [];
 
     /**
      * The attributes that are mass assignable.
@@ -65,32 +64,33 @@ class User extends Authenticatable implements JWTSubject
 
     public function suppliers()
     {
-        return $this->hasMany(User::class,'role_id')where('role_id',2);
+        return $this->hasMany(User::class,'role_id')->where('role_id',2);
     }
 
     public function agents()
     {
-        return $this->hasMany(User::class,'role_id')where('role_id',1);
+        return $this->hasMany(User::class,'role_id')->where('role_id',1);
     } 
 
     public function tayar()
     {
-        return $this->hasMany(User::class,'role_id')where('role_id',5);
+        return $this->hasMany(User::class,'role_id')->where('role_id',5);
     } 
 
     public function Leads()
     {
-        return $this->hasMany(Lead::class, 'owner_id');
+        return $this->hasMany(Lead::class, 'added_by');
     }
 
+   
     public function orders()
     {
         return $this->hasMany(Order::class, 'creator_id');
     }
 
-    public function orders()
+     public function reports()
     {
-        return $this->hasMany(Order::class, 'creator_id');
+        return $this->hasMany(Report::class, 'type_id')->where('type','user');
     }
 
     public function locations()
@@ -103,29 +103,12 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Order::class, 'collected_by');
     }
 
-
-
-
-
-
-
     ///////////////////test propose//////////////////////
     // public function favouriteLeagues()
     // {
     //     return $this->belongsToMany(League::class, 'favorites', 'user_id', 'type_id')->where('type', 'league')->with('photo');
     // }
-    // public function categories()
-    // {
-    //     return $this->hasMany(Favorite::class)->where('type','category');
-    // }
-    //  public function matches()
-    // {
-    //     return $this->hasMany(Favorite::class)->where('type','match');
-    // }
-    //  public function league()
-    // {
-    //     return $this->hasMany(Favorite::class)->where('type','league');
-    // }
+    
     ///////////////////////////////////////////////////
 
     public function photo()

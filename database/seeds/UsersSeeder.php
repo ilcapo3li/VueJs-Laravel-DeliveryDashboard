@@ -39,7 +39,7 @@ class UsersSeeder extends Seeder {
 		]);
 
 		ApiKey::create([
-			'token' => 'pc',
+			'token' => 'italy',
 		]);
 
 		User::create([
@@ -79,7 +79,7 @@ class UsersSeeder extends Seeder {
 
 		Lead::create([
 			'name' => 'Lead1',
-            'owner_id' => '5',
+            'added_by' => '5',
 			'password' => '123456',
 			'email' => 'lead1@lead.com',
             'phonePrimary' =>'01023153933',
@@ -87,7 +87,7 @@ class UsersSeeder extends Seeder {
 		]);
         Lead::create([
             'name' => 'Lead2',
-            'owner_id' => '1',
+            'added_by' => '1',
             'password' => '123456',
             'email' => 'lead2@lead.com',
             'phonePrimary' =>'01155207824',
@@ -97,7 +97,7 @@ class UsersSeeder extends Seeder {
         Location::create([
 
         	'type_id'=>'2',
-        	'type'=>'admin',
+        	'type'=>'user',
 
 			'address' =>'25 kom-eldeka Alexandria Foad street',
             'location' =>   '{
@@ -114,7 +114,7 @@ class UsersSeeder extends Seeder {
         Location::create([
 
         	'type_id'=>'1',
-        	'type'=>'agent',
+        	'type'=>'user',
 
 			'address' =>'25 kom-eldeka Alexandria Foad street',
             'location' =>   '{
@@ -131,7 +131,7 @@ class UsersSeeder extends Seeder {
         Location::create([
 
         	'type_id'=>'5',
-        	'type'=>'supplier',
+        	'type'=>'user',
 
 			'address' =>'25 kom-eldeka Alexandria Foad street',
             'location' =>   '{

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-     $prtected guarded = [];
 
 
     public function creator()

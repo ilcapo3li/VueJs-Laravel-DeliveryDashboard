@@ -18,7 +18,7 @@ class CreateReportsTable extends Migration
             $table->integer('type_id')->nullable();
             $table->enum('type', ['user', 'lead'])->nullable();
             $table->string('name')->nullable();
-            $table->string('type');
+            $table->string('title');
             $table->longText('message');
             $table->unsignedBigInteger('photo_id')->nullable();
             $table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');

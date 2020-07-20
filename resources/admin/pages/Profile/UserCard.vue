@@ -8,7 +8,7 @@
       <div class="block block-three"></div>
       <div class="block block-four"></div>
       <a href="#">
-        <img class="avatar" :src="user.photo ? user.photo.path :'img/anime3.png'"/>
+        <b-img class="avatar" :src="user.photo ? user.photo : '/default/default.png'"/>
         <h5 class="title">{{user.name}}</h5>
       </a>
       <p class="description">
@@ -32,10 +32,10 @@
   export default {
    computed:{
      user(){
+      console.log(this.$store.getters.user)
        return this.$store.getters.user;
      }
    }
   }
 </script>
-<style>
-</style>
+

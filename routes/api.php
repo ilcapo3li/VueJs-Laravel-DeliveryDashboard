@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 ////////////////////////////////////////Login, Register& Logout////////////////////////////////////////////////////////
 Route::post('/register', 'AuthController@register');
-Route::post('/device_app', 'ApiController@register');
+Route::post('/device_app', 'ApiController@deviceTokenRegister');
 Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
 Route::post('/logout', 'AuthController@logout');
 Route::post('/token/check', 'AuthController@AuthCheck');

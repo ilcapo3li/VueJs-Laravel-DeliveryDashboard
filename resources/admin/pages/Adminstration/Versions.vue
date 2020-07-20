@@ -377,11 +377,4 @@ export default {
     }
 };
 </script>
-<style>
-.nav-tabs .nav-link.active,
-.nav-item.show .nav-link {
-    color: #1f88f8 !important;
-    background-color: #c1c1c1 !important;
-    border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
-}</style
->>
+
