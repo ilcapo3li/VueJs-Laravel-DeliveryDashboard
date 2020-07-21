@@ -13,7 +13,7 @@ class Order extends Model
     	return $this->hasOne(User::class,'creator_id');
     }
 
-    public function collector()
+    public function tayar()
     {
     	return $this->hasOne(User::class,'collected_by');
     }
@@ -33,10 +33,20 @@ class Order extends Model
     	return $this->belongsTo(MaterialType::class,'material_type_id');
     }
 
-    public function materialType()
+    public function price()
     {
     	return $this->belongsTo(Price::class,'price_id');
+    }
+
+    public function creatorLocation()
+    {
+        return $this->belongsTo(Location::class,'home_id');
     } 
+
+    public function leadLocation()
+    {
+        return $this->belongsTo(Location::class,'away_id');
+    }  
 
     
 }
