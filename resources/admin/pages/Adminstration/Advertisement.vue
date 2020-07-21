@@ -135,7 +135,7 @@
 
                         <div class="text-center">
                             <b-button
-                                class="btn btn-info"
+                                class="btn btn-success"
                                 @click="sendNotify()"
                                 >{{ $t("notify") }}</b-button
                             >

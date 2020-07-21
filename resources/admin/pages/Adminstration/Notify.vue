@@ -129,7 +129,7 @@
             </b-row>
 
             <div class="text-center">
-              <b-button class="btn btn-info" @click="sendNotify()">{{$t('notify')}}</b-button>
+              <b-button class="btn btn-success" @click="sendNotify()">{{$t('notify')}}</b-button>
             </div>
           </form>
         </div>

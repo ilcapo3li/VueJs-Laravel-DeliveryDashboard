@@ -143,7 +143,7 @@
                 </b-col>
             </b-row>
 
-            <b-button class="btn btn-primary" @click="saveSettings()">{{
+            <b-button class="btn btn-success" @click="saveSettings()">{{
                 $t("save")
             }}</b-button>
         </form>

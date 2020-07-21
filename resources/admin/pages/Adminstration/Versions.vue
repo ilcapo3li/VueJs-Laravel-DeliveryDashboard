@@ -127,7 +127,7 @@
                                     <div class="text-center">
                                         <b-button
                                             :disabled="uploaded"
-                                            class="btn btn-info"
+                                            class="btn btn-success"
                                             @click="saveVersion()"
                                             >{{ $t("save") }}</b-button
                                         >
