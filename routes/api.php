@@ -63,15 +63,30 @@ Route::post('/token/check', 'AuthController@AuthCheck');
     /////////////////this route working only with  super admin by issuper middleware //////////////////
      /////////////////Start super admin only by permissioncheck middleware //////////////////
 
-        Route::post('/save/admin', 'AdminController@saveAdmin');
-        Route::get('/users', 'UsersController@index');
-        Route::put('/block/users/{id}', 'UsersController@blockUser');
         Route::get('/admins', 'AdminController@index');
-        Route::put('/update/admin/{id}', 'AdminController@EditAdmin');
-        Route::delete('/delete/admin/{id}', 'AdminController@removeAdmin');
+        Route::post('/save/admin', 'AdminController@save');
+        Route::put('/update/admin/{admin}', 'AdminController@edit');
+        ////////////////////////////////////////////
+        Route::get('/agents', 'AgentsController@index');
+        Route::post('/save/agent', 'AgentsController@save');
+        Route::put('/update/agent/{agent}', 'AgentsController@edit');
+        ///////////////////////////////////////////////
+        Route::get('/tayar', 'TayarController@index');
+        Route::post('/save/tayar', 'TayarController@save');
+        Route::put('/update/tayar/{tayar}', 'TayarController@edit');
+        //////////////////////////////////////////////////
+        Route::get('/suppliers', 'SuppliersController@index');
+        Route::post('/save/supplier', 'SuppliersController@saveAdmin');
+        Route::put('/update/supplier/{supplier}', 'SuppliersController@edit');
+        //////////////////////////////////////////////////
+        
         Route::get('/permissions', 'PermissionsController@index');
         Route::get('/ads/{app}', 'AdvertisementsController@ads');
         Route::put('/ads/{ads}', 'AdvertisementsController@saveAds');
+        Route::put('/block/users/{id}', 'UsersController@blockUser');
+        Route::delete('/delete/user/{id}', 'UsersController@remove');
+
+
 
         /////////////////End super admin only by permissioncheck middleware //////////////////
     });

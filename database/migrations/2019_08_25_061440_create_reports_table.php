@@ -29,7 +29,6 @@ class CreateReportsTable extends Migration
             $table->bigInteger('rank')->default(0);
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

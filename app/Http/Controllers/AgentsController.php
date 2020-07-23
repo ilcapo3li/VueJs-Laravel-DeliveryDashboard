@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AgentsController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 3)->orderBy('id', 'desc')->paginate(10);
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 1)->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($users);
     }

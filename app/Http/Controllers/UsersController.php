@@ -22,27 +22,14 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->orderBy('id', 'desc')
-            ->with(['photo'])->paginate(10);
-
-        return response()->json(['users' => $users]);
+       
     }
 
-    public function blockUser(Request $request, $id)
+    public function blockUser(User $user)
     {
-        $validator = Validator::make($request->all(), [
-        'user_id' => 'required',
-        'blocked' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        } else {
-            $user = User::find($request->user_id);
-            $user->blocked = $request->blocked;
-            $user->save();
-
-            return response()->json(User::find($request->user_id)->blocked);
-        }
+        $user->blocked = !$user->blocked;
+        $user->save();
+        return response()->json($user);
     }
 
     /**
@@ -124,7 +111,7 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         } else {
-            $user = User::find(Auth::id());
+            $user = Auth::user();
             $credentials = ['email' => $user->email, 'password' => $request->old];
 
             if (Auth()->attempt($credentials)) {
@@ -150,10 +137,9 @@ class UsersController extends Controller
         }
     }
 
-    public function userFavourite()
+    public function user()
     {
-        $user = new UserResource(User::find(Auth::id()));
-
+        $user = new UserResource(Auth::user());
         return response()->json($user);
     }
 
@@ -165,8 +151,8 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         } else {
-            $subscriper = Auth::id();
-            $user = User::findorfail($subscriper);
+            
+            $user =  Auth::user();
             $user->name = $request->name;
             $user->save();
 
@@ -182,22 +168,25 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         } else {
-            $subscriper = Auth::id();
-
             $image = $request->photo;  // your base64 encoded
             $photo = new PhotoHelper();
             $new_photo = $photo->constructPhoto($image, 'user');
-
-            $user = User::findorfail($subscriper);
-
-            // $photo=Photo::find($user->photo_id);
-            // File::delete(public_path().DIRECTORY_SEPARATOR.$photo->path);
-            // $photo->delete();
-
+            $user =  Auth::user();
+            $photo=Photo::find($user->photo_id);
+            File::delete(storage_path().DIRECTORY_SEPARATOR.$photo->path);
+            $photo->delete();
             $user->photo_id = $new_photo;
             $user->save();
-
             return response()->json(['photo' => $user->photo->path, 'status' => 'true']);
         }
+    }
+
+    public function remove(User $user)
+    {
+        if($user->delete()){
+            return response()->json('Record deleted successfully', 200);
+        }else{
+            return response()->json(['error' => 'Error in Deleting Record'], 422);
+        }  
     }
 }

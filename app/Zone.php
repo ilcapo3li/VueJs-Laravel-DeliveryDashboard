@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Zone extends Model
 {
-	$prtected guarded = [];
 
     public function country()
     {

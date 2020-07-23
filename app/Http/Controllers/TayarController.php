@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class TayarController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 3)->orderBy('id', 'desc')->paginate(10);
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 5)->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($users);
     }
@@ -36,7 +34,7 @@ class AdminController extends Controller
             $admin->save();
             $admin->permissions()->attach($request->permissions);
 
-            return response()->json('Admin Created Suceessfully');
+            return response()->json('Tayar Created Suceessfully');
         }
     }
 
@@ -49,18 +47,18 @@ class AdminController extends Controller
             'password_confirmation' => 'required',
         ]);
 
-            $admin->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            ]);
-            foreach ($admin->userTokens as $userToken) {
-                $userToken->blocked = 1;
-                $userToken->save();
-            }
-            $admin->permissions()->detach();
-            $admin->permissions()->attach($request->permissions);
-            return response()->json('Admin Updated Suceessfully');
+        $admin->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => $request->password,
+        ]);
+        foreach ($admin->userTokens as $userToken) {
+            $userToken->blocked = 1;
+            $userToken->save();
+        }
+        $admin->permissions()->detach();
+        $admin->permissions()->attach($request->permissions);
+        return response()->json('Tayar Updated Suceessfully');
         
     }
 }

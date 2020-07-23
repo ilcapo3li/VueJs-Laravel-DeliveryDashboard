@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class SuppliersController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 3)->orderBy('id', 'desc')->paginate(10);
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 2)->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($users);
     }
 
     public function save(Request $request)
     {
-       
         $request->validate([
             'name' => 'required|string|unique:users,name',
             'email' => 'required|email|unique:users,email',
@@ -36,31 +33,31 @@ class AdminController extends Controller
             $admin->save();
             $admin->permissions()->attach($request->permissions);
 
-            return response()->json('Admin Created Suceessfully');
+            return response()->json('Supplier Created Suceessfully');
         }
     }
 
     public function edit(Request $request, User $admin)
     {
-         $request->validate([
+        $request->validate([
             'name' => 'required|string|unique:users,name,'.$id,
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',
         ]);
 
-            $admin->update([
+        $admin->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
             ]);
-            foreach ($admin->userTokens as $userToken) {
-                $userToken->blocked = 1;
-                $userToken->save();
-            }
-            $admin->permissions()->detach();
-            $admin->permissions()->attach($request->permissions);
-            return response()->json('Admin Updated Suceessfully');
-        
+        foreach ($admin->userTokens as $userToken) {
+            $userToken->blocked = 1;
+            $userToken->save();
+        }
+        $admin->permissions()->detach();
+        $admin->permissions()->attach($request->permissions);
+
+        return response()->json('Supplier Updated Suceessfully');
     }
 }
