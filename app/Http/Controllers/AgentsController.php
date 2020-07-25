@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AgentsController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 1)->orderBy('id', 'desc')->paginate(10);
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 4)->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($users);
     }
@@ -30,35 +31,12 @@ class AgentsController extends Controller
             $admin->name = $request->name;
             $admin->email = $request->email;
             $admin->password = $request->password;
-            $admin->role_id = 3;
+            $admin->role_id = 4;
             $admin->save();
-            $admin->permissions()->attach($request->permissions);
 
             return response()->json('Admin Created Suceessfully');
         }
     }
 
-    public function edit(Request $request, User $admin)
-    {
-         $request->validate([
-            'name' => 'required|string|unique:users,name,'.$id,
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required',
-        ]);
-
-            $admin->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            ]);
-            foreach ($admin->userTokens as $userToken) {
-                $userToken->blocked = 1;
-                $userToken->save();
-            }
-            $admin->permissions()->detach();
-            $admin->permissions()->attach($request->permissions);
-            return response()->json('Admin Updated Suceessfully');
-        
-    }
+    
 }

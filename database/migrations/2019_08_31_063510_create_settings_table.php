@@ -15,9 +15,14 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('value');
-            $table->text('description')->nuallable();
+            $table->string('gmail')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('whats')->nullable();
+            $table->string('website')->nullable();
+            $table->string('fbGroup')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instgram')->nullable();
             $table->timestamps();
         });
     }

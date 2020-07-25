@@ -66,25 +66,23 @@ Route::post('/token/check', 'AuthController@AuthCheck');
         Route::get('/admins', 'AdminController@index');
         Route::post('/save/admin', 'AdminController@save');
         Route::put('/update/admin/{admin}', 'AdminController@edit');
-        ////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
         Route::get('/agents', 'AgentsController@index');
         Route::post('/save/agent', 'AgentsController@save');
-        Route::put('/update/agent/{agent}', 'AgentsController@edit');
-        ///////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
         Route::get('/tayar', 'TayarController@index');
         Route::post('/save/tayar', 'TayarController@save');
-        Route::put('/update/tayar/{tayar}', 'TayarController@edit');
-        //////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
         Route::get('/suppliers', 'SuppliersController@index');
         Route::post('/save/supplier', 'SuppliersController@saveAdmin');
-        Route::put('/update/supplier/{supplier}', 'SuppliersController@edit');
-        //////////////////////////////////////////////////
-        
+        ////////////////////////////////////////////////////////////////
+        Route::put('/block/user/{user}', 'UsersController@block');
+        Route::delete('/delete/user/{user}', 'UsersController@remove');
+        ////////////////////////////////////////////////////////////////
         Route::get('/permissions', 'PermissionsController@index');
         Route::get('/ads/{app}', 'AdvertisementsController@ads');
         Route::put('/ads/{ads}', 'AdvertisementsController@saveAds');
-        Route::put('/block/users/{id}', 'UsersController@blockUser');
-        Route::delete('/delete/user/{id}', 'UsersController@remove');
+   
 
 
 

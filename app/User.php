@@ -10,7 +10,6 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -55,47 +54,44 @@ class User extends Authenticatable implements JWTSubject
         }
     }
 
-
-
-    public function admins()
+    public function companyAdmins()
     {
-        return $this->hasMany(User::class,'role_id')->where('role_id',3);
+        return $this->hasMany(User::class, 'company_id');
     }
 
     public function suppliers()
     {
-        return $this->hasMany(User::class,'role_id')->where('role_id',2);
+        return $this->hasMany(User::class, 'company_id');
     }
 
     public function agents()
     {
-        return $this->hasMany(User::class,'role_id')->where('role_id',1);
-    } 
+        return $this->hasMany(User::class, 'company_id');
+    }
 
     public function tayar()
     {
-        return $this->hasMany(User::class,'role_id')->where('role_id',5);
-    } 
-
-    public function Leads()
-    {
-        return $this->hasMany(Lead::class, 'added_by');
+        return $this->hasMany(User::class, 'company_id');
     }
 
-   
+    public function leads()
+    {
+        return $this->hasMany(User::class, 'company_id');
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class, 'creator_id');
     }
 
-     public function reports()
+    public function reports()
     {
-        return $this->hasMany(Report::class, 'type_id')->where('type','user');
+        return $this->hasMany(Report::class, 'user_id');
     }
 
     public function locations()
     {
-        return $this->hasMany(Location::class, 'type_id')->where('type','user');
+        return $this->hasMany(Location::class, 'user_id');
     }
 
     public function orderCollections()
@@ -103,12 +99,22 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Order::class, 'collected_by');
     }
 
+    public function LeadOrders()
+    {
+        return $this->hasMany(Order::class, 'lead_id');
+    }
+
+    public function myOrders()
+    {
+        return $this->hasMany(Order::class, 'creator_id');
+    }
+
     ///////////////////test propose//////////////////////
     // public function favouriteLeagues()
     // {
     //     return $this->belongsToMany(League::class, 'favorites', 'user_id', 'type_id')->where('type', 'league')->with('photo');
     // }
-    
+
     ///////////////////////////////////////////////////
 
     public function photo()
@@ -131,5 +137,13 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
 
-   
+    public function tokens()
+    {
+        return $this->hasMany(ApiKey::class);
+    }
+
+    public function userTokens()
+    {
+        return $this->hasMany(UserToken::class, 'user_id');
+    }
 }

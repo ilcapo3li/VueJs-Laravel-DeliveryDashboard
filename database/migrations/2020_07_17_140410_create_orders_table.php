@@ -23,10 +23,10 @@ class CreateOrdersTable extends Migration {
 			$table->decimal('width', 5, 2)->nullable();
 			$table->decimal('length', 5, 2)->nullable();
 			///////////////////////////////Sender and Reciever/////////////////////////////
-			$table->unsignedBigInteger('creator_id')->nullable();
+			$table->unsignedBigInteger('creator_id');
 			$table->foreign('creator_id')->references('id')->on('users');
-			$table->unsignedBigInteger('lead_id')->nullable();
-			$table->foreign('lead_id')->references('id')->on('leads');
+			$table->unsignedBigInteger('lead_id');
+			$table->foreign('lead_id')->references('id')->on('users');
 			/////////////////////////////Adminstration Tracking Order///////////////////////
 			$table->dateTime('collecting_at')->nullable();
 			$table->unsignedBigInteger('collected_by')->nullable();
@@ -37,15 +37,13 @@ class CreateOrdersTable extends Migration {
 			/////////////////////zone and cost else lat long calc////////////////////
 			$table->unsignedBigInteger('zone_id')->nullable();
 			$table->foreign('zone_id')->references('id')->on('zones');
-			$table->unsignedBigInteger('price_id')->nullable();
-			$table->foreign('price_id')->references('id')->on('prices');
+			
 			$table->unsignedBigInteger('home_id')->nullable();
 			$table->foreign('home_id')->references('id')->on('locations');
 			$table->unsignedBigInteger('away_id')->nullable();
 			$table->foreign('away_id')->references('id')->on('locations');
 			$table->decimal('cost', 5, 2)->nullable();
 			////////////////////////////////////////////////////////
-
 			$table->timestamps();
 		});
 	}

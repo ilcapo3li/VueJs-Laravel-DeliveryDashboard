@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
@@ -22,34 +21,19 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-       
+        return  new UserResource(
+            User::where('name', 'like', '%'.Input::get('query').'%')
+            ->orwhere('email', 'like', '%'.Input::get('query').'%')
+            ->with(['role', 'photo'])->orderBy('id', 'desc')->paginate(10)
+        );
     }
 
-    public function blockUser(User $user)
+    public function block(User $user)
     {
         $user->blocked = !$user->blocked;
         $user->save();
+
         return response()->json($user);
-    }
-
-    /**
-     * Show the form for creating a new reuser.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
-
-    /**
-     * Store a newly created reuser in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
     }
 
     /**
@@ -59,19 +43,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-    }
+        $user = $user->load(['photo', 'orders', 'locations']);
 
-    /**
-     * Show the form for editing the specified reuser.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+        return new UserResource($user);
     }
 
     /**
@@ -82,8 +58,26 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => 'required|string|unique:users,name,'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            ]);
+        foreach ($user->userTokens as $userToken) {
+            $userToken->blocked = 1;
+            $userToken->save();
+        }
+
+        return response()->json('Recored Updated Suceessfully');
     }
 
     /**
@@ -93,8 +87,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
+        if ($user->delete()) {
+            return response()->json('Record deleted successfully', 200);
+        } else {
+            return response()->json(['error' => 'Error in Deleting Record'], 422);
+        }
     }
 
     /**
@@ -140,6 +139,7 @@ class UsersController extends Controller
     public function user()
     {
         $user = new UserResource(Auth::user());
+
         return response()->json($user);
     }
 
@@ -151,8 +151,7 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         } else {
-            
-            $user =  Auth::user();
+            $user = Auth::user();
             $user->name = $request->name;
             $user->save();
 
@@ -171,22 +170,14 @@ class UsersController extends Controller
             $image = $request->photo;  // your base64 encoded
             $photo = new PhotoHelper();
             $new_photo = $photo->constructPhoto($image, 'user');
-            $user =  Auth::user();
-            $photo=Photo::find($user->photo_id);
+            $user = Auth::user();
+            $photo = Photo::find($user->photo_id);
             File::delete(storage_path().DIRECTORY_SEPARATOR.$photo->path);
             $photo->delete();
             $user->photo_id = $new_photo;
             $user->save();
+
             return response()->json(['photo' => $user->photo->path, 'status' => 'true']);
         }
-    }
-
-    public function remove(User $user)
-    {
-        if($user->delete()){
-            return response()->json('Record deleted successfully', 200);
-        }else{
-            return response()->json(['error' => 'Error in Deleting Record'], 422);
-        }  
     }
 }

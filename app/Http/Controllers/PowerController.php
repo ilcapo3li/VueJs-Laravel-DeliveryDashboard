@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class TayarController extends Controller
+class PowerController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 5)->orderBy('id', 'desc')->paginate(10);
-
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 7)->orderBy('id', 'desc')->paginate(10);
         return response()->json($users);
     }
 
     public function save(Request $request)
     {
-       
         $request->validate([
             'name' => 'required|string|unique:users,name',
             'email' => 'required|email|unique:users,email',
@@ -31,12 +28,10 @@ class TayarController extends Controller
             $admin->name = $request->name;
             $admin->email = $request->email;
             $admin->password = $request->password;
-            $admin->role_id = 5;
+            $admin->role_id = 7;
             $admin->save();
 
-            return response()->json('Tayar Created Suceessfully');
+            return response()->json('Power Created Suceessfully');
         }
     }
-
-   
 }

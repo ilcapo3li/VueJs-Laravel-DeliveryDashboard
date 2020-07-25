@@ -2,97 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Lead;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 6)->orderBy('id', 'desc')->paginate(10);
+
+        return response()->json($users);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function save(Request $request)
     {
-    }
+        $request->validate([
+            'name' => 'required|string|unique:users,name',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        } else {
+            $admin = new User();
+            $admin->name = $request->name;
+            $admin->email = $request->email;
+            $admin->password = $request->password;
+            $admin->role_id = 6;
+            $admin->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Lead $lead
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Lead $lead)
-    {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Lead $lead
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Lead $lead)
-    {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Lead                $lead
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Lead $lead)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Lead $lead
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Lead $lead)
-    {
-    }
-
-    /**
-     * Block Lead the specified resource from storage.
-     *
-     * @param \App\Lead $lead
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function blockUser(Lead $lead)
-    {
-        $lead->blocked = !$lead->blocked;
-        $lead->save();
-
-        return response()->json($user);
+            return response()->json('Tayar Created Suceessfully');
+        }
     }
 }

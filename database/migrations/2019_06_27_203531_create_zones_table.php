@@ -19,6 +19,8 @@ class CreateZonesTable extends Migration {
 			$table->foreign('country_id')->references('id')->on('countries');
 			$table->unsignedBigInteger('city_id')->nullable();
 			$table->foreign('city_id')->references('id')->on('cities');
+			$table->decimal('price', 5, 2)->nullable();
+			$table->decimal('retrivePrice', 5, 2)->nullable();
 			$table->timestamps();
 		});
 	}

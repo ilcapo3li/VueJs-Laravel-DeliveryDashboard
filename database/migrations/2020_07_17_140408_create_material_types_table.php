@@ -15,6 +15,7 @@ class CreateMaterialTypesTable extends Migration {
 			$table->bigIncrements('id');
 			$table->string('en_name');
 			$table->string('ar_name');
+			$table->integer('insurance')->nullable();
 			$table->timestamps();
 		});
 	}

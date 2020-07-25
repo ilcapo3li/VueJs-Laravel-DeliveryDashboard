@@ -15,8 +15,8 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('type_id')->nullable();
-            $table->enum('type', ['user', 'lead'])->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
             $table->string('name')->nullable();
             $table->string('title');
             $table->longText('message');
