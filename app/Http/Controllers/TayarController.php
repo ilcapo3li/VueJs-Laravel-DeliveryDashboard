@@ -34,7 +34,7 @@ class TayarController extends Controller
             $admin->role_id = 5;
             $admin->save();
 
-            return response()->json('Tayar Created Suceessfully');
+            return response()->json('New Tayar Created Suceessfully');
         }
     }
 

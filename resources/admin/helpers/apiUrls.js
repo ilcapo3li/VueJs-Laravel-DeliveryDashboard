@@ -12,49 +12,44 @@ export default {
     checkAuth: () => {
         return makeUrl("/token/check");
     },
-    allCountries: () => {
-        return makeUrl("/allCountries");
-    },
 
     ///////////////////////////OrderStatus//////////////////////////////
-    OrderStatus() {
+    status() {
         return makeUrl("/status");
     },
-    allOrderStatus() {
-        return makeUrl("/allStatus");
+    allStatus() {
+        return makeUrl("/all/status");
     },
-    saveStatue() {
-        return makeUrl("/save/Statue");
+    saveStatus() {
+        return makeUrl("/save/status");
     },
-    updateStatue(statue_id) {
-        return makeUrl(`/update/statue/${statue_id}`);
+    updateStatus(status) {
+        return makeUrl(`/update/status/${status}`);
     },
-    deleteStatue(statue_id) {
-        return makeUrl(`/delete/statue/${statue_id}`);
+    deleteStatus(status) {
+        return makeUrl(`/delete/status/${status}`);
     },
     ///////////////////////////Orders//////////////////////////////
     orders() {
         return makeUrl("/orders");
     },
-    allOrders() {
-        return makeUrl("/allOrders");
-    },
+
     saveOrder() {
         return makeUrl("/save/order");
     },
-    updateOrder(order_id) {
-        return makeUrl(`/update/order/${order_id}`);
+    updateOrder(order) {
+        return makeUrl(`/update/order/${order}`);
     },
-    deleteOrder(order_id) {
-        return makeUrl(`/delete/order/${order_id}`);
+    deleteOrder(order) {
+        return makeUrl(`/delete/order/${order}`);
     },
     /////////////////////////////////////////////////////
-    collectOrder(order_id) {
-        return makeUrl(`/collect/order/${order_id}`);
+    collectOrder(order) {
+        return makeUrl(`/collect/order/${order}`);
     },
     /////////////////////////Admin Panel/////////////////////////////
-    updateOrderStatus(order_id) {
-        return makeUrl(`/order/status/${order_id}`);
+    updateOrderStatus(order) {
+        return makeUrl(`/order/status/${order}`);
     },
     //////////////////////////////////////////////////////
     sendMessage() {
@@ -64,14 +59,14 @@ export default {
         return makeUrl("/messages");
     },
     ///////////////////////////////Admin Panel////////////////////////////////
-    blockUser(user_id) {
-        return makeUrl(`/block/user/${user_id}`);
+    blockUser(user) {
+        return makeUrl(`/block/user/${user}`);
     },
-    deleteUser(user_id) {
-        return makeUrl(`/delete/user/${user_id}`);
+    deleteUser(user) {
+        return makeUrl(`/delete/user/${user}`);
     },
-    updateUser(user_id) {
-        return makeUrl(`/update/user/${user_id}`);
+    updateUser(user) {
+        return makeUrl(`/update/user/${user}`);
     },
 
     ///////////////////////////Admin API//////////////////////////
@@ -109,46 +104,106 @@ export default {
     saveTayar() {
         return makeUrl("/save/tayar");
     },
+    ///////////////////////////////power Panel////////////////////////////////
+    powers() {
+        return makeUrl("/powers");
+    },
+    savePower() {
+        return makeUrl("/save/power");
+    },
+    updatePower(power) {
+        return makeUrl(`/update/power/${power}`);
+    },
+    ///////////////////////////////power Panel////////////////////////////////
+    superPowers() {
+        return makeUrl("/superpowers");
+    },
+    saveSuperPower() {
+        return makeUrl("/save/superpower");
+    },
+    updateSuperPower(superpower) {
+        return makeUrl(`/update/superpower/${superpower}`);
+    },
 
     ///////////////////////////////Admin Panel////////////////////////////////
     leads() {
         return makeUrl("/leads");
     },
+    allLeads() {
+        return makeUrl("/all/leads");
+    },
     saveLead() {
         return makeUrl("/save/lead");
     },
-    updateLead(lead) {
-        return makeUrl(`/update/lead/${lead}`);
-    },
-    deleteLead(lead) {
-        return makeUrl(`/delete/lead/${lead}`);
-    },
+
     ///////////////////////////////Admin Panel////////////////////////////////
 
     zones() {
         return makeUrl("/zones");
     },
+    allZones() {
+        return makeUrl("/all/zones");
+    },
     saveZone() {
         return makeUrl("/save/zone");
     },
-    updateZone(zone_id) {
-        return makeUrl(`/update/zone/${zone_id}`);
+    updateZone(zone) {
+        return makeUrl(`/update/zone/${zone}`);
     },
-    deleteZone(zone_id) {
-        return makeUrl(`/delete/zone/${zone_id}`);
+    deleteZone(zone) {
+        return makeUrl(`/delete/zone/${zone}`);
+    },
+    ///////////////////////////////Admin Panel////////////////////////////////
+
+    countries() {
+        return makeUrl("/countries");
+    },
+    allCountries() {
+        return makeUrl("/all/countries");
+    },
+    saveCountry() {
+        return makeUrl("/save/country");
+    },
+    updateCountry(country) {
+        return makeUrl(`/update/country/${country}`);
+    },
+    deleteCountry(country) {
+        return makeUrl(`/delete/country/${country}`);
+    },
+    ///////////////////////////////Admin Panel////////////////////////////////
+
+    cities() {
+        return makeUrl("/cities");
+    },
+    allCities() {
+        return makeUrl("/all/cities");
+    },
+    saveCity() {
+        return makeUrl("/save/city");
+    },
+    updateCity(city) {
+        return makeUrl(`/update/city/${city}`);
+    },
+    deleteCity(city) {
+        return makeUrl(`/delete/city/${city}`);
     },
 
-    prices() {
-        return makeUrl("/zones");
+    ///////////////////////////////Admin Panel////////////////////////////////
+
+    materialTypes() {
+        return makeUrl("/materialtypes");
     },
-    savePrice() {
-        return makeUrl("/save/price");
+    allMaterialtypes() {
+        return makeUrl("/all/materialtypes");
     },
-    updatePrice(price_id) {
-        return makeUrl(`/update/price/${price_id}`);
+    saveMaterialtype() {
+        return makeUrl("/save/materialtype");
     },
-    deletePrice(price_id) {
-        return makeUrl(`/delete/price/${price_id}`);
+    updateMaterialtype(materialtype) {
+        return makeUrl(`/update/materialtype/${materialtype}`);
+    },
+    deleteMaterialtype(materialtype) {
+        return makeUrl(`/delete/materialtype/${materialtype}`);
     },
 
     /////////////////////////Super Admin////////////////////////////
@@ -181,7 +236,31 @@ export default {
     branches() {
         return makeUrl("/branches");
     },
+    ////////////////////////////agent - Supplier - leads - tayar///////////////////////////
+    myOrders() {
+        return makeUrl("/my/orders");
+    },
 
+    myCollect() {
+        return makeUrl("/my/collects");
+    },
+
+    leadOrders() {
+        return makeUrl("/lead/Orders");
+    },
+
+    myLeads() {
+        return makeUrl("/my/leads");
+    },
+
+    myLocations() {
+        return makeUrl("/my/locations");
+    },
+
+    searchOrders() {
+        return makeUrl("/search/orders");
+    },
+    /////////////////////////////////////////////////////////////////////////
     advertiments(app) {
         return makeUrl(`/ads/${app}`);
     },

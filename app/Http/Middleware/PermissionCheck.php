@@ -17,7 +17,7 @@ class PermissionCheck
     public function handle($request, Closure $next)
     {
         $role=auth()->user()->role->name;
-        if($role=="Super"){
+        if($role=="Super"||$role=="Power"){
             return $next($request);
         }
         $permissions=auth()->user()->permissions->toArray();

@@ -37,5 +37,8 @@ class RoleSeeder extends Seeder
         Role::create([
             'name' => 'Power',
         ]);
+        Role::create([
+            'name' => 'SuperPower',
+        ]);
     }
 }

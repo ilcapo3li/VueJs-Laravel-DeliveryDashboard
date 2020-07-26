@@ -63,5 +63,21 @@ class UsersSeeder extends Seeder
             'phonePrimary' => '01155207824',
             'role_id' => 6,
         ]);
+        User::create([
+            'name' => 'Power',
+            'created_by' => '3',
+            'password' => '123456',
+            'email' => 'Power@Power.com',
+            'role_id' => 7,
+
+        ]);
+        User::create([
+            'name' => 'SuperPower',
+            'created_by' => '3',
+            'password' => '123456',
+            'email' => 'SuperPower@SuperPower.com',
+            'phonePrimary' => '01155207824',
+            'role_id' => 8,
+        ]);
     }
 }

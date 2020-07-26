@@ -9,7 +9,7 @@ class SuppliersController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['photo','role'])->where('role_id', 3)->orderBy('id', 'desc')->paginate(10);
+        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['photo', 'role'])->where('role_id', 3)->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($users);
     }
@@ -33,9 +33,7 @@ class SuppliersController extends Controller
             $admin->role_id = 3;
             $admin->save();
 
-            return response()->json('Supplier Created Suceessfully');
+            return response()->json('New Supplier Created Suceessfully');
         }
     }
-
-   
 }

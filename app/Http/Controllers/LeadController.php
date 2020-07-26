@@ -32,7 +32,7 @@ class LeadController extends Controller
             $admin->role_id = 6;
             $admin->save();
 
-            return response()->json('Tayar Created Suceessfully');
+            return response()->json('New Lead Created Suceessfully');
         }
     }
 }

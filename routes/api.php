@@ -1,7 +1,5 @@
 <?php
 
-use App\Setting;
-use App\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,18 +25,14 @@ Route::post('/token/check', 'AuthController@AuthCheck');
 /////////////////////////////////////////checking app device////////////////////////////////////////
 //////////////////////////////////Start mobile routes for vistor /////////////////////////////////////////////////////
  Route::group(['middleware' => ['mobily']], function () {
-  
      Route::get('/get/settings', 'SettingController@index');
-     Route::get('/red/ads', 'AdvertisementsController@redAds');
-     Route::get('/gold/ads', 'AdvertisementsController@goldAds');
-     Route::get('/goldstore/ads', 'AdvertisementsController@goldStoreAds');
+     Route::get('/ads', 'AdvertisementsController@appAds');
 
      //////////////////////////////////END mobile routes for vistor /////////////////////////////////////////////////////
 
      ///////////////////////////////////Start Mobile Auth User///////////////////////////
-     Route::group(['middleware' => ['auth','blocked']], function () {
-         Route::post('/set/favourite', 'FavouriteController@setFavourite');
-         Route::post('/delete/favourite', 'FavouriteController@destroyFavourite');
+     Route::group(['middleware' => ['auth', 'blocked']], function () {
+         
          Route::post('/set/like', 'LikeController@setLike');
          Route::post('/delete/like', 'LikeController@destroyLike');
          Route::post('/add_comment', 'CommentsController@store');
@@ -58,49 +52,66 @@ Route::post('/token/check', 'AuthController@AuthCheck');
     ////////////////////////////////////////Start Admin Auth User///////////////////////////////////////
     // Route::group(['prefix' => adminPath(), 'middleware' => ['adminstration']], function () {
 
-
     Route::group(['middleware' => ['issuper']], function () {
-    /////////////////this route working only with  super admin by issuper middleware //////////////////
-     /////////////////Start super admin only by permissioncheck middleware //////////////////
-
-        Route::get('/admins', 'AdminController@index');
-        Route::post('/save/admin', 'AdminController@save');
-        Route::put('/update/admin/{admin}', 'AdminController@edit');
-        ////////////////////////////////////////////////////////////////
-        Route::get('/agents', 'AgentsController@index');
-        Route::post('/save/agent', 'AgentsController@save');
-        ////////////////////////////////////////////////////////////////
-        Route::get('/tayar', 'TayarController@index');
-        Route::post('/save/tayar', 'TayarController@save');
-        ////////////////////////////////////////////////////////////////
-        Route::get('/suppliers', 'SuppliersController@index');
-        Route::post('/save/supplier', 'SuppliersController@saveAdmin');
-        ////////////////////////////////////////////////////////////////
-        Route::put('/block/user/{user}', 'UsersController@block');
-        Route::delete('/delete/user/{user}', 'UsersController@remove');
-        ////////////////////////////////////////////////////////////////
-        Route::get('/permissions', 'PermissionsController@index');
+        /////////////////this route working only with  super admin by issuper middleware //////////////////
+        /////////////////Start super admin only by permissioncheck middleware //////////////////
+        Route::get('/powers', 'PowerController@index');
+        Route::post('/save/power', 'PowerController@save');
+        Route::put('/update/power/{power}', 'PowerController@edit');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/superpowers', 'SuperPowerController@index');
+        Route::post('/save/superpower', 'SuperPowerController@save');
+        Route::put('/update/superpower/{superpower}', 'SuperPowerController@edit');
+       
+        //////////////////////////////////////////////////////////////////
+        Route::get('/superpermissions', 'PermissionsController@index');
         Route::get('/ads/{app}', 'AdvertisementsController@ads');
         Route::put('/ads/{ads}', 'AdvertisementsController@saveAds');
-   
-
-
 
         /////////////////End super admin only by permissioncheck middleware //////////////////
     });
+
+
+    Route::group(['middleware' => ['ispower']], function () {
+        /////////////////this route working only with  power admin by issuper middleware //////////////////
+        /////////////////Start Power admin only by permissioncheck middleware //////////////////
+       
+        Route::get('/admins', 'AdminController@index');
+        Route::post('/save/admin', 'AdminController@save');
+        Route::put('/update/admin/{admin}', 'AdminController@edit');
+        Route::get('/powerpermissions', 'PermissionsController@index');
+
+        
+        //////////////////////////////////////////////////////////////////
+       
+        /////////////////End power admin only by permissioncheck middleware //////////////////
+    });
     ///////////////////////////////////End Super Auth User///////////////////////////
 
-    Route::group(['middleware' => ['permissioncheck', 'auth','blocked']], function () {
-
-
+    Route::group(['middleware' => ['permissioncheck', 'auth', 'blocked']], function () {
         /////////////////this route working only with authorize admin only by permissioncheck middleware //////////////////
-
-        Route::get('/zones', 'ZonesController@index')->name('View Zones');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/agents', 'AgentsController@index');
+        Route::post('/save/agent', 'AgentsController@save');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/tayar', 'TayarController@index');
+        Route::post('/save/tayar', 'TayarController@save');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/suppliers', 'SuppliersController@index');
+        Route::post('/save/supplier', 'SuppliersController@save');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/suppliers', 'SuppliersController@index');
+        Route::post('/save/supplier', 'SuppliersController@save');
+        //////////////////////////////////////////////////////////////////
+        Route::get('/leads', 'LeadController@index');
+        Route::post('/save/lead', 'LeadController@save');
+        //////////////////////////////////////////////////////////////////
+        Route::put('/block/user/{user}', 'UsersController@block');
+        Route::delete('/delete/user/{user}', 'UsersController@destroy');
+        ///////////////////////////////////////////////////////////////////
+        Route::get('/zones', 'ZoneController@index')->name('View Zones');
         Route::get('/countries', 'CountriesController@index')->name('View Countries');
-        Route::get('/cities', 'CitiesController@index')->name('View Cities');
- 
-
-      
+        Route::get('/cities', 'CityController@index')->name('View Cities');
 
         Route::get('/reports', 'ReportController@index')->name('View Reports');
         Route::post('/notify/{apk}', 'NotificationsController@sendNotification')->name('Send Notify');
@@ -113,36 +124,34 @@ Route::post('/token/check', 'AuthController@AuthCheck');
     });
     ///////////////////////////////END authorize admin only by permissioncheck middleware ////////////////////////////////////////////
 
+    Route::group(['middleware' => ['auth']], function () {
+        /////////////////this route working only with Auth by auth middleware //////////////////
 
-
-
-Route::group(['middleware' => ['adminstration']], function () {
-    /////////////////this route working only with admin and super admin by adminstration middle ware //////////////////
-
-    Route::get('/branches', 'BranchController@index');
-    Route::post('/save/photo', 'PhotosController@uploadPhoto');
-    Route::post('/delete/photo', 'PhotosController@removePhoto');
-    Route::get('/allCountries', 'CountriesController@countries');
+        Route::get('/branches', 'BranchController@index');
+        Route::post('/save/photo', 'PhotosController@uploadPhoto');
+        Route::post('/delete/photo', 'PhotosController@removePhoto');
+        Route::get('/all/countries', 'CountriesController@countries');
+        Route::get('/all/zones', 'ZoneController@allZones');
+        Route::get('/all/cities', 'CityController@allCities');
+        Route::get('/all/lead', 'LeadController@addLeads');
+        Route::get('/all/statuses', 'StatusesController@allStatuses');
+        Route::get('/all/materialtypes', 'CountriesController@countries');
+        Route::get('/my/orders', 'OrderController@myOrders');
+        Route::get('/my/collects', 'OrderController@myCollects');
+        Route::get('/lead/Orders', 'OrderController@leadOrders');
+        Route::get('/my/leads', 'LeadController@myLead');
+        Route::get('/my/locations', 'LocationsController@countries');
+        Route::get('/search/orders', 'OrderController@search');
+    });
+///////////////////////////////////End Admin Auth User/////////////////////////////////////////////////////////////////////////////////
  
 
-});
-///////////////////////////////////End Admin Auth User///////////////////////////
 
-    //////////////////////////////START Normal User Watching///////////////////////////////
-    Route::post('/report_statue/{report}', 'ReportController@replay');
-    Route::post('/report-replay/{user}', 'ReportController@status');
-
-    //////////////////////////////END User Watching///////////////////////////////
+    //////////////////////////////START Normal User Watching////////////////////
+  
+    //////////////////////////////END User Watching/////////////////////////////
 
     /////////////////////////////START Test Propose Only////////////////////////
-
-   
     Route::get('/tests', function () {
-   
-        
     });
-   
-
-   
-
-    //////////////////////////////////END Test///////////////////////////////////
+    //////////////////////////////////END Test//////////////////////////////////

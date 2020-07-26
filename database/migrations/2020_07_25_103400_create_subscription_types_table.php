@@ -8,8 +8,6 @@ class CreateSubscriptionTypesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -17,15 +15,15 @@ class CreateSubscriptionTypesTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name');
             $table->string('ar_name');
-			$table->decimal('price', 5, 2)->nullable();
+            $table->decimal('mounth', 2, 1)->nullable();
+            $table->text('features')->nullable();
+            $table->decimal('price', 5, 2)->nullable();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class Adminstration
+class isPower
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,7 @@ class Adminstration
      */
     public function handle($request, Closure $next)
     {
-        $role = Auth::user()?Auth::user()->role->name:null;
-        if ($role == 'Super' || $role == 'SuperPower') {
+        if (Auth::user()->role->name == 'Power' || Auth::user()->role->name == 'Super') {
             return $next($request);
         } else {
             return response()->json(['error' => 'You do not have permission to take this action'], 422);
