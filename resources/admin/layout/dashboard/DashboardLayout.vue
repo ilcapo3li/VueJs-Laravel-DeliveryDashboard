@@ -4,7 +4,6 @@
             <template slot="links">
                 <div v-if="user.role == 'Super'">
 
-
                     <sidebar-link to="/notify" :name="$t('sidebar.notify')" />
                     <sidebar-link to="/reports" :name="$t('sidebar.reports')" />
                     <sidebar-link to="/settings" :name="$t('sidebar.settings')" />

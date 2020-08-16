@@ -86,7 +86,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function reports()
     {
-        return $this->hasMany(Report::class, 'user_id');
+        return $this->hasMany(Report::class, 'created_by');
     }
 
     public function locations()

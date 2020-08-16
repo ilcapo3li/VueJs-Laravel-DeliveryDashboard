@@ -8,6 +8,6 @@ class Report extends Model
 {
     public function user()
     {    
-    return $this->belongsTo(User::Class);
+    return $this->belongsTo(User::class);
     }
 }
