@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call(UsersSeeder::class);
 		$this->call(LocationsSeeder::class);
 		$this->call(CountrySeeder::class);
-		$this->call(CitySeeder::class);
+		// $this->call(CitySeeder::class);
 		$this->call(PermissionsSeeder::class);
 		
 		// DB::unprepared(file_get_contents(app_path('/data/cities.sql')));
