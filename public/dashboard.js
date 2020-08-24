@@ -143,6 +143,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -170,7 +209,7 @@ __webpack_require__.r(__webpack_exports__);
       purpleLineChart: {
         extraOptions: _components_Charts_config__WEBPACK_IMPORTED_MODULE_2__["purpleChartOptions"],
         chartData: {
-          labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
           datasets: [{
             label: "Data",
             fill: true,
@@ -179,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
             borderDash: [],
             borderDashOffset: 0.0,
             pointBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
-            pointBorderColor: 'rgba(255,255,255,0)',
+            pointBorderColor: "rgba(255,255,255,0)",
             pointHoverBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
             pointBorderWidth: 20,
             pointHoverRadius: 4,
@@ -194,7 +233,7 @@ __webpack_require__.r(__webpack_exports__);
       greenLineChart: {
         extraOptions: _components_Charts_config__WEBPACK_IMPORTED_MODULE_2__["greenChartOptions"],
         chartData: {
-          labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV'],
+          labels: ["JUL", "AUG", "SEP", "OCT", "NOV"],
           datasets: [{
             label: "My First dataset",
             fill: true,
@@ -203,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
             borderDash: [],
             borderDashOffset: 0.0,
             pointBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.danger,
-            pointBorderColor: 'rgba(255,255,255,0)',
+            pointBorderColor: "rgba(255,255,255,0)",
             pointHoverBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.danger,
             pointBorderWidth: 20,
             pointHoverRadius: 4,
@@ -212,13 +251,13 @@ __webpack_require__.r(__webpack_exports__);
             data: [90, 27, 60, 12, 80]
           }]
         },
-        gradientColors: ['rgba(66,134,121,0.15)', 'rgba(66,134,121,0.0)', 'rgba(66,134,121,0)'],
+        gradientColors: ["rgba(66,134,121,0.15)", "rgba(66,134,121,0.0)", "rgba(66,134,121,0)"],
         gradientStops: [1, 0.4, 0]
       },
       blueBarChart: {
         extraOptions: _components_Charts_config__WEBPACK_IMPORTED_MODULE_2__["barChartOptions"],
         chartData: {
-          labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
+          labels: ["USA", "GER", "AUS", "UK", "RO", "BR"],
           datasets: [{
             label: "Countries",
             fill: true,
@@ -242,7 +281,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.$rtl.isRTL;
     },
     bigLineChartCategories: function bigLineChartCategories() {
-      return this.$t('dashboard.chartCategories');
+      return this.$t("dashboard.chartCategories");
     }
   },
   methods: {// initBigChart(index) {
@@ -273,7 +312,7 @@ __webpack_require__.r(__webpack_exports__);
     this.i18n = this.$i18n;
 
     if (this.enableRTL) {
-      this.i18n.locale = 'ar';
+      this.i18n.locale = "ar";
       this.$rtl.enableRTL();
     }
 
@@ -281,7 +320,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeDestroy: function beforeDestroy() {
     if (this.$rtl.isRTL) {
-      this.i18n.locale = 'en';
+      this.i18n.locale = "en";
       this.$rtl.disableRTL();
     }
   }
@@ -391,14 +430,20 @@ var render = function() {
             [
               _c("template", { slot: "header" }, [
                 _c("h5", { staticClass: "card-category" }, [
-                  _vm._v(_vm._s(_vm.$t("dashboard.totalShipments")))
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$t("dashboard.totalShipments")) +
+                      "\n                    "
+                  )
                 ]),
                 _vm._v(" "),
                 _c("h3", { staticClass: "card-title" }, [
                   _c("i", {
                     staticClass: "tim-icons icon-bell-55 text-primary "
                   }),
-                  _vm._v(" 763,215")
+                  _vm._v(
+                    "\n                        763,215\n                    "
+                  )
                 ])
               ]),
               _vm._v(" "),
@@ -436,14 +481,20 @@ var render = function() {
             [
               _c("template", { slot: "header" }, [
                 _c("h5", { staticClass: "card-category" }, [
-                  _vm._v(_vm._s(_vm.$t("dashboard.dailySales")))
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$t("dashboard.dailySales")) +
+                      "\n                    "
+                  )
                 ]),
                 _vm._v(" "),
                 _c("h3", { staticClass: "card-title" }, [
                   _c("i", {
                     staticClass: "tim-icons icon-delivery-fast text-info "
                   }),
-                  _vm._v(" 3,500€")
+                  _vm._v(
+                    "\n                        3,500€\n                    "
+                  )
                 ])
               ]),
               _vm._v(" "),
@@ -480,12 +531,18 @@ var render = function() {
             [
               _c("template", { slot: "header" }, [
                 _c("h5", { staticClass: "card-category" }, [
-                  _vm._v(_vm._s(_vm.$t("dashboard.completedTasks")))
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$t("dashboard.completedTasks")) +
+                      "\n                    "
+                  )
                 ]),
                 _vm._v(" "),
                 _c("h3", { staticClass: "card-title" }, [
                   _c("i", { staticClass: "tim-icons icon-send text-success " }),
-                  _vm._v(" 12,100K")
+                  _vm._v(
+                    "\n                        12,100K\n                    "
+                  )
                 ])
               ]),
               _vm._v(" "),
@@ -809,7 +866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es6.object.keys */ "./node_modules/core-js/modules/es6.object.keys.js");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _home_ali_sites_delivery_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var C_work_deliverySchema_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 
 
 
@@ -822,7 +879,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_home_ali_sites_delivery_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(C_work_deliverySchema_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var basicOptions = {
   maintainAspectRatio: false,

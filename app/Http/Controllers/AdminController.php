@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
     public function index()
     {
         $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 2)->orderBy('id', 'desc')->paginate(10);
-
+        // dd($users);
         return response()->json($users);
     }
 

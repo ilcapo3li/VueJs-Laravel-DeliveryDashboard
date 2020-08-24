@@ -45,7 +45,7 @@
 
        <template  v-slot:cell(photo)="data">
           <div  class="img-row">
-            <b-img-lazy :src="data.item.photo ? data.item.photo.path : 'default/default.png' " alt="Admin image"/>
+            <b-img-lazy :src="data.item.photo ? data.item.photo.path : 'default/default.jpg' " alt="Admin image"/>
           </div>
         </template>
 
