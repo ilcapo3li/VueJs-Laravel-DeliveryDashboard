@@ -101,26 +101,27 @@
                     </b-row>
 
                     <b-row>
-            <b-col sm="3">
-                <b-form-checkbox size="md" v-model="allPermissions">
-                    {{ $t("select_all") }}
-                </b-form-checkbox>
-            </b-col>
-            <b-col sm="9"></b-col>
-            <b-col
-                v-for="(permission, index) in permissionsList"
-                :key="index"
-                sm="3"
-            >
-                <b-form-checkbox
-                    size="md"
-                    :value="permission.id"
-                    v-model="selectedPermissions"
-                >
-                    {{ isRTL ? permission.ar_name : permission.name }}
-                </b-form-checkbox>
-            </b-col>
-        </b-row>
+                        <b-col sm="3">
+                            <b-form-checkbox size="md" v-model="allPermissions">
+                                {{ $t("select_all") }}
+                            </b-form-checkbox>
+                        </b-col>
+                        <b-col sm="9"></b-col>
+                        <br>
+                        <b-col
+                            v-for="(permission, index) in permissionsList"
+                            :key="index"
+                            sm="3"
+                        >
+                            <b-form-checkbox
+                                size="md"
+                                :value="permission.id"
+                                v-model="selectedPermissions"
+                            >
+                                {{ isRTL ? permission.ar_name : permission.en_name }}
+                            </b-form-checkbox>
+                        </b-col>
+                    </b-row>
 
                     <b-button class="btn btn-primary" @click="saveAdmin"
                         >Save</b-button

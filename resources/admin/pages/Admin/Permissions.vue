@@ -17,7 +17,7 @@
                     :value="permission.id"
                     v-model="selectedPermissions"
                 >
-                    {{ isRTL ? permission.ar_name : permission.name }}
+                    {{ isRTL ? permission.ar_name : permission.en_name }}
                 </b-form-checkbox>
             </b-col>
         </b-row>
