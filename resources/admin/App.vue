@@ -58,7 +58,7 @@ import apiUrls from './helpers/apiUrls';
             localStorage.setItem('lang','en')
         }
  },
-    methods: {
+  methods: {
       disableRTL() {
         if (!this.$rtl.isRTL) {
           this.$rtl.disableRTL();
@@ -69,7 +69,6 @@ import apiUrls from './helpers/apiUrls';
         root.classList.toggle('nav-open');
       }
     },
-
     mounted() {
       this.$watch('$route', this.disableRTL, { immediate: true });
       this.$watch('$sidebar.showSidebar', this.toggleNavOpen)
@@ -115,21 +114,21 @@ a{
     font-weight: 700 !important;
 }
 .white-content .navbar.navbar-transparent .navbar-brand {
-    color: #00c3da !important;
+      color: #00c3da !important;
 }
 .card-user .author .block.block-one {
-    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-  }
-  .card-user .author .block.block-two {
-    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-  }
-  .card-user .author .block.block-three {
-    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-  }
-  .card-user .author .block.block-four {
-    background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-  }
-  textarea.form-control {
+      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+}
+.card-user .author .block.block-two {
+      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+}
+.card-user .author .block.block-three {
+      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+}
+.card-user .author .block.block-four {
+      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+}
+textarea.form-control {
     max-height: 500px !important;
     padding: 10px 10px 10px 10px !important;
     resize: auto !important;
@@ -164,8 +163,8 @@ hr {
     border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
 
 }
-/*.card{
+.card{
   background-image:url('/default/default.jpg')  !important;
-}*/
+}
 </style>
 

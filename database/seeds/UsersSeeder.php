@@ -16,7 +16,7 @@ class UsersSeeder extends Seeder
             'name' => 'Agent',
             'password' => '123456',
             'email' => 'agent@agent.com',
-            'role_id' => 1,
+            'role_id' => 4,
         ]);
 
         User::create([
@@ -30,7 +30,7 @@ class UsersSeeder extends Seeder
             'name' => 'Super',
             'password' => '123456',
             'email' => 'super@super.com',
-            'role_id' => 4,
+            'role_id' => 1,
         ]);
 
         User::create([
@@ -44,7 +44,7 @@ class UsersSeeder extends Seeder
             'name' => 'Supplier',
             'password' => '123456',
             'email' => 'supplier@supplier.com',
-            'role_id' => 2,
+            'role_id' => 3,
         ]);
 
         User::create([

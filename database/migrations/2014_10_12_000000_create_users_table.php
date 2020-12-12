@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('PhoneSecondary')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users');
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->rememberToken();
             $table->timestamps();
