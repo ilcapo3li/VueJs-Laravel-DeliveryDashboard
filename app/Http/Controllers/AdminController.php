@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -10,8 +11,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        
-        $users = Auth::user()->company()->admins()
+        // dd(Auth::user()->company->admins);
+        $users = Auth::user()->company->admins()
         ->where('name', 'like', '%'.Input::get('query').'%')
         ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
         ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);

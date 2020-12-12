@@ -54,31 +54,12 @@ class User extends Authenticatable implements JWTSubject
         }
     }
 
-    public function companyAdmins()
+    public function company()
     {
-        return $this->hasMany(User::class, 'company_id');
+        return $this->belongsTo(Company::class);
     }
 
-    public function suppliers()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function agents()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function tayar()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function leads()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
+    
     public function orders()
     {
         return $this->hasMany(Order::class, 'creator_id');
