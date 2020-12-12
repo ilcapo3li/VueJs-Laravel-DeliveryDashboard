@@ -115,6 +115,34 @@
                 </card>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="card card-stats"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i> Last Research</div></div></div></div>
+            </div>  
+        </div>
         <!-- <div class="row">
             <div class="col-lg-6 col-md-12">
                 <card type="tasks" :header-classes="{ 'text-right': isRTL }">
@@ -284,29 +312,29 @@ export default {
         }
     },
     methods: {
-        // initBigChart(index) {
-        //   let chartData = {
-        //     datasets: [{
-        //       fill: true,
-        //       borderColor: config.colors.primary,
-        //       borderWidth: 2,
-        //       borderDash: [],
-        //       borderDashOffset: 0.0,
-        //       pointBackgroundColor: config.colors.primary,
-        //       pointBorderColor: 'rgba(255,255,255,0)',
-        //       pointHoverBackgroundColor: config.colors.primary,
-        //       pointBorderWidth: 20,
-        //       pointHoverRadius: 4,
-        //       pointHoverBorderWidth: 15,
-        //       pointRadius: 4,
-        //       data: this.bigLineChart.allData[index]
-        //     }],
-        //     labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-        //   }
+        initBigChart(index) {
+          let chartData = {
+            datasets: [{
+              fill: true,
+              borderColor: config.colors.primary,
+              borderWidth: 2,
+              borderDash: [],
+              borderDashOffset: 0.0,
+              pointBackgroundColor: config.colors.primary,
+              pointBorderColor: 'rgba(255,255,255,0)',
+              pointHoverBackgroundColor: config.colors.primary,
+              pointBorderWidth: 20,
+              pointHoverRadius: 4,
+              pointHoverBorderWidth: 15,
+              pointRadius: 4,
+              data: this.bigLineChart.allData[index]
+            }],
+            labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          }
         //   this.$refs.bigChart.updateGradients(chartData);
-        //   this.bigLineChart.chartData = chartData;
-        //   this.bigLineChart.activeIndex = index;
-        // }
+          this.bigLineChart.chartData = chartData;
+          this.bigLineChart.activeIndex = index;
+        }
     },
     mounted() {
         this.i18n = this.$i18n;

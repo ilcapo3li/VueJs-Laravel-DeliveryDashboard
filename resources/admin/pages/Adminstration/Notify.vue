@@ -236,13 +236,13 @@ export default {
         if (result) {
           axios
             .post(apiUrls.notify(this.selectedApp), {
-              title: this.title,
-              message: this.message,
-              notify_type: this.selectedType,
-              match_type: this.selectedSport,
-              match_id: this.match,
-              url_update: this.url,
-              app: this.selectedApp,
+                title:        this.title,
+                message:      this.message,
+                notify_type:  this.selectedType,
+                match_type:   this.selectedSport,
+                match_id:     this.match,
+                url_update:   this.url,
+                app:          this.selectedApp,
             })
             .then(response => {
               toastr.success(response.data.message);

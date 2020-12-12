@@ -9,9 +9,9 @@ class AgentsController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 4)->orderBy('id', 'desc')->paginate(10);
+        $agents = User::where('role_id', 1)->where('name', 'like', '%'.Input::get('query').'%')->orwhere('role_id', 1)->where('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 4)->orderBy('id', 'desc')->paginate(10);
 
-        return response()->json($users);
+        return response()->json($agents);
     }
 
     public function save(Request $request)

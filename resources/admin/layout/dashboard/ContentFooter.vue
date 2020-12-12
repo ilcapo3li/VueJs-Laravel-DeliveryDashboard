@@ -20,8 +20,7 @@
       </ul> -->
       <div class="copyright">
         © {{year}} made with <i class="tim-icons icon-heart-2"></i> by
-        <a href="#" target="_blank" rel="noopener">Alex-Kernel</a>&nbsp;&
-        <a href="#" target="_blank" rel="noopener">Bicomtics</a> for a better web.
+        <a href="#" target="_blank" rel="noopener">Bicomatics</a> for a better web.
       </div>
     </div>
   </footer>

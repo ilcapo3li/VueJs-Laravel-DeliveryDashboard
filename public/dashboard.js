@@ -182,6 +182,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -284,29 +312,30 @@ __webpack_require__.r(__webpack_exports__);
       return this.$t("dashboard.chartCategories");
     }
   },
-  methods: {// initBigChart(index) {
-    //   let chartData = {
-    //     datasets: [{
-    //       fill: true,
-    //       borderColor: config.colors.primary,
-    //       borderWidth: 2,
-    //       borderDash: [],
-    //       borderDashOffset: 0.0,
-    //       pointBackgroundColor: config.colors.primary,
-    //       pointBorderColor: 'rgba(255,255,255,0)',
-    //       pointHoverBackgroundColor: config.colors.primary,
-    //       pointBorderWidth: 20,
-    //       pointHoverRadius: 4,
-    //       pointHoverBorderWidth: 15,
-    //       pointRadius: 4,
-    //       data: this.bigLineChart.allData[index]
-    //     }],
-    //     labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-    //   }
-    //   this.$refs.bigChart.updateGradients(chartData);
-    //   this.bigLineChart.chartData = chartData;
-    //   this.bigLineChart.activeIndex = index;
-    // }
+  methods: {
+    initBigChart: function initBigChart(index) {
+      var chartData = {
+        datasets: [{
+          fill: true,
+          borderColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
+          pointBorderColor: 'rgba(255,255,255,0)',
+          pointHoverBackgroundColor: _config__WEBPACK_IMPORTED_MODULE_5__["default"].colors.primary,
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: this.bigLineChart.allData[index]
+        }],
+        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+      }; //   this.$refs.bigChart.updateGradients(chartData);
+
+      this.bigLineChart.chartData = chartData;
+      this.bigLineChart.activeIndex = index;
+    }
   },
   mounted: function mounted() {
     this.i18n = this.$i18n;
@@ -568,10 +597,291 @@ var render = function() {
         ],
         1
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("div", { staticClass: "card card-stats" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "info-icon text-center icon-primary" },
+                  [_c("i", { staticClass: "tim-icons icon-shape-star" })]
+                )
+              ]),
+              _c("div", { staticClass: "col-7" }, [
+                _c("div", { staticClass: "numbers" }, [
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v("Followers")
+                  ]),
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("+45K")])
+                ])
+              ])
+            ])
+          ]),
+          _c("div", { staticClass: "card-footer text-left" }, [
+            _c("hr"),
+            _c("div", { staticClass: "stats" }, [
+              _c("div", [
+                _c("i", { staticClass: "tim-icons icon-sound-wave" }),
+                _vm._v(" Last Research")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

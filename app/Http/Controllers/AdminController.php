@@ -10,8 +10,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->where('role_id', 2)->orderBy('id', 'desc')->paginate(10);
-        // dd($users);
+        
+        $users = User::where('role_id', 2)->where('name', 'like', '%'.Input::get('query').'%')->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
         return response()->json($users);
     }
 

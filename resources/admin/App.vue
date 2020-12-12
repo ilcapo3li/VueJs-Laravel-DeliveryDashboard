@@ -35,7 +35,7 @@ import apiUrls from './helpers/apiUrls';
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
-            //  this.$router.push('/login')
+             this.$router.push('/admin/delivery/login')
           })
             this.$store.commit('authenticatedValue',true);
         }
@@ -44,7 +44,7 @@ import apiUrls from './helpers/apiUrls';
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
-            //  this.$router.push('/login')
+             this.$router.push('/admin/delivery/login')
           }
           
         if(localStorage.getItem('lang')=="ar"){
@@ -82,89 +82,91 @@ import apiUrls from './helpers/apiUrls';
 </script>
 
 <style>
-.custom-select{
-  color: rgb(0, 0, 0) !important;
-  font-size: 0.80rem !important;
-  font-weight: 600 !important;
-}
-.sidebar .nav li > a, off-canvas-sidebar .nav li > a{
-      font-size: 0.80rem !important;
-      font-weight: 600 !important;
-}
-.card label {
+  .custom-select{
+    color: rgb(255, 255, 255) !important;
     font-size: 0.80rem !important;
     font-weight: 600 !important;
-}
-.form-control {
-    font-weight: 600 !important;
-}
-.card .card-header .card-category {
-    color: #00c3da !important;
-    margin-bottom: 10px !important;
-    font-weight: 700 !important;
-}
-.white-content .form-control:focus {
-    border-color: #00c3da !important;
-}
-.main-panel { 
-  border-top: 3px solid #306bf6 !important;
-}
-a{
-    
-    font-weight: 700 !important;
-}
-.white-content .navbar.navbar-transparent .navbar-brand {
+  }
+  .sidebar .nav li > a, off-canvas-sidebar .nav li > a{
+        font-size: 0.80rem !important;
+        font-weight: 600 !important;
+  }
+  .card label {
+      font-size: 0.80rem !important;
+      font-weight: 600 !important;
+  }
+  .form-control {
+      font-weight: 600 !important;
+  }
+  .card .card-header .card-category {
       color: #00c3da !important;
-}
-.card-user .author .block.block-one {
-      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-}
-.card-user .author .block.block-two {
-      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-}
-.card-user .author .block.block-three {
-      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-}
-.card-user .author .block.block-four {
-      background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
-}
-textarea.form-control {
-    max-height: 500px !important;
-    padding: 10px 10px 10px 10px !important;
-    resize: auto !important;
-    border-bottom: 1.2px solid !important; 
-    line-height: 1.3 !important;
-}
-.page-item.active .page-link {
- 
-    background-color: #25cbdf    !important;
-    border-color: #25cbdf    !important;
-}
-.table .thead-light th {
-    background-color: #25cbdf !important;
-    border-color: #25cbdf !important;
-}
-a {
-    color: #13c7dd !important;
-}
-hr {
-    border-top: 2.2px solid rgb(245, 246, 250) !important;
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
-    font-weight: bold !important;
-}
-.main-panel[data=green] {
-    border-top: 2px solid #00f2c3 !important;
-}
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link
-{
-    color: #13c7dd !important;
-    background-color: #c1c1c1 !important;
-    border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
+      margin-bottom: 10px !important;
+      font-weight: 700 !important;
+  }
+  .white-content .form-control:focus {
+      border-color: #00c3da !important;
+  }
+  .main-panel { 
+    border-top: 3px solid #306bf6 !important;
+  }
+  a{
+      
+      font-weight: 700 !important;
+  }
+  .white-content .navbar.navbar-transparent .navbar-brand {
+        color: #00c3da !important;
+  }
+  .card-user .author .block.block-one {
+        background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+  }
+  .card-user .author .block.block-two {
+        background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+  }
+  .card-user .author .block.block-three {
+        background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+  }
+  .card-user .author .block.block-four {
+        background: linear-gradient(to right, rgb(0, 238, 197) 0%, rgba(225, 78, 202, 0) 100%) !important;
+  }
+  textarea.form-control {
+      max-height: 500px !important;
+      padding: 10px 10px 10px 10px !important;
+      resize: auto !important;
+      border-bottom: 1.2px solid !important; 
+      line-height: 1.3 !important;
+  }
+  .page-item.active .page-link {
+  
+      background-color: #25cbdf    !important;
+      border-color: #25cbdf    !important;
+  }
+  .table .thead-light th {
+      background-color: #25cbdf !important;
+      border-color: #25cbdf !important;
+  }
+  a {
+      color: #13c7dd !important;
+  }
+  hr {
+      border-top: 2.2px solid rgb(245, 246, 250) !important;
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+      font-weight: bold !important;
+  }
+  .main-panel[data=green] {
+      border-top: 2px solid #00f2c3 !important;
+  }
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link
+  {
+      color: #13c7dd !important;
+      background-color: #c1c1c1 !important;
+      border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
 
-}
-.card{
-  background-image:url('/default/default.jpg')  !important;
-}
+  }
+  /* .card{
+    background-image:url('/img/img.jpg')  !important;
+    background-position: fixed !important;
+
+  } */
 </style>
 

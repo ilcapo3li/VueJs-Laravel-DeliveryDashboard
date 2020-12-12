@@ -45,7 +45,7 @@
     props: {
       title: {
         type: String,
-        default: "BiComtics"
+        default: "Bicomatics"
       },
       backgroundColor: {
         type: String,
@@ -105,7 +105,7 @@
         windowWidth: 0,
         isWindows: false,
         hasAutoHeight: false,
-        im:'/default/default.jpg',
+        im:'/img/logo1.png',
         links: []
       };
     },

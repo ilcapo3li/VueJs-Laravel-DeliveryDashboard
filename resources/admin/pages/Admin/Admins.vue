@@ -2,11 +2,18 @@
   <card>
    <div>
     <b-row :style="{'text-align':isRTL?'right':'left'}">
-      <b-col  md="6" class="my-1">
-
-        <div v-if="user.role =='super'">
-          <b-button class="btn btn-primary" size="sm" @click="addAdmins()">{{$t('add')}}</b-button>
-        </div>
+      
+       <b-col md="6" class="my-1">
+          <div v-if="user.role =='Super'">
+            <b-button class="btn btn-primary" size="sm" @click="addAdmin()">{{$t('add')}}</b-button>
+          </div>
+          <div v-else-if="user.role =='Admin'">
+            <div v-for="(permission,index) in user.permissions" v-bind:key="index">
+              <div v-if="permission.name=='Create Admin'">
+                <b-button class="btn btn-primary" size="sm" @click="addAdmin()">{{$t('add')}}</b-button>
+              </div>
+            </div>
+          </div>
       </b-col>
 
       <b-col  md="4" class="my-1">
@@ -164,7 +171,7 @@
         })
 
       },
-      addAdmins(){
+      addAdmin(){
         this.$router.push({name:'admins-add'});
       }
     },
