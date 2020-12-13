@@ -11,12 +11,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        // dd(Auth::user()->company->admins);
-        $users = Auth::user()->company->admins()
-        ->where('name', 'like', '%'.Input::get('query').'%')
-        ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
-        ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
-        return response()->json($users);
+        $admins = Auth::user()->company->admins()
+                ->where('name', 'like', '%'.Input::get('query').'%')
+                ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
+                ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
+                return response()->json($admins);
     }
 
     public function save(Request $request)

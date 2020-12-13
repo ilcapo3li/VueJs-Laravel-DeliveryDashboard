@@ -17,23 +17,21 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->unsignedBigInteger('photo_id')->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');
-            $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
-            $table->integer('blocked')->default(0);
-            $table->string('phonePrimary')->nullable();
-            $table->timestamp('number_verified_at')->nullable();
+            $table->string('phonePrimary')->unique();
             $table->string('PhoneSecondary')->nullable();
+            $table->unsignedBigInteger('photo_id')->nullable();
+            $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('created_by')->nullable();
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->tinyInteger('disabled')->default(0);
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('number_verified_at')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
         });
     }
 

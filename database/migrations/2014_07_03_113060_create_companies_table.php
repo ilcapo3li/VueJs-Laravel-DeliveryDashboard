@@ -24,6 +24,8 @@ class CreateCompaniesTable extends Migration
             $table->string('PhoneSecondary')->nullable();
             $table->string('email')->unique();
             $table->string('website')->unique()->nullable();
+            $table->unsignedBigInteger('currency_id')->nullable();
+            $table->foreign('currency_id')->references('id')->on('currencies');
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries');
 			$table->unsignedBigInteger('city_id')->nullable();

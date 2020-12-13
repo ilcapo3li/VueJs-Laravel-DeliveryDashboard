@@ -55,13 +55,10 @@ Route::post('/token/check', 'AuthController@AuthCheck');
     Route::group(['middleware' => ['isSuper']], function () {
         /////////////////this route working only with  super admin by issuper middleware //////////////////
         /////////////////Start super admin only by permissioncheck middleware //////////////////
-        Route::get('/powers', 'PowerController@index');
-        Route::post('/save/power', 'PowerController@save');
-        Route::put('/update/power/{power}', 'PowerController@edit');
-        //////////////////////////////////////////////////////////////////
-        Route::get('/superpowers', 'SuperPowerController@index');
-        Route::post('/save/superpower', 'SuperPowerController@save');
-        Route::put('/update/superpower/{superpower}', 'SuperPowerController@edit');
+       
+        Route::get('/admins', 'AdminController@index');
+        Route::post('/save/admin', 'AdminController@save');
+        Route::put('/update/admin/{admin}', 'AdminController@update');
        
         //////////////////////////////////////////////////////////////////
         Route::get('/permissions', 'PermissionsController@index');
@@ -72,20 +69,20 @@ Route::post('/token/check', 'AuthController@AuthCheck');
     });
 
 
-    Route::group(['middleware' => ['isPower']], function () {
+    // Route::group(['middleware' => ['isPower']], function () {
         /////////////////this route working only with  power admin by issuper middleware //////////////////
         /////////////////Start Power admin only by permissioncheck middleware //////////////////
-       
-        Route::get('/admins', 'AdminController@index');
-        Route::post('/save/admin', 'AdminController@save');
-        Route::put('/update/admin/{admin}', 'AdminController@edit');
-        Route::get('/powerpermissions', 'PermissionsController@index');
-
-        
+        // Route::get('/powers', 'PowerController@index');
+        // Route::post('/save/power', 'PowerController@save');
+        // Route::put('/update/power/{power}', 'PowerController@edit');
+        //////////////////////////////////////////////////////////////////
+        // Route::get('/superpowers', 'SuperPowerController@index');
+        // Route::post('/save/superpower', 'SuperPowerController@save');
+        // Route::put('/update/superpower/{superpower}', 'SuperPowerController@edit');
         //////////////////////////////////////////////////////////////////
        
         /////////////////End power admin only by permissioncheck middleware //////////////////
-    });
+    // });
     ///////////////////////////////////End Super Auth User///////////////////////////
 
     // Route::group(['middleware' => ['permissioncheck', 'auth', 'blocked']], function () {
