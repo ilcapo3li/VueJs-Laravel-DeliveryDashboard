@@ -14,10 +14,7 @@ class SettingsSeeder extends Seeder
      */
     public function run()
     {
-        ApiKey::create([
-            'token' => 'italy',
-        ]);
-
+        
         Branch::create([
             'application_name' => 'Region1',
             'firebase_token' => '',
@@ -38,12 +35,12 @@ class SettingsSeeder extends Seeder
         Currency::create([
             'ar_name' => 'Saudi Ryal',
             'en_name' => 'Saudi Ryal',
-            'en_name' => 'SAR',
+            'code' => 'SAR',
             'rate' => '0.35',
         ]);
 
         DeliverySetting::create([
-            'orderPrice' => 7.0,
+            'price' => 7.0,
             'kmCost' => 0.3,
             'mQubeCost' => 20.0,
             'kgCost' => 30.0,
@@ -54,12 +51,13 @@ class SettingsSeeder extends Seeder
         Setting::create([
             'gmail' => '',
             'facebook' => '',
-            'whats' => '',
+            'whatsup' => '',
             'website' => '',
-            'fbGroup' => '',
+            'fbgroup' => '',
             'youtube' => '',
             'twitter' => '',
-            'instgram' => '',
+            'instagram' => '',
+            'company_id' => 1,
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermissionsTable extends Migration
+class CreateOwnerTokensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
+        Schema::create('owner_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('en_name');
-            $table->string('ar_name');
+            $table->morphs('owner');
+            $table->text('token');
+            $table->tinyInteger('blocked')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        Schema::dropIfExists('owner_tokens');
     }
 }

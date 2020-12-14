@@ -21,7 +21,7 @@ class CreateReportsTable extends Migration
             $table->string('title');
             $table->longText('message');
             $table->unsignedBigInteger('photo_id')->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('set null');
+            $table->foreign('photo_id')->references('id')->on('attachments');
             $table->dateTime('collecting_at')->nullable();
             $table->unsignedBigInteger('collected_by')->nullable();
             $table->foreign('collected_by')->references('id')->on('users');

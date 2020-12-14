@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingsTable extends Migration
+class CreateCompanyAgentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,15 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('company_agents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('gmail')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('whatsup')->nullable();
-            $table->string('website')->nullable();
-            $table->string('fbgroup')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('instgram')->nullable();
+            $table->unsignedBigInteger('subscription_type_id');
+            $table->foreign('subscription_type_id')->references('id')->on('subscription_types');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
@@ -36,6 +32,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('company_agents');
     }
 }

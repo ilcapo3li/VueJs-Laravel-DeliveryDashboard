@@ -98,9 +98,9 @@ class User extends Authenticatable implements JWTSubject
 
     ///////////////////////////////////////////////////
 
-    public function photo()
+    public function attchment()
     {
-        return $this->belongsTo(Photo::class, 'photo_id');
+        return $this->belongsTo(Attachment::class, 'attchment_id');
     }
 
     public function messages()
@@ -125,6 +125,6 @@ class User extends Authenticatable implements JWTSubject
 
     public function userTokens()
     {
-        return $this->hasMany(UserToken::class, 'user_id');
+        return $this->hasMany(OwnerToken::class)->where('owner_type','user');
     }
 }

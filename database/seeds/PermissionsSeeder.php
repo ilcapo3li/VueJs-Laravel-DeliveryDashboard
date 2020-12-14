@@ -13,117 +13,112 @@ class PermissionsSeeder extends Seeder
     {
         $permissions = [];
         array_push($permissions,
-        /////////////////////////////Super Admin Permission and Operation////////////////////////////////
-         ['en_name' => 'Update Settings', 'ar_name' => 'تعديل الاعدادت', 'role_id' => '1'],
-         ['en_name' => 'View Settings', 'ar_name' => 'مشاهده الاعدادت', 'role_id' => '1'],
-         ['en_name' => 'Update ADS', 'ar_name' => 'تعديل الاعلانات', 'role_id' => '1'],
-         ['en_name' => 'View ADS', 'ar_name' => 'مشاهدة الاعلانات', 'role_id' => '1'],
-         ['en_name' => 'Send Notify', 'ar_name' => 'ارسال اشعار', 'role_id' => '1'],
-         ['en_name' => 'Super Dashboard', 'ar_name' => 'لوحة البيانات', 'role_id' => '1'],
+        //////////////////////////////////////////////////////////////////////////////////
+         ['en_name' => 'Update Settings', 'ar_name' => 'تعديل الاعدادت'],
+         ['en_name' => 'View Settings'  , 'ar_name' => 'مشاهده الاعدادت'],
+         ['en_name' => 'Update ADS'     , 'ar_name' => 'تعديل الاعلانات'],
+         ['en_name' => 'View ADS'       , 'ar_name' => 'قراءة الاعلانات'],
+         ['en_name' => 'Send Notify'    , 'ar_name' => 'ارسال اشعار'],
+         ['en_name' => 'Super Dashboard', 'ar_name' => 'لوحة البيانات'],
+
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Companies', 'ar_name' => 'مشاهدة الشركات', 'role_id' => '1'],
-         ['en_name' => 'Save Company', 'ar_name' => 'انشاء الشركات', 'role_id' => '1'],
-         ['en_name' => 'Update Company', 'ar_name' => 'تعديل الشركات', 'role_id' => '1'],
-	   ['en_name' => 'Delete Company', 'ar_name' => 'حذف الشركات', 'role_id' => '1'],
-         ['en_name' => 'print Companies', 'ar_name' => 'طباعة الشركات', 'role_id' => '1'],
+         ['en_name' => 'View Companies' , 'ar_name' => 'قراءة الشركات'],
+         ['en_name' => 'Save Company'   , 'ar_name' => 'انشاء الشركات'],
+         ['en_name' => 'Update Company' , 'ar_name' => 'تعديل الشركات'],
+	     ['en_name' => 'Delete Company' , 'ar_name' => 'حذف الشركات'],
+         ['en_name' => 'Print Companies', 'ar_name' => 'طباعة الشركات'],
 	   
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Countries', 'ar_name' => 'مشاهدة الدول', 'role_id' => '1'],
-         ['en_name' => 'Save Country', 'ar_name' => 'انشاء الدول', 'role_id' => '1'],
-         ['en_name' => 'Update Country', 'ar_name' => 'تعديل الدول', 'role_id' => '1'],
-         ['en_name' => 'Delete Country', 'ar_name' => 'حذف الدول', 'role_id' => '1'],
+         ['en_name' => 'View Countries', 'ar_name' => 'قراءة الدول'],
+         ['en_name' => 'Save Country'  , 'ar_name' => 'انشاء الدول'],
+         ['en_name' => 'Update Country', 'ar_name' => 'تعديل الدول'],
+         ['en_name' => 'Delete Country', 'ar_name' => 'حذف الدول'],
+
          ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Currencies', 'ar_name' => 'مشاهدة العملات', 'role_id' => '1'],
-         ['en_name' => 'Save Currency', 'ar_name' => 'انشاء العملات', 'role_id' => '1'],
-         ['en_name' => 'Update Currency', 'ar_name' => 'تعديل العملات', 'role_id' => '1'],
-         ['en_name' => 'Delete Currency', 'ar_name' => 'حذف العملات', 'role_id' => '1'],
+         ['en_name' => 'View Currencies', 'ar_name' => 'قراءة العملات'],
+         ['en_name' => 'Save Currency'  , 'ar_name' => 'انشاء العملات'],
+         ['en_name' => 'Update Currency', 'ar_name' => 'تعديل العملات'],
+         ['en_name' => 'Delete Currency', 'ar_name' => 'حذف العملات'],
+
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Cities', 'ar_name' => 'مشاهدة المدن', 'role_id' => '1'],
-         ['en_name' => 'Save City', 'ar_name' => 'انشاء المدن', 'role_id' => '1'],
-         ['en_name' => 'Update City', 'ar_name' => 'تعديل المدن', 'role_id' => '1'],
-         ['en_name' => 'Delete City', 'ar_name' => 'حذف المدن', 'role_id' => '1'],
+         ['en_name' => 'View Cities', 'ar_name' => 'قراءة المدن'],
+         ['en_name' => 'Save City'  , 'ar_name' => 'انشاء المدن'],
+         ['en_name' => 'Update City', 'ar_name' => 'تعديل المدن'],
+         ['en_name' => 'Delete City', 'ar_name' => 'حذف المدن'],
+         
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Powers', 'ar_name' => 'مشاهدة سوبر ادمن الشركات', 'role_id' => '1'],
-         ['en_name' => 'Save Power', 'ar_name' => 'انشاء  سوبر ادمن الشركات', 'role_id' => '1'],
-	   ['en_name' => 'Update Power', 'ar_name' => 'تعديل  سوبر ادمن الشركات', 'role_id' => '1'],
-         ['en_name' => 'print Powers', 'ar_name' => 'طباعة ادمن الشركات', 'role_id' => '1'],
-	   
+         ['en_name' => 'View SubscriptionTypes' , 'ar_name' => 'قراءة انواع الاشتراكات'],
+         ['en_name' => 'Save SubscriptionType'  , 'ar_name' => 'انشاء انواع الاشتراكات'],
+         ['en_name' => 'Update SubscriptionType', 'ar_name' => 'تعديل انواع الاشتراكات'],
+         ['en_name' => 'Delete SubscriptionType', 'ar_name' => 'حذف انواع الاشتراكات'],
+
          ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View SuperPowers', 'ar_name' => 'مشاهدة سوبر ادمن التحكم', 'role_id' => '1'],
-         ['en_name' => 'Save SuperPower', 'ar_name' => 'انشاء سوبر ادمن لوحة التحكم', 'role_id' => '1'],
-         ['en_name' => 'Update SuperPower', 'ar_name' => 'تعديل سوبر ادمن التحكم', 'role_id' => '1'],
-        ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View SubscriptionTypes', 'ar_name' => 'مشاهدة انواع الاشتراكات', 'role_id' => '1'],
-         ['en_name' => 'Save SubscriptionType', 'ar_name' => 'انشاء انواع الاشتراكات', 'role_id' => '1'],
-         ['en_name' => 'Update SubscriptionType', 'ar_name' => 'تعديل انواع الاشتراكات', 'role_id' => '1'],
-         ['en_name' => 'Delete SubscriptionType', 'ar_name' => 'حذف انواع الاشتراكات', 'role_id' => '1'],
+         ['en_name' => 'View MaterialTypes' , 'ar_name' => 'قراءة انواع المواد'],
+         ['en_name' => 'Save MaterialType'  , 'ar_name' => 'انشاء انواع المواد'],
+         ['en_name' => 'Update MaterialType', 'ar_name' => 'تعديل انواع المواد'],
+         ['en_name' => 'Delete MaterialType', 'ar_name' => 'حذف انواع المواد'],
+
+          ////////////////////////////////////////////////////////////////////////////////////////////////
+          ['en_name' => 'View Materials' , 'ar_name' => 'قراءة  المواد'],
+          ['en_name' => 'Save Material'  , 'ar_name' => 'انشاء  المواد'],
+          ['en_name' => 'Update Material', 'ar_name' => 'تعديل  المواد'],
+          ['en_name' => 'Delete Material', 'ar_name' => 'حذف  المواد'],
+
          ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View MaterialTypes', 'ar_name' => 'مشاهدة انواع المواد', 'role_id' => '1'],
-         ['en_name' => 'Save MaterialType', 'ar_name' => 'انشاء انواع المواد', 'role_id' => '1'],
-         ['en_name' => 'Update MaterialType', 'ar_name' => 'تعديل انواع المواد', 'role_id' => '1'],
-         ['en_name' => 'Delete MaterialType', 'ar_name' => 'حذف انواع المواد', 'role_id' => '1'],
-         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View DeliveryStatuses', 'ar_name' => 'مشاهدة حالات التوصيل', 'role_id' => '1'],
-         ['en_name' => 'Save DeliveryStatus', 'ar_name' => 'انشاء حالات التوصيل', 'role_id' => '1'],
-         ['en_name' => 'Update DeliveryStatus', 'ar_name' => 'تعديل حالات التوصيل', 'role_id' => '1'],
-         ['en_name' => 'Delete DeliveryStatus', 'ar_name' => 'حذف حالات التوصيل', 'role_id' => '1'],
+         ['en_name' => 'View DeliveryStatus'  , 'ar_name' => 'قراءة حالات التوصيل'],
+         ['en_name' => 'Save DeliveryStatue'  , 'ar_name' => 'انشاء حالات التوصيل'],
+         ['en_name' => 'Update DeliveryStatue', 'ar_name' => 'تعديل حالات التوصيل'],
+         ['en_name' => 'Delete DeliveryStatue', 'ar_name' => 'حذف حالات التوصيل'],
+
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Subscriptions', 'ar_name' => 'مشاهدة الاشتراكات', 'role_id' => '1'],
-         ['en_name' => 'print Subscriptions', 'ar_name' => 'طباعة الاشتراكات', 'role_id' => '1'],
-        ///////////////////////////////////////////End Super Admin Permission and Operation/////////////////////////////////////////////////////
-        /////////////////////////////////////////////Start Power Permission and Operation///////////////////////////////////////////////////
-         ['en_name' => 'View Reports', 'ar_name' => 'مشاهده البلاغات', 'role_id' => '7'],
-         ['en_name' => 'Update Reports', 'ar_name' => 'تعديل البلاغات', 'role_id' => '7'],
-         ['en_name' => 'View Dashboard', 'ar_name' => 'مشاهدة لوحة الشركة', 'role_id' => '7'],
+         ['en_name' => 'View Subscriptions' , 'ar_name' => 'قراءة الاشتراكات'],
+         ['en_name' => 'Print Subscriptions', 'ar_name' => 'طباعة الاشتراكات'],
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+         ['en_name' => 'View Reports'  , 'ar_name' => 'مشاهده البلاغات'],
+         ['en_name' => 'Update Reports', 'ar_name' => 'تعديل البلاغات'],
+         ['en_name' => 'View Dashboard', 'ar_name' => 'قراءة لوحة الشركة'],
+
         ////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Admins', 'ar_name' => 'مشاهدة ادمن الشركة', 'role_id' => '7'],
-         ['en_name' => 'Save Admin', 'ar_name' => 'انشاء ادمن الشركة', 'role_id' => '7'],
-         ['en_name' => 'Update Admin', 'ar_name' => 'تعديل ادمن الشركة', 'role_id' => '7'],
+         ['en_name' => 'View Admins' , 'ar_name' => 'قراءة ادمن الشركة'],
+         ['en_name' => 'Save Admin'  , 'ar_name' => 'انشاء ادمن الشركة'],
+         ['en_name' => 'Update Admin', 'ar_name' => 'تعديل ادمن الشركة'],
+
         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Tayar', 'ar_name' => 'مشاهدة الطيارين', 'role_id' => '7'],
-         ['en_name' => 'Save Tayar', 'ar_name' => 'انشاء الطيارين', 'role_id' => '7'],
-         ['en_name' => 'print Tayar', 'ar_name' => 'طباعة الطيارين', 'role_id' => '7'],
+         ['en_name' => 'View Representative' , 'ar_name' => 'قراءة المناديب'],
+         ['en_name' => 'Save Representative' , 'ar_name' => 'انشاء المناديب'],
+         ['en_name' => 'Print Representative', 'ar_name' => 'طباعة المناديب'],
 	  
         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Agents', 'ar_name' => 'مشاهدة العملاء', 'role_id' => '7'],
-	   ['en_name' => 'Save Agent', 'ar_name' => 'انشاء العملاء', 'role_id' => '7'],
-         ['en_name' => 'print Agents', 'ar_name' => 'طباعة العملاء', 'role_id' => '7'],
+         ['en_name' => 'View Agents' , 'ar_name' => 'قراءة العملاء'],
+	     ['en_name' => 'Save Agent'  , 'ar_name' => 'انشاء العملاء'],
+         ['en_name' => 'Print Agents', 'ar_name' => 'طباعة العملاء'],
 	   
+         /////////////////////////////////////////////////////////////////////////////////////////////////
+         ['en_name' => 'View Leads' , 'ar_name' => 'قراءة العملاء'],
+	     ['en_name' => 'Save Lead'  , 'ar_name' => ' انشاء العملاء'],
+         ['en_name' => 'Print Leads', 'ar_name' => 'طباعة العملاء'],
+	   
+         /////////////////////////////////////////////////////////////////////////////////////////////////
+         ['en_name' => 'View Zones' , 'ar_name' => 'قراءة المناطق'],
+         ['en_name' => 'Save Zone'  , 'ar_name' => 'انشاء المناطق'],
+         ['en_name' => 'Update Zone', 'ar_name' => 'تعديل المناطق'],
+         ['en_name' => 'Delete Zone', 'ar_name' => 'حذف المناطق'],
+         ['en_name' => 'Print Zone' , 'ar_name' => 'طباعة المناطق'],
 
          /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Suppliers', 'ar_name' => '', 'role_id' => '7'],
-	   ['en_name' => 'Save Supplier', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'print Suppliers', 'ar_name' => 'طباعة الموردين', 'role_id' => '7'],
+         ['en_name' => 'View Orders' , 'ar_name' => 'قراءة الطلبات'],
+         ['en_name' => 'Save Order'  , 'ar_name' => 'انشاء الطلبات'],
+         ['en_name' => 'Update Order', 'ar_name' => ' تعديل الطلبات'],
+	     ['en_name' => 'Delete Order', 'ar_name' => 'حذف الطلبات'],
+         ['en_name' => 'Print Orders', 'ar_name' => 'طباعة الطلبات'],
 	   
+         /////////////////////////////////////////////////////////////////////////////////////////////////
+         ['en_name' => 'View Locations' , 'ar_name' => 'قراءة العناوين'],
+         ['en_name' => 'Save Location'  , 'ar_name' => 'انشاء العناوين'],
+         ['en_name' => 'Update Location', 'ar_name' => 'تعديل العناوين'],
+         ['en_name' => 'Delete Location', 'ar_name' => 'حذف العناوين']
 
-         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Leads', 'ar_name' => '', 'role_id' => '7'],
-	   ['en_name' => 'Save Lead', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'print Leads', 'ar_name' => 'طباعة المستفيدين', 'role_id' => '7'],
-	   
-
-         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Zones', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Save Zone', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Update Zone', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Delete Zone', 'ar_name' => '', 'role_id' => '7'],
-         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Zones', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Save Zone', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Update Zone', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Delete Zone', 'ar_name' => '', 'role_id' => '7'],
-         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Orders', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Save Order', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Update Order', 'ar_name' => '', 'role_id' => '7'],
-	   ['en_name' => 'Delete Order', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'print Orders', 'ar_name' => 'طباعة الطلبات', 'role_id' => '7'],
-	   
-         /////////////////////////////////////////////////////////////////////////////////////////////////
-         ['en_name' => 'View Locations', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Save Location', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Update Location', 'ar_name' => '', 'role_id' => '7'],
-         ['en_name' => 'Delete Location', 'ar_name' => '', 'role_id' => '7']
          /////////////////////////////////////////////////////////////////////////////////////////////////
     );
 

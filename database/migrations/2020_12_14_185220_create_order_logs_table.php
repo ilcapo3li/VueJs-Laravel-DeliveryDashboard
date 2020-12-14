@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTokensTable extends Migration
+class CreateOrderLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUserTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_tokens', function (Blueprint $table) {
+        Schema::create('order_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->text('token');
-            $table->tinyInteger('blocked')->default(0);
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('statue_id');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('statue_id')->references('id')->on('status');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateUserTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_tokens');
+        Schema::dropIfExists('order_logs');
     }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserToken extends Model
+class CompanyAgent extends Model
 {
-   protected $table='user_tokens';
+    //
 }
