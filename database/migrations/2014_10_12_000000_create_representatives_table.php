@@ -28,7 +28,7 @@ class CreateRepresentativesTable extends Migration
             $table->softDeletes();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('number_verified_at')->nullable();
-            $table->foreign('created_by')->references('id')->on('companies');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('photo_id')->references('id')->on('attachments');
         });
     }
