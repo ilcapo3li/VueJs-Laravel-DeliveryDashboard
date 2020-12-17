@@ -11,7 +11,11 @@ class LocationsSeeder extends Seeder
     public function run()
     {
         Location::create([
-            'user_id' => '2',
+            'owner_id' => '1',
+            'owner_type' => 'Lead',
+            'country_id' => 64,
+            'city_id' => 1,
+
 
             'address' => '25 kom-eldeka Alexandria Foad street',
             'location' => '{
@@ -26,7 +30,11 @@ class LocationsSeeder extends Seeder
                                 }',
         ]);
         Location::create([
-            'user_id' => '1',
+            'owner_id' => '2',
+            'owner_type' => 'Lead',
+            'country_id' => 64,
+            'city_id' => 1,
+
 
             'address' => '25 kom-eldeka Alexandria Foad street',
             'location' => '{
@@ -41,7 +49,12 @@ class LocationsSeeder extends Seeder
                                 }',
         ]);
         Location::create([
-            'user_id' => '5',
+            'owner_id' => '1',
+            'owner_type' => 'Agent',
+            'country_id' => 64,
+            'city_id' => 1,
+
+
 
             'address' => '25 kom-eldeka Alexandria Foad street',
             'location' => '{
@@ -57,9 +70,14 @@ class LocationsSeeder extends Seeder
         ]);
 
         Location::create([
-            'user_id' => '6',
+            'owner_id' => '1',
+            'owner_type' => 'Lead',
+            'country_id' => 64,
+            'city_id' => 1,
 
-            'address' => '25 kom-eldeka Alexandria Foad street',
+
+
+            'address' => 'Kom Eldekkkka',
             'location' => '{
                                 "country_code": "EG",
                                 "country_name": "Egypt",
@@ -72,9 +90,13 @@ class LocationsSeeder extends Seeder
                                 }',
         ]);
         Location::create([
-            'user_id' => '7',
+            'owner_id' => '1',
+            'owner_type' => 'Lead',
+            'country_id' => 64,
+            'city_id' => 1,
 
-            'address' => '25 kom-eldeka Alexandria Foad street',
+
+            'address' => 'Mhatet el Rameel ',
             'location' => '{
                                 "country_code": "EG",
                                 "country_name": "Egypt",

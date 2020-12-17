@@ -103,7 +103,7 @@ return [
         ],
         'representatives' => [
             'driver' => 'eloquent',
-            'model' => App\Representatives::class,
+            'model' => App\Representative::class,
         ],
         'leads' => [
             'driver' => 'eloquent',

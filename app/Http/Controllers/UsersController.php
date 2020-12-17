@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-class UsersController extends Controller
+class UsersController extends AuthController
 {
     /**
      * Display a listing of the user.
@@ -96,45 +96,7 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function changePassword(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'new' => 'required',
-            'old' => 'required',
-            ]);
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        } else {
-            $user = Auth::user();
-            $credentials = ['email' => $user->email, 'password' => $request->old];
-
-            if (Auth()->attempt($credentials)) {
-                // Right password
-                $check = ['email' => $user->email, 'password' => $request->new];
-                if (Auth()->attempt($check)) {
-                    return response()->json(['status' => 'false', 'message' => 'you can not use password you used before as new password'], 422);
-                } else {
-                    $user->password = $request->new;
-                    foreach ($user->userTokens as $userToken) {
-                        $userToken->blocked = 1;
-                        $userToken->save();
-                    }
-                    $user->save();
-                    auth()->logout();
-
-                    return response()->json(['status' => 'true']);
-                }
-            } else {
-                // Wrong one
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-        }
-    }
+    
 
     public function user()
     {
@@ -143,41 +105,15 @@ class UsersController extends Controller
         return response()->json($user);
     }
 
-    public function changeName(Request $request)
+  
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        } else {
-            $user = Auth::user();
-            $user->name = $request->name;
-            $user->save();
-
-            return response()->json(['name' => $user->name, 'status' => 'true']);
-        }
-    }
-
-    public function uploadPhoto(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'photo' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        } else {
-            $image = $request->photo;  // your base64 encoded
-            $photo = new PhotoHelper();
-            $new_photo = $photo->constructPhoto($image, 'user');
-            $user = Auth::user();
-            $photo = Photo::find($user->photo_id);
-            File::delete(storage_path().DIRECTORY_SEPARATOR.$photo->path);
-            $photo->delete();
-            $user->photo_id = $new_photo;
-            $user->save();
-
-            return response()->json(['photo' => $user->photo->path, 'status' => 'true']);
-        }
+        return 'user';
     }
 }

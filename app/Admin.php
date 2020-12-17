@@ -30,6 +30,13 @@ class Admin extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
+    public function setPasswordAttribute($password)
+    {
+        if (!empty($password)) {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -48,6 +55,16 @@ class Admin extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function tokens()
+    {
+        return $this->hasMany(ApiKey::class)->where('owner_type','admin');
+    }
+
+    public function adminTokens()
+    {
+        return $this->hasMany(OwnerToken::class)->where('owner_type','admin');
     }
 }
   

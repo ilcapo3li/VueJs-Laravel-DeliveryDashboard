@@ -5,81 +5,47 @@ namespace App\Http\Controllers;
 use App\Agent;
 use Illuminate\Http\Request;
 
-class AgentController extends Controller
+class AgentController extends AuthController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $agents = User::where('role_id', 1)->where('name', 'like', '%'.Input::get('query').'%')->orwhere('role_id', 1)->where('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 4)->orderBy('id', 'desc')->paginate(10);
+
+        return response()->json($agents);
+    }
+
+    public function save(Request $request)
+    {
+       
+        $request->validate([
+            'name' => 'required|string|unique:users,name',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        } else {
+            $admin = new User();
+            $admin->name = $request->name;
+            $admin->email = $request->email;
+            $admin->password = $request->password;
+            $admin->role_id = 4;
+            $admin->save();
+
+            return response()->json('Admin Created Suceessfully');
+        }
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Get the guard to be used during authentication.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Auth\Guard
      */
-    public function create()
+    public function guard()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Agent  $agent
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Agent $agent)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Agent  $agent
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Agent $agent)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agent  $agent
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Agent $agent)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Agent  $agent
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Agent $agent)
-    {
-        //
+        return 'agent';
     }
 }

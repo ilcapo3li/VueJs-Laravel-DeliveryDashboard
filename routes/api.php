@@ -13,35 +13,54 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::post('/admin/login','AdminController@login');	
-
-Route::group(['prefix' => '/admins','middleware' => ['assign.guard:admin','jwt.auth']],function ()
-{
-	Route::post('/login','AdminController@login');	
-});
-
-Route::group(['prefix' => 'company/admin','middleware' => ['assign.guard:user','jwt.auth']],function ()
-{
-	Route::post('/login','UsersController@login');	
-});
-
-Route::group(['prefix' => 'lead','middleware' => ['assign.guard:lead','jwt.auth']],function ()
-{
-	Route::post('/login','LeadController@login');	
-});
-
-Route::group(['prefix' => 'agent','middleware' => ['assign.guard:agent','jwt.auth']],function ()
-{
-	Route::post('/login','AgentController@login');	
-});
-
 ////////////////////////////////////////Login, Register& Logout////////////////////////////////////////////////////////
-// Route::post('/register', 'AuthController@register');
-// Route::post('/device_app', 'ApiController@deviceTokenRegister');
-// Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
-// Route::post('/logout', 'AuthController@logout');
-// Route::post('/token/check', 'AuthController@AuthCheck');
+Route::post('/register', 'ApiController@register');
+Route::post('/device_app', 'ApiController@deviceTokenRegister');
+
+Route::post('/admin/bicomatics/login','AdminController@login');
+Route::post('/company/login','UsersController@login');
+Route::post('/representative/login','RepresentativeController@login');
+Route::post('/agent/login','AgentController@login');
+Route::post('/lead/login','LeadController@login');
+
+Route::post('/logout', 'AuthController@logout');
+Route::post('/token/check', 'AuthController@AuthCheck');
+
+/////////////////////////////Bicomatics Admins//////////////////////////////////
+Route::group(['prefix' => 'bicomatics','middleware' => ['assign.guard:admin','jwt.auth']],function ()
+{
+    
+    
+});
+
+/////////////////////////////Company Users//////////////////////////////////
+Route::group(['prefix' => 'company','middleware' => ['assign.guard:user','jwt.auth']],function ()
+{
+		
+});
+
+/////////////////////////////Representative "Tayaar"//////////////////////////////////
+Route::group(['prefix' => 'representative','middleware' => ['assign.guard:representative','jwt.auth']],function ()
+{
+
+
+});
+
+/////////////////////////////Agent ,Suppliers//////////////////////////////////
+Route::group(['prefix' => 'suppliers','middleware' => ['assign.guard:agent','jwt.auth']],function ()
+{
+    
+    
+});
+
+/////////////////////////////Users Leads//////////////////////////////////
+Route::group(['prefix' => 'user','middleware' => ['assign.guard:lead','jwt.auth']],function ()
+{
+    
+    
+});
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////Mobile Api/////////////////////////////////////////
@@ -167,11 +186,7 @@ Route::group(['prefix' => 'agent','middleware' => ['assign.guard:agent','jwt.aut
  
 
 
-    //////////////////////////////START Normal User Watching////////////////////
-  
-    //////////////////////////////END User Watching/////////////////////////////
-
-    /////////////////////////////START Test Propose Only////////////////////////
+/////////////////////////////START Test Propose Only////////////////////////
     // Route::get('/tests', function () {
     // });
-    //////////////////////////////////END Test//////////////////////////////////
+//////////////////////////////////END Test//////////////////////////////////

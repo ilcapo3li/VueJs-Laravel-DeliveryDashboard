@@ -60,35 +60,13 @@ class User extends Authenticatable implements JWTSubject
     }
 
     
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'creator_id');
-    }
+    
 
     public function reports()
     {
         return $this->hasMany(Report::class, 'created_by');
     }
 
-    public function locations()
-    {
-        return $this->hasMany(Location::class, 'user_id');
-    }
-
-    public function orderCollections()
-    {
-        return $this->hasMany(Order::class, 'collected_by');
-    }
-
-    public function LeadOrders()
-    {
-        return $this->hasMany(Order::class, 'lead_id');
-    }
-
-    public function myOrders()
-    {
-        return $this->hasMany(Order::class, 'creator_id');
-    }
 
     ///////////////////test propose//////////////////////
     // public function favouriteLeagues()
@@ -120,7 +98,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function tokens()
     {
-        return $this->hasMany(ApiKey::class);
+        return $this->hasMany(ApiKey::class)->where('owner_type','user');
     }
 
     public function userTokens()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use DB;
 use JWTAuth;
 use App\User;
 use App\ApiKey;
@@ -15,74 +16,83 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
-    {
-        $valiadator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|max:50',
-            'name' => 'required|min:2|max:50',
-            'photo' => 'required',
-            'token' => 'required|exists:api_keys,token',
-        ]);
-
-        if ($valiadator->fails()) {
-            return response()->json($valiadator->errors(), 422);
-        } else {
-            $image = $request->photo;  // your base64 encoded
-            $photo = new PhotoHelper();
-            $photo_id = $photo->constructPhoto($image, 'user');
-            $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->photo_id = $photo_id;
-            $user->save();
-
-            $token = auth()->login($user);
-
-            return $this->respondWithToken($token, request(['token']));
-        }
-    }
-
+    
     public function login(Request $request)
     {
         $valiadator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        $credentials = request(['email', 'password']);
-        if ($valiadator->fails()) 
-        {
+        
+        if ($valiadator->fails()) {
             return response()->json($valiadator->errors(), 422);
         } 
         else 
-        {
+        {         
             $credentials = request(['email', 'password']);
-            if (!$token = auth()->attempt($credentials)) 
+            if (!$token = auth($this->guard())->attempt($credentials)) 
             {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
-            DB::table('user_tokens')->insert(['user_id'=>Auth::id(),'token'=>$token]);
+            DB::table('owner_tokens')->insert(['owner_id'=>auth($this->guard())->id(),'owner_type'=>$this->guard(),'token'=>$token]);
             return $this->respondWithToken($token);
         }
     }
 
-  
-    protected function respondWithToken($token)
+    protected function respondWithToken($token) /// شوية شغل
     {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 600,
-            'user' => new UserResource(User::find(Auth::id())),
+            // 'user' => new UserResource(User::find(Auth::id())),
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'new' => 'required',
+            'old' => 'required',
+            ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        } else {
+            $user = auth($this->guard())->user();
+            $credentials = ['email' => $user->email, 'password' => $request->old];
+
+            if (auth($this->guard())->attempt($credentials)) {       // Right password
+                $check = ['email' => $user->email, 'password' => $request->new];
+                if (auth($this->guard())->attempt($check)) {
+                    return response()->json(['status' => 'false', 'message' => 'You Can\'t Use Old Password As New Password'], 422);
+                } else {
+                    $user->password = $request->new;
+                    foreach ($user->userTokens as $userToken) {
+                        $userToken->blocked = 1;
+                        $userToken->save();
+                    }
+                    $user->save();
+                    auth()->logout();
+
+                    return response()->json(['status' => 'true']);
+                }
+            } else {            // Wrong one
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+        }
     }
 
     public function logout()
     {
         JWTAuth::invalidate(JWTAuth::getToken());
-        auth()->logout();
+        auth($this->guard)->logout();
     }
+    
 
     public function AuthCheck()
     {
