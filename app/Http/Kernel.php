@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'adminstration'=> \App\Http\Middleware\Adminstration::class,
         'mobily'=> \App\Http\Middleware\Mobily::class,
         'permissioncheck'=> \App\Http\Middleware\PermissionCheck::class,
+        'assign.guard' => \App\Http\Middleware\AssignGuard::class,
     ];
 
     /**

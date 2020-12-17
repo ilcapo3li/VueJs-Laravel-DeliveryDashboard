@@ -12,7 +12,7 @@ class LeadSeeder extends Seeder
      */
     public function run()
     {
-        Leed::create([
+        Lead::create([
             'name' => 'Lead1',
             'created_by' => '1',
             'password' => '123456',
@@ -20,7 +20,7 @@ class LeadSeeder extends Seeder
             'phonePrimary' => '01023153933',
         ]);
 
-        Leed::create([
+        Lead::create([
             'name' => 'Lead2',
             'created_by' => '1',
             'password' => '123456',
