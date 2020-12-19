@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use DB;
 use JWTAuth;
 use App\User;
 use App\ApiKey;
