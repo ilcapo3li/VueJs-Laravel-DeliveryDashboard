@@ -21,7 +21,6 @@ class UserResource extends JsonResource
        
 
         return [
-            'data' => [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
@@ -38,8 +37,6 @@ class UserResource extends JsonResource
             ///////////////User Role & Permissions///////////////
             'role' => @$this->role->name,
             'permissions' => $this->permissions,
-            ],
-            'status' => 'true',
         ];
     }
 }
