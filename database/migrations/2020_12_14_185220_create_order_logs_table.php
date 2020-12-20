@@ -17,6 +17,8 @@ class CreateOrderLogsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('statue_id');
+            $table->morphs('creator');
+			$table->json('location')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('statue_id')->references('id')->on('status');

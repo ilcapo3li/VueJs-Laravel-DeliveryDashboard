@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyAgentsTable extends Migration
+class CreateAgentLeadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCompanyAgentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_agents', function (Blueprint $table) {
+        Schema::create('agent_leads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subscription_type_id');
             $table->foreign('subscription_type_id')->references('id')->on('subscription_types');
@@ -21,7 +21,6 @@ class CreateCompanyAgentsTable extends Migration
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -32,6 +31,6 @@ class CreateCompanyAgentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_agents');
+        Schema::dropIfExists('agent_leads');
     }
 }

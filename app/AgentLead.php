@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyAgent extends Model
+class AgentLead extends Model
 {
     //
 }

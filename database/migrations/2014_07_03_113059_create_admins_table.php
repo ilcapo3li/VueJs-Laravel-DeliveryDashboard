@@ -24,6 +24,7 @@ class CreateAdminsTable extends Migration
             $table->unsignedBigInteger('created_by')->nullable();
             $table->tinyInteger('disabled')->default(0);
             $table->string('password');
+            $table->string('verification_code')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

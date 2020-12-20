@@ -18,8 +18,7 @@ class CreateOrdersTable extends Migration {
 			$table->unsignedBigInteger('material_type_id');
 			$table->unsignedBigInteger('material_id')->nullable();
 			$table->string('material');
-			$table->integer('quantity');
-
+			$table->decimal('quantity', 7, 2);
 			$table->decimal('weight', 7, 2)->nullable();
 			$table->decimal('hight',  7, 2)->nullable();
 			$table->decimal('width',  7, 2)->nullable();
@@ -38,11 +37,10 @@ class CreateOrdersTable extends Migration {
 			$table->unsignedBigInteger('home_id')->nullable();
 			$table->unsignedBigInteger('away_id')->nullable();
 			$table->decimal('cost', 9, 2)->nullable();
+			$table->tinyInteger('payed')->default(1);
 			////////////////////////////////////////////////////////
 			$table->timestamps();
             $table->softDeletes();
-
-
 			/////////////////////////////////////////////////
 			$table->foreign('material_type_id')->references('id')->on('material_types');
 			$table->foreign('material_id')->references('id')->on('materials');
