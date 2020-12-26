@@ -43,7 +43,7 @@
   </b-container>
 </template>
 <script>
-import apiUrls from '../helpers/apiUrls';
+import apiUrls from '../../helpers/apiUrls';
     export default {
         name:'Login',
         data(){

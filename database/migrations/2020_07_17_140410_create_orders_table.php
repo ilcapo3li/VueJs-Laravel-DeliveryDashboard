@@ -14,18 +14,10 @@ class CreateOrdersTable extends Migration {
 		Schema::create('orders', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('code');
-			/////////////////////////////////////Order Details//////////////////////////
-			$table->unsignedBigInteger('material_type_id');
-			$table->unsignedBigInteger('material_id')->nullable();
-			$table->string('material');
-			$table->decimal('quantity', 7, 2);
-			$table->decimal('weight', 7, 2)->nullable();
-			$table->decimal('hight',  7, 2)->nullable();
-			$table->decimal('width',  7, 2)->nullable();
-			$table->decimal('length', 7, 2)->nullable();
+			
 			///////////////////////////////Sender and Reciever/////////////////////////////
-			$table->unsignedBigInteger('agent_id');
-			$table->unsignedBigInteger('lead_id');
+            $table->morphs('sender');
+            $table->morphs('receiver');
 			/////////////////////////////Adminstration Tracking Order///////////////////////
 			$table->unsignedBigInteger('company_id');
 			$table->dateTime('collecting_at')->nullable();
@@ -41,18 +33,13 @@ class CreateOrdersTable extends Migration {
 			////////////////////////////////////////////////////////
 			$table->timestamps();
             $table->softDeletes();
-			/////////////////////////////////////////////////
-			$table->foreign('material_type_id')->references('id')->on('material_types');
-			$table->foreign('material_id')->references('id')->on('materials');
-			$table->foreign('agent_id')->references('id')->on('agents');
-			$table->foreign('lead_id')->references('id')->on('leads');
+			////////////////////////////////////////////////////////
 			$table->foreign('company_id')->references('id')->on('companies');
 			$table->foreign('representative_id')->references('id')->on('representatives');
 			$table->foreign('statue_id')->references('id')->on('status');
 			$table->foreign('zone_id')->references('id')->on('zones');
 			$table->foreign('home_id')->references('id')->on('locations');
 			$table->foreign('away_id')->references('id')->on('locations');
-
 		});
 	}
 

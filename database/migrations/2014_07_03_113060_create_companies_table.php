@@ -32,7 +32,7 @@ class CreateCompaniesTable extends Migration
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
             $table->text('token')->nullable();
-            $table->integer('blocked')->default(0);
+            $table->tinyInteger('disabled')->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('created_by')->references('id')->on('admins');

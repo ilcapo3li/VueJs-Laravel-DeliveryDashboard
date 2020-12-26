@@ -27,9 +27,8 @@ class UserResource extends JsonResource
             'photo' => $this->photo ? url($this->photo->path) : '/default/default.jpg',
             'is_blocked' => $this->blocked,
            
-            /////////////////User Likes////////////////////////////
             
-            ///////////////////User Comments//////////////////////
+            ///////////////////User Data//////////////////////
             'orders' => $this->orders,
             'locations' => $this->locations,
             'reports' => $this->reports,

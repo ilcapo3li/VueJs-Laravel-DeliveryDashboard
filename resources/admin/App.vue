@@ -6,9 +6,25 @@
       <router-view :key="$route.fullPath"></router-view>
     </div>
   </div>
-  <div v-else-if="$route.name === 'login'">
+  <div v-else-if="$route.name === 'home-login'">
+            <HomeLogin></HomeLogin>
+  </div>
+  <div v-else-if="$route.name === 'company-login'">
             <Login></Login>
   </div>
+  <div v-else-if="$route.name === 'agent-login'">
+            <Login></Login>
+  </div>
+  <div v-else-if="$route.name === 'tayar-login'">
+            <Login></Login>
+  </div>
+  <div v-else-if="$route.name === 'lead-login'">
+            <Login></Login>
+  </div>
+  <div v-else-if="$route.name === 'super-login'">
+            <Login></Login>
+  </div>
+  
   <div v-else>
        <NotFoundPage></NotFoundPage>
   </div>
@@ -16,13 +32,14 @@
 </template>
 
 <script>
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
+import HomeLogin from "./pages/Login/HomeLogin";
 import NotFoundPage from "./pages/NotFoundPage";
 import Profile from "./pages/Profile";
 import apiUrls from './helpers/apiUrls';
   export default {
     name:'App',
-    components:{Login,NotFoundPage},
+    components:{Login,HomeLogin,NotFoundPage},
     created(){
       if(localStorage.getItem('access_token')){
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
@@ -35,7 +52,7 @@ import apiUrls from './helpers/apiUrls';
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
-             this.$router.push('/admin/delivery/login')
+             this.$router.push('/home/login');
           })
             this.$store.commit('authenticatedValue',true);
         }
@@ -44,7 +61,7 @@ import apiUrls from './helpers/apiUrls';
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
-             this.$router.push('/admin/delivery/login')
+             this.$router.push('/home/login')
           }
           
         if(localStorage.getItem('lang')=="ar"){

@@ -93,7 +93,8 @@ import Reports from "@/pages/Report/Reports";
 import ShowReport from "@/pages/Report/ShowReport";
 
 // GeneralViews
-import Login from "@/pages/Login.vue";
+import Login from "@/pages/Login/Login.vue";
+import HomeLogin from "@/pages/Login/HomeLogin.vue";
 import NotFound from "@/pages/NotFoundPage.vue"
 
 // Admin pages
@@ -401,10 +402,35 @@ const routes = [
         ],
 
     },
-     {
+    {
         path: "/admin/delivery/login",
         name: "login",
         component: Login
+    },
+    {
+        path: "/company/login",
+        name: "company-login",
+        component: Login
+    },
+    {
+        path: "/lead/login",
+        name: "lead-login",
+        component: Login
+    },
+    {
+        path: "/agent/login",
+        name: "agent-login",
+        component: Login
+    },
+    {
+        path: "/tayar/login",
+        name: "tayar-login",
+        component: Login
+    },
+    {
+        path: "/home/login",
+        name: "home-login",
+        component: HomeLogin
     },
 
     { path: "*", component: NotFound }
