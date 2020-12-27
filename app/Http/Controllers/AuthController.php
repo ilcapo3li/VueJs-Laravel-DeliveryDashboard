@@ -45,7 +45,8 @@ class AuthController extends Controller
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 // 'expires_in' => auth()->factory()->getTTL() * 600,
-                'user' => new UserResource(auth($this->guard())->user())
+                'user' => new UserResource(auth($this->guard())->user()),
+                'user_type'=> $this->guard(),
             ],
             'status' => 'true']);
         

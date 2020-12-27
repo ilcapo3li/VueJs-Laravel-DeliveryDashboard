@@ -12,7 +12,7 @@
                         </div>
                       </div>
                       <div class="col-7">
-                        <div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div>
+                        <div class="numbers"><p class="card-category"><i class="tim-icons icon-shape-star"></i></p><h3 class="card-title"><i class="tim-icons icon-shape-star"></i></h3></div>
                       </div>
                 </div></div>
                 <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Company Login</div></div></div></div>
@@ -42,38 +42,33 @@
 </template>
 <script>
 import apiUrls from '../../helpers/apiUrls';
-    export default {
-        name:'HomeLogin',
-        data(){
-          return {
-            
-          }
+export default {
+    name:'HomeLogin',
+    data(){
+      return {
+        
+      }
+    },
+    methods:{
+        CompanyLogin(){
+          this.$router.push('/company/login');
         },
-        methods:{
-            CompanyLogin(){
-              alert("company");
-              // this.$router.push('/profile');
-            },
-            TayarLogin(){
-              alert("tayar");
-              // this.$router.push('/profile');
-            },
-            AgentLogin(){
-              alert("agent");
-              // this.$router.push('/profile');
-            },
-            LeadLogin(){
-              alert("lead");
-              // this.$router.push('/profile');
-            },
-            
-         },
-      computed:{
-        isRTL() {
-           return this.$rtl.isRTL;
-        }
+        TayarLogin(){
+          this.$router.push('/tayar/login');
+        },
+        AgentLogin(){
+          this.$router.push('/agent/login');
+        },
+        LeadLogin(){
+          this.$router.push('/lead/login');
+        },
+    },
+    computed:{
+      isRTL() {
+        return this.$rtl.isRTL;
       }
     }
+}
 </script>
 <style>
 div.card{

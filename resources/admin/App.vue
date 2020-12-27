@@ -1,45 +1,55 @@
 <template>
-<div>
-  <div v-if="authenticated">
-    <div>
-      <notifications></notifications>
-      <router-view :key="$route.fullPath"></router-view>
+  <div>
+    <div v-if="authenticated">
+      <div>
+        <notifications></notifications>
+        <router-view :key="$route.fullPath"></router-view>
+      </div>
+    </div>
+    <div v-else-if="$route.name === 'home-login'">
+              <HomeLogin></HomeLogin>
+    </div>
+    <div v-else-if="$route.name === 'company-login'">
+              <CompanyLogin></CompanyLogin>
+    </div>
+    <div v-else-if="$route.name === 'agent-login'">
+              <AgentLogin></AgentLogin>
+    </div>
+    <div v-else-if="$route.name === 'tayar-login'">
+              <TayarLogin></TayarLogin>
+    </div>
+    <div v-else-if="$route.name === 'lead-login'">
+              <LeadLogin></LeadLogin>
+    </div>
+    <div v-else-if="$route.name === 'super-login'">
+              <Login></Login>
+    </div>
+    <div v-else>
+        <NotFoundPage></NotFoundPage>
     </div>
   </div>
-  <div v-else-if="$route.name === 'home-login'">
-            <HomeLogin></HomeLogin>
-  </div>
-  <div v-else-if="$route.name === 'company-login'">
-            <Login></Login>
-  </div>
-  <div v-else-if="$route.name === 'agent-login'">
-            <Login></Login>
-  </div>
-  <div v-else-if="$route.name === 'tayar-login'">
-            <Login></Login>
-  </div>
-  <div v-else-if="$route.name === 'lead-login'">
-            <Login></Login>
-  </div>
-  <div v-else-if="$route.name === 'super-login'">
-            <Login></Login>
-  </div>
-  
-  <div v-else>
-       <NotFoundPage></NotFoundPage>
-  </div>
-</div>
 </template>
 
 <script>
 import Login from "./pages/Login/Login";
 import HomeLogin from "./pages/Login/HomeLogin";
+import CompanyLogin from "./pages/Login/CompanyLogin";
+import AgentLogin from "./pages/Login/AgentLogin";
+import LeadLogin from "./pages/Login/LeadLogin";
+import TayarLogin from "./pages/Login/TayarLogin";
 import NotFoundPage from "./pages/NotFoundPage";
-import Profile from "./pages/Profile";
 import apiUrls from './helpers/apiUrls';
   export default {
     name:'App',
-    components:{Login,HomeLogin,NotFoundPage},
+    components:{
+                Login,
+                HomeLogin,
+                CompanyLogin,
+                AgentLogin,
+                TayarLogin,
+                LeadLogin,
+                NotFoundPage,
+    },
     created(){
       if(localStorage.getItem('access_token')){
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
@@ -48,21 +58,13 @@ import apiUrls from './helpers/apiUrls';
             })
           .catch(error=>{
             toastr.error('Your Session Expired Please Login Again');
-            this.$store.commit('authenticatedValue',false);
-            this.$store.commit('userUpdate',null);
-            localStorage.removeItem('access_token')
-            delete axios.defaults.headers.common["Authorization"];
-             this.$router.push('/home/login');
+            this.resetAuth();
           })
             this.$store.commit('authenticatedValue',true);
+      }
+      else{
+          this.resetAuth();
         }
-        else{
-            this.$store.commit('authenticatedValue',false);
-            this.$store.commit('userUpdate',null);
-            localStorage.removeItem('access_token')
-            delete axios.defaults.headers.common["Authorization"];
-             this.$router.push('/home/login')
-          }
           
         if(localStorage.getItem('lang')=="ar"){
             this.$i18n.locale = 'ar';
@@ -84,6 +86,13 @@ import apiUrls from './helpers/apiUrls';
       toggleNavOpen() {
         let root = document.getElementsByTagName('html')[0];
         root.classList.toggle('nav-open');
+      },
+      resetAuth(){
+          this.$store.commit('authenticatedValue',false);
+          this.$store.commit('userUpdate',null);
+          localStorage.removeItem('access_token')
+          delete axios.defaults.headers.common["Authorization"];
+          this.$router.push('/home/login');
       }
     },
     mounted() {

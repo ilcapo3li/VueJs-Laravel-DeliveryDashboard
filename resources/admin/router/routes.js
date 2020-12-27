@@ -4,7 +4,6 @@ import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 ///////////////////////////////production Admin////////////////////////////////////////
 import Settings from "@/pages/Adminstration/Settings";
 import Notify from "@/pages/Adminstration/Notify";
-import Notes from "@/pages/Adminstration/Notes";
 import Versions from "@/pages/Adminstration/Versions";
 import AllVersions from "@/pages/Adminstration/AllVersions";
 import Ads from "@/pages/Adminstration/Advertisement";
@@ -13,11 +12,6 @@ import Ads from "@/pages/Adminstration/Advertisement";
 import Leads from "@/pages/Leads/Leads";
 import LeadAdd from "@/pages/Leads/LeadAdd";
 import LeadEdit from "@/pages/Leads/LeadEdit";
-
-///////////////////////////////production Suppliers////////////////////////////////////////
-import Suppliers from "@/pages/Suppliers/Suppliers";
-import SupplierAdd from "@/pages/Suppliers/SupplierAdd";
-import SupplierEdit from "@/pages/Suppliers/SupplierEdit";
 
 ///////////////////////////////production Agents////////////////////////////////////////
 import Agents from "@/pages/Agents/Agents";
@@ -49,15 +43,20 @@ import PricingEdit from "@/pages/Pricing/PricingEdit";
 import DeliverySettings from "@/pages/DeliverySettings/DeliverySettings";
 
 
-///////////////////////////////production Statuses////////////////////////////////////////
-import Statuses from "@/pages/Statuses/Statuses";
-import StatusAdd from "@/pages/Statuses/StatusAdd";
-import StatusEdit from "@/pages/Statuses/StatusEdit";
+///////////////////////////////Production Status////////////////////////////////////////
+import Status from "@/pages/OrderStatus/Status";
+import StatusAdd from "@/pages/OrderStatus/StatusAdd";
+import StatusEdit from "@/pages/OrderStatus/StatusEdit";
 
 ///////////////////////////////production MaterialTypes////////////////////////////////////////
 import MaterialTypes from "@/pages/MaterialTypes/MaterialTypes";
 import MaterialTypeAdd from "@/pages/MaterialTypes/MaterialTypeAdd";
 import MaterialTypeEdit from "@/pages/MaterialTypes/MaterialTypeEdit";
+
+///////////////////////////////production items////////////////////////////////////////
+import items from "@/pages/Items/items";
+import itemAdd from "@/pages/Items/ItemAdd";
+import itemEdit from "@/pages/Items/ItemEdit";
 
 ///////////////////////////////production Orders////////////////////////////////////////
 import Orders from "@/pages/Orders/Orders";
@@ -85,7 +84,6 @@ import ZoneAdd from "@/pages/Zones/ZoneAdd";
 import ZoneEdit from "@/pages/Zones/ZoneEdit";
 
 
-
 import ChatTest from "@/pages/ChatTest";
 import UserCard from "@/pages/Profile/UserCard";
 import Users from "@/pages/Profile/Users";
@@ -93,8 +91,12 @@ import Reports from "@/pages/Report/Reports";
 import ShowReport from "@/pages/Report/ShowReport";
 
 // GeneralViews
-import Login from "@/pages/Login/Login.vue";
-import HomeLogin from "@/pages/Login/HomeLogin.vue";
+import Login from "@/pages/Login/Login";
+import HomeLogin from "@/pages/Login/HomeLogin";
+import CompanyLogin from "@/pages/Login/CompanyLogin";
+import AgentLogin from "@/pages/Login/AgentLogin";
+import TayarLogin from "@/pages/Login/TayarLogin";
+import LeadLogin from "@/pages/Login/LeadLogin";
 import NotFound from "@/pages/NotFoundPage.vue"
 
 // Admin pages
@@ -112,7 +114,7 @@ const routes = [
     {
         path: "/",
         component: DashboardLayout,
-        redirect: "/profile",
+        redirect: "/dashboard",
         children: [
 
             ////////////production begain///////////////////////
@@ -130,11 +132,6 @@ const routes = [
                 path: "/profile",
                 name: "profile",
                 component: UserCard
-            },
-            {
-                path: "/delivery-settings",
-                name: "delivery-settings",
-                component: DeliverySettings
             },
             {
                 path: "/delivery-settings",
@@ -193,22 +190,7 @@ const routes = [
                 name: "admins-edit",
                 component: AdminEdit
             },
-            //////////////////////////////////////////////////////
-            {
-                path: "/suppliers",
-                name: "suppliers",
-                component: Suppliers
-            },
-            {
-                path: "/supplier/add",
-                name: "supplier-add",
-                component: SupplierAdd
-            },
-            {
-                path: "/supplier/edit",
-                name: "supplier-edit",
-                component: SupplierEdit
-            },
+          
             //////////////////////////////////////////////////////
             {
                 path: "/agents",
@@ -277,9 +259,9 @@ const routes = [
 
             //////////////////////////////////////////////////////
             {
-                path: "/statuses",
-                name: "statuses",
-                component: Statuses
+                path: "/status",
+                name: "status",
+                component: Status
             },
             {
                 path: "/status/add",
@@ -396,9 +378,6 @@ const routes = [
             }
             
            
-           
-           
-           
         ],
 
     },
@@ -410,22 +389,22 @@ const routes = [
     {
         path: "/company/login",
         name: "company-login",
-        component: Login
+        component: CompanyLogin
     },
     {
         path: "/lead/login",
         name: "lead-login",
-        component: Login
+        component: LeadLogin
     },
     {
         path: "/agent/login",
         name: "agent-login",
-        component: Login
+        component: AgentLogin
     },
     {
         path: "/tayar/login",
         name: "tayar-login",
-        component: Login
+        component: TayarLogin
     },
     {
         path: "/home/login",

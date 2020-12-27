@@ -40,7 +40,7 @@ Route::group(['prefix' => 'company','middleware' => ['assign.guard:user','jwt.au
 });
 
 /////////////////////////////Representative "Tayaar"//////////////////////////////////
-Route::group(['prefix' => 'representative','middleware' => ['assign.guard:representative','jwt.auth']],function ()
+Route::group(['prefix' => 'tayar','middleware' => ['assign.guard:representative','jwt.auth']],function ()
 {
 
 
