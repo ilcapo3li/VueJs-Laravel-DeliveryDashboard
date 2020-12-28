@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'api',
+        'guard' => 'admin',
         'passwords' => 'users',
     ],
 
@@ -36,16 +36,38 @@ return [
     */
 
     'guards' => [
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
 
-        'api' => [
+        'admin' => [
+            'driver' => 'jwt',
+            'provider' => 'admins',
+
+        ],
+
+        'user' => [
             'driver' => 'jwt',
             'provider' => 'users',
-            'hash' => false,
         ],
+
+        'agent' => [
+            'driver' => 'jwt',
+            'provider' => 'agents',
+        ],
+
+        'representative' => [
+            'driver' => 'jwt',
+            'provider' => 'representatives',
+        ],
+
+        'lead' => [
+            'driver' => 'jwt',
+            'provider' => 'leads',
+        ],
+        
     ],
 
     /*
@@ -66,15 +88,28 @@ return [
     */
 
     'providers' => [
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'agents' => [
+            'driver' => 'eloquent',
+            'model' => App\Agent::class,
+        ],
+        'representatives' => [
+            'driver' => 'eloquent',
+            'model' => App\Representative::class,
+        ],
+        'leads' => [
+            'driver' => 'eloquent',
+            'model' => App\Lead::class,
+        ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -93,8 +128,28 @@ return [
     */
 
     'passwords' => [
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'agents' => [
+            'provider' => 'agents',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'representatives' => [
+            'provider' => 'representatives',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'leads' => [
+            'provider' => 'leads',
             'table' => 'password_resets',
             'expire' => 60,
         ],

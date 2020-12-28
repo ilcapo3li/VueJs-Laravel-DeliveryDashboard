@@ -20,23 +20,29 @@ class CreateCompaniesTable extends Migration
             $table->string('ar_name');
             $table->text('address')->nullable();
             $table->json('location')->nullable();    
-            $table->string('phonePrimary');
-            $table->string('PhoneSecondary')->nullable();
+            $table->string('phonePrimary')->unique();
+            $table->string('PhoneSecondary')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('website')->unique()->nullable();
+            $table->unsignedBigInteger('currency_id')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
-            $table->foreign('country_id')->references('id')->on('countries');
 			$table->unsignedBigInteger('city_id')->nullable();
-			$table->foreign('city_id')->references('id')->on('cities');
             $table->unsignedBigInteger('photo_id')->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos');
             $table->unsignedBigInteger('refered_by')->nullable();
-            $table->foreign('refered_by')->references('id')->on('companies');
-            $table->integer('created_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
             $table->text('token')->nullable();
-            $table->integer('blocked')->default(0);
-
+            $table->tinyInteger('disabled')->default(0);
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('created_by')->references('id')->on('admins');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('refered_by')->references('id')->on('companies');
+            $table->foreign('photo_id')->references('id')->on('attachments');
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('currency_id')->references('id')->on('currencies');
+
         });
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LeadController extends Controller
+class LeadController extends AuthController
 {
     public function index()
     {
@@ -34,5 +34,15 @@ class LeadController extends Controller
 
             return response()->json('New Lead Created Suceessfully');
         }
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return 'lead';
     }
 }

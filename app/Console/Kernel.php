@@ -29,9 +29,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function()use ($schedule){
-            $schedule->job(new TodayGames)->everyMinute();
-            $schedule->job(new Standings)->everyMinute();
-            $schedule->job(new WeeklyGames)->daily();
+           
         });
     }
 

@@ -54,60 +54,19 @@ class User extends Authenticatable implements JWTSubject
         }
     }
 
-    public function companyAdmins()
+    public function company()
     {
-        return $this->hasMany(User::class, 'company_id');
+        return $this->belongsTo(Company::class);
     }
 
-    public function suppliers()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function agents()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function tayar()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function leads()
-    {
-        return $this->hasMany(User::class, 'company_id');
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'creator_id');
-    }
+    
+    
 
     public function reports()
     {
         return $this->hasMany(Report::class, 'created_by');
     }
 
-    public function locations()
-    {
-        return $this->hasMany(Location::class, 'user_id');
-    }
-
-    public function orderCollections()
-    {
-        return $this->hasMany(Order::class, 'collected_by');
-    }
-
-    public function LeadOrders()
-    {
-        return $this->hasMany(Order::class, 'lead_id');
-    }
-
-    public function myOrders()
-    {
-        return $this->hasMany(Order::class, 'creator_id');
-    }
 
     ///////////////////test propose//////////////////////
     // public function favouriteLeagues()
@@ -117,9 +76,9 @@ class User extends Authenticatable implements JWTSubject
 
     ///////////////////////////////////////////////////
 
-    public function photo()
+    public function attchment()
     {
-        return $this->belongsTo(Photo::class, 'photo_id');
+        return $this->belongsTo(Attachment::class, 'attchment_id');
     }
 
     public function messages()
@@ -139,11 +98,11 @@ class User extends Authenticatable implements JWTSubject
 
     public function tokens()
     {
-        return $this->hasMany(ApiKey::class);
+        return $this->hasMany(ApiKey::class)->where('owner_type','user');
     }
 
     public function userTokens()
     {
-        return $this->hasMany(UserToken::class, 'user_id');
+        return $this->hasMany(OwnerToken::class)->where('owner_type','user');
     }
 }

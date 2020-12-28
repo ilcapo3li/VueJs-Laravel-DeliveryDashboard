@@ -15,10 +15,12 @@ class CreateSubscriptionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subscription_type_id')->nullable();
             $table->foreign('subscription_type_id')->references('id')->on('subscription_types');
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->timestamps();
             $table->dateTime('expiry_day');
+            $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

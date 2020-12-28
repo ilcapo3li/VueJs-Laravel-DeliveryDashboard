@@ -19,12 +19,10 @@ class CreateAdvertismentsTable extends Migration
             $table->Text('bannerII')->nullable();
             $table->Text('footer')->nullable();
             $table->Text('reward')->nullable();
-            $table->Text('full_screen')->nullable();
-            $table->unsignedBigInteger('branch_id')->nullable();
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('set null');
+            $table->Text('fullScreen')->nullable();
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branches');
             $table->timestamps();
-            $table->softDeletes();
-
         });
     }
 

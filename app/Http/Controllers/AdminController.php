@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use DB; 
+use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class AdminController extends Controller
+use Illuminate\Support\Facades\Validator;
+
+class AdminController extends AuthController
 {
     public function index()
     {
-        
-        $users = User::where('role_id', 2)->where('name', 'like', '%'.Input::get('query').'%')->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
-        return response()->json($users);
+        $admins = Auth::user()->company->admins()
+                ->where('name', 'like', '%'.Input::get('query').'%')
+                ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
+                ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
+                return response()->json($admins);
     }
 
     public function save(Request $request)
@@ -39,7 +45,7 @@ class AdminController extends Controller
         }
     }
 
-    public function update(Request $request, User $admin)
+    public function update(Request $request, Admin $admin)
     {
         $request->validate([
             'name' => 'required|string|unique:users,name,'.$id,
@@ -62,4 +68,15 @@ class AdminController extends Controller
 
         return response()->json('Admin Updated Suceessfully');
     }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return 'admin';
+    }
+
 }

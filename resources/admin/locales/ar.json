@@ -52,7 +52,7 @@
   },
   "validation": {
     "admin_name": "اسم المدير مطلوب",
-    "email": "ايميل المدير مطلوب",
+    "email": "مطلوب ادخال الايميل الصحيح",
     "password": "كلمة السر مطلوبة",
     "channel": "مطلوب اختيار الاقناة",
     "confirm_password_required": "يجب تاكيد كلمة السر",
@@ -169,8 +169,8 @@
   "country": "الدولة",
   "countries": "الدول",
   "match_statue": "حالة المباراة",
-  "statuses": "الحالات",
-  "statuses": "الحالة",
+  "status": "الحالات",
+  "statue": "الحالة",
   "match_live": "مباراة مباشرة",
  
   "commentator": "معلق المباراة",

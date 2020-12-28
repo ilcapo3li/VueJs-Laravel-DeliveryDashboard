@@ -21,16 +21,12 @@ class UserResource extends JsonResource
        
 
         return [
-            'data' => [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
             'photo' => $this->photo ? url($this->photo->path) : '/default/default.jpg',
             'is_blocked' => $this->blocked,
-           
-            /////////////////User Likes////////////////////////////
-            
-            ///////////////////User Comments//////////////////////
+            ///////////////////User Data//////////////////////
             'orders' => $this->orders,
             'locations' => $this->locations,
             'reports' => $this->reports,
@@ -38,8 +34,6 @@ class UserResource extends JsonResource
             ///////////////User Role & Permissions///////////////
             'role' => @$this->role->name,
             'permissions' => $this->permissions,
-            ],
-            'status' => 'true',
         ];
     }
 }

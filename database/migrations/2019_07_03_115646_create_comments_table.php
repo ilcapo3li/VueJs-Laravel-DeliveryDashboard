@@ -16,10 +16,8 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('comment');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('commentable_id')->nullable();
-            $table->enum('commentable_type', ['comment', 'replay']);
+            $table->morphs('commentable');
+            $table->morphs('creator');
             $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();

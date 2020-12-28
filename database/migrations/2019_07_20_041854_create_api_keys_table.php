@@ -16,9 +16,8 @@ class CreateApiKeysTable extends Migration
         Schema::create('api_keys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('token');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('branch_id')->nullable();
+            $table->morphs('owner');
+            $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branches');
             $table->timestamps();
             $table->softDeletes();

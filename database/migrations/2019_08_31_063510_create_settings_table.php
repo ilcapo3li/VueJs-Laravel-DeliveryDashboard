@@ -17,12 +17,14 @@ class CreateSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('gmail')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('whats')->nullable();
+            $table->string('whatsup')->nullable();
             $table->string('website')->nullable();
-            $table->string('fbGroup')->nullable();
+            $table->string('fbgroup')->nullable();
             $table->string('youtube')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instgram')->nullable();
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }

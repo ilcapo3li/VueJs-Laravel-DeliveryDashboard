@@ -13,17 +13,16 @@ class CreateLocationsTable extends Migration {
 	public function up() {
 		Schema::create('locations', function (Blueprint $table) {
 			$table->bigIncrements('id');
-			$table->unsignedBigInteger('user_id')->nullable();
-			$table->foreign('user_id')->references('id')->on('users');
-			$table->text('address')->nullable();
+			$table->mediumText('address')->nullable();
 			$table->json('location')->nullable();
-			$table->unsignedBigInteger('country_id')->nullable();
+			$table->unsignedBigInteger('country_id');
 			$table->foreign('country_id')->references('id')->on('countries');
-			$table->unsignedBigInteger('city_id')->nullable();
+			$table->unsignedBigInteger('city_id');
 			$table->foreign('city_id')->references('id')->on('cities');
-			$table->unsignedBigInteger('created_by')->nullable();
-			$table->foreign('created_by')->references('id')->on('users');
+			$table->morphs('owner');
 			$table->timestamps();
+            $table->softDeletes();
+
 		});
 	}
 

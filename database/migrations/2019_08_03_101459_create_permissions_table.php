@@ -17,8 +17,6 @@ class CreatePermissionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name');
             $table->string('ar_name');
-            $table->unsignedBigInteger('role_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
             $table->timestamps();
         });
     }

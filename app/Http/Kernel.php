@@ -61,11 +61,12 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'issuper'=> \App\Http\Middleware\IsSuper::class,
-        'ispower'=> \App\Http\Middleware\IsPower::class,
+        'isSuper'=> \App\Http\Middleware\IsSuper::class,
+        'isPower'=> \App\Http\Middleware\IsPower::class,
         'adminstration'=> \App\Http\Middleware\Adminstration::class,
         'mobily'=> \App\Http\Middleware\Mobily::class,
         'permissioncheck'=> \App\Http\Middleware\PermissionCheck::class,
+        'assign.guard' => \App\Http\Middleware\AssignGuard::class,
     ];
 
     /**

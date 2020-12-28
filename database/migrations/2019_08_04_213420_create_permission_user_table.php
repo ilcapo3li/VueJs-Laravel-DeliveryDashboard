@@ -15,12 +15,11 @@ class CreatePermissionUserTable extends Migration
     {
        Schema::create('permission_user',function(Blueprint $table){
         $table->bigIncrements('id');
-        $table->unsignedBigInteger('user_id')->nullable();
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');     
-        $table->unsignedBigInteger('permission_id')->nullable();
-        $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('set null');     
+        $table->unsignedBigInteger('user_id');
+        $table->foreign('user_id')->references('id')->on('users');     
+        $table->unsignedBigInteger('permission_id');
+        $table->foreign('permission_id')->references('id')->on('permissions');     
         $table->timestamps();
-        $table->softDeletes();
 
    });
     }

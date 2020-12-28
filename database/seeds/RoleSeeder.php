@@ -17,28 +17,5 @@ class RoleSeeder extends Seeder
         Role::create([
             'name' => 'Admin',
         ]);
-
-        Role::create([
-            'name' => 'Supplier',
-        ]);
-
-        Role::create([
-            'name' => 'Agent',
-        ]);
-
-        Role::create([
-            'name' => 'Tayar',
-        ]);
-
-        Role::create([
-            'name' => 'Lead',
-        ]);
-
-        Role::create([
-            'name' => 'Power',
-        ]);
-        Role::create([
-            'name' => 'SuperPower',
-        ]);
     }
 }

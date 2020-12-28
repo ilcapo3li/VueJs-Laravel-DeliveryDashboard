@@ -18,6 +18,8 @@ class CreateCurrenciesTable extends Migration {
 			$table->string('code')->nullable();
 			$table->double('rate')->nullable();
 			$table->timestamps();
+            $table->softDeletes();
+
 		});
 	}
 

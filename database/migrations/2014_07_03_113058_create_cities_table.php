@@ -18,6 +18,8 @@ class CreateCitiesTable extends Migration {
 			$table->unsignedBigInteger('country_id')->nullable();
 			$table->foreign('country_id')->references('id')->on('countries');
 			$table->timestamps();
+            $table->softDeletes();
+
 		});
 	}
 

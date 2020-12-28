@@ -15,9 +15,10 @@ class CreateSubscriptionTypesTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name');
             $table->string('ar_name');
-            $table->decimal('mounth', 2, 1)->nullable();
+            $table->decimal('month', 5, 2)->nullable();
             $table->text('features')->nullable();
-            $table->decimal('price', 5, 2)->nullable();
+            $table->decimal('price', 8, 2)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

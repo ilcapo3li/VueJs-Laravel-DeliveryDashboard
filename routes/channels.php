@@ -15,13 +15,4 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-Broadcast::channel('football-live', function () {
-    return true;
-});
-
-Broadcast::channel('public-chat', function () {
-    return true;
-});
-Broadcast::channel('channel.{id}', function ($channel, $id) {
-    return true;
-});                          
+                    

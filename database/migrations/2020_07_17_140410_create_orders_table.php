@@ -13,38 +13,33 @@ class CreateOrdersTable extends Migration {
 	public function up() {
 		Schema::create('orders', function (Blueprint $table) {
 			$table->bigIncrements('id');
-			$table->string('orderCode');
-			/////////////////////////////////////Order Details//////////////////////////
-			$table->unsignedBigInteger('material_type_id')->nullable();
-			$table->foreign('material_type_id')->references('id')->on('material_types');
-			$table->string('matrial');
-			$table->decimal('wieght', 5, 2)->nullable();
-			$table->decimal('hight', 5, 2)->nullable();
-			$table->decimal('width', 5, 2)->nullable();
-			$table->decimal('length', 5, 2)->nullable();
+			$table->string('code');
+			
 			///////////////////////////////Sender and Reciever/////////////////////////////
-			$table->unsignedBigInteger('creator_id');
-			$table->foreign('creator_id')->references('id')->on('users');
-			$table->unsignedBigInteger('lead_id');
-			$table->foreign('lead_id')->references('id')->on('users');
+            $table->morphs('sender');
+            $table->morphs('receiver');
 			/////////////////////////////Adminstration Tracking Order///////////////////////
+			$table->unsignedBigInteger('company_id');
 			$table->dateTime('collecting_at')->nullable();
-			$table->unsignedBigInteger('collected_by')->nullable();
-			$table->foreign('collected_by')->references('id')->on('users');
-			$table->unsignedBigInteger('status_id')->nullable();
-			$table->foreign('status_id')->references('id')->on('statuses');
+			$table->unsignedBigInteger('representative_id')->nullable();
+			$table->unsignedBigInteger('statue_id')->nullable();
 			$table->text('note')->nullable();
 			/////////////////////zone and cost else lat long calc////////////////////
 			$table->unsignedBigInteger('zone_id')->nullable();
-			$table->foreign('zone_id')->references('id')->on('zones');
-			
 			$table->unsignedBigInteger('home_id')->nullable();
-			$table->foreign('home_id')->references('id')->on('locations');
 			$table->unsignedBigInteger('away_id')->nullable();
-			$table->foreign('away_id')->references('id')->on('locations');
-			$table->decimal('cost', 5, 2)->nullable();
+			$table->decimal('cost', 9, 2)->nullable();
+			$table->tinyInteger('payed')->default(1);
 			////////////////////////////////////////////////////////
 			$table->timestamps();
+            $table->softDeletes();
+			////////////////////////////////////////////////////////
+			$table->foreign('company_id')->references('id')->on('companies');
+			$table->foreign('representative_id')->references('id')->on('representatives');
+			$table->foreign('statue_id')->references('id')->on('status');
+			$table->foreign('zone_id')->references('id')->on('zones');
+			$table->foreign('home_id')->references('id')->on('locations');
+			$table->foreign('away_id')->references('id')->on('locations');
 		});
 	}
 
