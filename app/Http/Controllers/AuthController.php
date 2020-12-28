@@ -93,13 +93,14 @@ class AuthController extends Controller
     public function logout()
     {
         JWTAuth::invalidate(JWTAuth::getToken());
-        auth($this->guard)->logout();
+        auth()->logout();
     }
     
 
     public function AuthCheck()
     {
         try {
+            dd(JWTAuth::parseToken()->authenticate());
             return  JWTAuth::parseToken()->authenticate();
         } catch (TokenExpiredException $e) {
             return response()->json($e->getMessage(), 401);

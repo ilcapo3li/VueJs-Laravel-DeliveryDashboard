@@ -68,7 +68,7 @@ import apiUrls from '../../helpers/apiUrls';
              password:null
           }
         },
-        mounted() {
+        created() {
           if(localStorage.getItem('access_token')){
               axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
               axios.post(apiUrls.checkAuth()).then((res)=>{ this.$router.push('/profile')})
@@ -99,23 +99,23 @@ import apiUrls from '../../helpers/apiUrls';
                           this.$store.commit('userUpdate',response.data.data.user);
                           this.$store.commit('authenticatedValue',true);
                           localStorage.setItem('access_token',response.data.data.access_token);
-                          // if(localStorage.getItem('lang')==null){
-                          //   localStorage.setItem('lang','en');
-                          //   this.$i18n.locale = 'en';
-                          //   this.$rtl.disableRTL();
-                          // }
-                          // else{
-                          //   var lang=localStorage.getItem('lang');
-                          //   if(lang=="ar"){
-                          //     this.$i18n.locale = 'ar';
-                          //     this.$rtl.enableRTL();
-                          //   }
-                          //   else{
-                          //     this.$i18n.locale = 'en';
-                          //     this.$rtl.disableRTL();
-                          //   }
-                          // }
-                          // axios.defaults.headers.common['Authorization'] =  'Bearer ' + localStorage.getItem('access_token');                               
+                          if(localStorage.getItem('lang')==null){
+                            localStorage.setItem('lang','en');
+                            this.$i18n.locale = 'en';
+                            this.$rtl.disableRTL();
+                          }
+                          else{
+                            var lang=localStorage.getItem('lang');
+                            if(lang=="ar"){
+                              this.$i18n.locale = 'ar';
+                              this.$rtl.enableRTL();
+                            }
+                            else{
+                              this.$i18n.locale = 'en';
+                              this.$rtl.disableRTL();
+                            }
+                          }
+                          axios.defaults.headers.common['Authorization'] =  'Bearer ' + localStorage.getItem('access_token');                               
                           this.$router.push('/profile');
                         }
                     }).catch((error)=>{

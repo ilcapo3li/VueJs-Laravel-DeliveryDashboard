@@ -21,7 +21,7 @@
     <div v-else-if="$route.name === 'lead-login'">
               <LeadLogin></LeadLogin>
     </div>
-    <div v-else-if="$route.name === 'super-login'">
+    <div v-else-if="$route.name === 'login'">
               <Login></Login>
     </div>
     <div v-else>
@@ -59,6 +59,7 @@ import apiUrls from './helpers/apiUrls';
           .catch(error=>{
             toastr.error('Your Session Expired Please Login Again');
             this.resetAuth();
+            this.$router.push('/home/login');
           })
             this.$store.commit('authenticatedValue',true);
       }
@@ -92,7 +93,6 @@ import apiUrls from './helpers/apiUrls';
           this.$store.commit('userUpdate',null);
           localStorage.removeItem('access_token')
           delete axios.defaults.headers.common["Authorization"];
-          this.$router.push('/home/login');
       }
     },
     mounted() {

@@ -1,4 +1,3 @@
-
 export default{
    authenticatedValue(state,payload){
     state.authenticated=payload;

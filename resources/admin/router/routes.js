@@ -376,13 +376,11 @@ const routes = [
                 name: "locations",
                 component: Locations
             }
-            
-           
         ],
 
     },
     {
-        path: "/admin/delivery/login",
+        path: "/admin/bicomatics/login",
         name: "login",
         component: Login
     },
