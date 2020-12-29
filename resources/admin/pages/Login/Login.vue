@@ -73,6 +73,8 @@ import apiUrls from '../../helpers/apiUrls';
               axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
               axios.post(apiUrls.checkAuth()).then((res)=>{ this.$router.push('/profile')})
           }
+        },
+        mounted(){
           const dict = {
             custom: {
               email: {

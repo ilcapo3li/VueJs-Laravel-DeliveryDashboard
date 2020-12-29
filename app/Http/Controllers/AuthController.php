@@ -100,7 +100,6 @@ class AuthController extends Controller
     public function AuthCheck()
     {
         try {
-            dd(JWTAuth::parseToken()->authenticate());
             return  JWTAuth::parseToken()->authenticate();
         } catch (TokenExpiredException $e) {
             return response()->json($e->getMessage(), 401);

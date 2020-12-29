@@ -189,13 +189,10 @@ export default {
                             ),
                             {
                                 category_name: this.categories.category_name,
-                                category_en_name: this.categories
-                                    .category_en_name,
-                                category_discription: this.categories
-                                    .category_discription,
+                                category_en_name: this.categories.category_en_name,
+                                category_discription: this.categories.category_discription,
                                 category_status: this.selectedStatus,
-                                categories_rank: this.categories
-                                    .categories_rank,
+                                categories_rank: this.categories.categories_rank,
                                 logo: this.photo_id
                             }
                         )

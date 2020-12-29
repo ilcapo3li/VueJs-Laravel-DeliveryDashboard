@@ -31,24 +31,24 @@
 </template>
 
 <script>
-import Login from "./pages/Login/Login";
-import HomeLogin from "./pages/Login/HomeLogin";
-import CompanyLogin from "./pages/Login/CompanyLogin";
-import AgentLogin from "./pages/Login/AgentLogin";
-import LeadLogin from "./pages/Login/LeadLogin";
-import TayarLogin from "./pages/Login/TayarLogin";
-import NotFoundPage from "./pages/NotFoundPage";
-import apiUrls from './helpers/apiUrls';
+  import Login from "./pages/Login/Login";
+  import HomeLogin from "./pages/Login/HomeLogin";
+  import CompanyLogin from "./pages/Login/CompanyLogin";
+  import AgentLogin from "./pages/Login/AgentLogin";
+  import LeadLogin from "./pages/Login/LeadLogin";
+  import TayarLogin from "./pages/Login/TayarLogin";
+  import NotFoundPage from "./pages/NotFoundPage";
+  import apiUrls from './helpers/apiUrls';
   export default {
     name:'App',
     components:{
-                Login,
-                HomeLogin,
-                CompanyLogin,
-                AgentLogin,
-                TayarLogin,
-                LeadLogin,
-                NotFoundPage,
+        Login,
+        HomeLogin,
+        CompanyLogin,
+        AgentLogin,
+        TayarLogin,
+        LeadLogin,
+        NotFoundPage,
     },
     created(){
       if(localStorage.getItem('access_token')){
@@ -66,7 +66,6 @@ import apiUrls from './helpers/apiUrls';
       else{
           this.resetAuth();
         }
-          
         if(localStorage.getItem('lang')=="ar"){
             this.$i18n.locale = 'ar';
             this.$rtl.enableRTL();
@@ -77,8 +76,8 @@ import apiUrls from './helpers/apiUrls';
             this.$rtl.disableRTL();
             localStorage.setItem('lang','en')
         }
- },
-  methods: {
+    },
+    methods: {
       disableRTL() {
         if (!this.$rtl.isRTL) {
           this.$rtl.disableRTL();
@@ -136,7 +135,6 @@ import apiUrls from './helpers/apiUrls';
     border-top: 3px solid #306bf6 !important;
   }
   a{
-      
       font-weight: 700 !important;
   }
   .white-content .navbar.navbar-transparent .navbar-brand {
@@ -187,7 +185,6 @@ import apiUrls from './helpers/apiUrls';
       color: #13c7dd !important;
       background-color: #c1c1c1 !important;
       border-color: #e3e3e3 #e3e3e3 #1e1e2f !important;
-
   }
   /* .card{
     background-image:url('/img/img.jpg')  !important;

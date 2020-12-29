@@ -1,22 +1,22 @@
 <template>
-
-
-
-    <div class="contact-us full-screen">
+    <div class="circles">
         <section id="not-found">
             <div id="title"></div>
-            <div class="circles">
-                <p>
-                    OOH Wait A Minute<br />
-                    <small> Where Are You Going To ?</small>
-                </p>
+            <div class="">
+              
                 <span class="circle big"></span>
                 <span class="circle med"></span>
                 <span class="circle small"></span>
-            </div>
-        </section>
 
+            </div>
+              
+        </section>
+            <p>
+                OOH Wait A Minute<br>
+                <small> Where Are You Going To ?</small>
+            </p>
     </div>
+    
 </template>
 
 <script>
@@ -43,25 +43,25 @@ body {
 }
 
 .circles:after {
-    content: "";
     display: inline-block;
     width: 100%;
-    height: 100px;
-    background: #fff;
-    position: absolute;
+    height: 100%;
+    position: absolute; 
     top: -50px;
-    left: 0;
+    left: 0; 
     transform: skewY(-4deg);
     -webkit-transform: skewY(-4deg);
 }
 
 .circles {
-    background: #fff;
+    z-index: 9;
     text-align: center;
-    background-image: url("/default/ball1.png");
+    background-image: url("/img/Cover.jpg");
     position: relative;
+    object-fit: cover;
+    background-size: cover;
     margin-top: -60px;
-    box-shadow: inset -1px -4px 4px rgba(0, 0, 0, 0.2);
+    /* box-shadow: inset -1px -4px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .circles p {
@@ -83,7 +83,7 @@ body {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background-image: url("/default/ball2.png");
+    background-image: url("/default/ball1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -101,7 +101,7 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-image: url("/default/ball3.png");
+    background-image: url("/default/ball2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -119,7 +119,7 @@ body {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    background-image: url("/default/ball1.png");
+    background-image: url("/default/default.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

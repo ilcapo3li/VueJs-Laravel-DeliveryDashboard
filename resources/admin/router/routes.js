@@ -91,7 +91,7 @@ import Reports from "@/pages/Report/Reports";
 import ShowReport from "@/pages/Report/ShowReport";
 
 // GeneralViews
-import Login from "@/pages/Login/Login";
+import AdminLogin from "@/pages/Login/AdminLogin";
 import HomeLogin from "@/pages/Login/HomeLogin";
 import CompanyLogin from "@/pages/Login/CompanyLogin";
 import AgentLogin from "@/pages/Login/AgentLogin";
@@ -381,8 +381,8 @@ const routes = [
     },
     {
         path: "/admin/bicomatics/login",
-        name: "login",
-        component: Login
+        name: "admin-login",
+        component: AdminLogin
     },
     {
         path: "/company/login",
