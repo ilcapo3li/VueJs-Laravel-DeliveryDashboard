@@ -54,7 +54,7 @@ import MaterialTypeAdd from "@/pages/MaterialTypes/MaterialTypeAdd";
 import MaterialTypeEdit from "@/pages/MaterialTypes/MaterialTypeEdit";
 
 ///////////////////////////////production items////////////////////////////////////////
-import items from "@/pages/Items/items";
+import items from "@/pages/Items/Items";
 import itemAdd from "@/pages/Items/ItemAdd";
 import itemEdit from "@/pages/Items/ItemEdit";
 

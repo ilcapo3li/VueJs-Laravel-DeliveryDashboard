@@ -25,7 +25,7 @@ class CreateOrderItemsTable extends Migration
 			$table->decimal('hight',  7, 2)->nullable();
 			$table->decimal('width',  7, 2)->nullable();
             $table->decimal('length', 7, 2)->nullable();
-            $table->foreign('material_type_id')->references('id')->on('material_types');
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('material_type_id')->references('id')->on('material_types');
 			$table->foreign('material_id')->references('id')->on('materials');
             $table->timestamps();
