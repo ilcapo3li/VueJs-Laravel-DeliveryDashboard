@@ -119,7 +119,6 @@ import apiUrls from '../../helpers/apiUrls';
       logout(){
         axios.post(apiUrls.logout()).then(()=>{
             this.$store.commit('authenticatedValue',false);
-            this.$store.commit('userTypeUpdate',null);
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
@@ -131,6 +130,8 @@ import apiUrls from '../../helpers/apiUrls';
             {
               this.$router.push('/home/login')
             }
+            this.$store.commit('userTypeUpdate',null);
+
         });
       },
       changeLocale(){

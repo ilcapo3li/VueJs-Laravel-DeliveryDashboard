@@ -2,17 +2,17 @@
     <div class="wrapper">
         <side-bar>
             <template slot="links">
-                <div v-if="user.role == 'Super'">
+                <div v-if="userType == 'admin'">
 
-                    <!-- <sidebar-link to="/notify" :name="$t('sidebar.notify')" />
+                    <!-- <sidebar-link to="/notify" :name="$t('sidebar.notify')" icon="tim-icons icon-atom" /> -->
                     <sidebar-link to="/reports" :name="$t('sidebar.reports')" />
                     <sidebar-link to="/settings" :name="$t('sidebar.settings')" />
                     <sidebar-link to="/delivery-settings" :name="$t('sidebar.deliverySettings')" />
                     <sidebar-link to="/advertisments" :name="$t('sidebar.ads')" />
                     <sidebar-link to="/versions" :name="$t('sidebar.versions')" />
-                     <hr /> -->
+                     <hr />
 
-                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')" />
+                    <!-- <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" /> -->
                     <sidebar-link to="/admins" :name="$t('sidebar.admins')" />
                     <sidebar-link to="/suppliers" :name="$t('sidebar.suppliers')" />
                     <sidebar-link to="/agents" :name="$t('sidebar.agents')" />
@@ -49,7 +49,7 @@
 
                 </div>
 
-                <div v-else-if="user.role == 'Admin'">
+                <div v-else-if="userType == 'user'">
                     <div
                         v-for="(permission, index) in user.permissions"
                         v-bind:key="index"
@@ -97,11 +97,11 @@
                         
                     </div>
                 </div>
-                <div v-else-if="user.role == 'Supplier'">
+                <div v-else-if="userType == 'agent'">
                 </div>
-                <div v-else-if="user.role == 'Agents'">
+                <div v-else-if="userType == 'representative'">
                 </div>
-                <div v-else-if="user.role == 'Tayar'">
+                <div v-else-if="userType == 'lead'">
                 </div>
 
 
@@ -146,8 +146,8 @@ export default {
         }
     },
     computed: {
-        user() {
-            return this.$store.getters.user;
+        userType() {
+            return this.$store.getters.userType;
         }
     }
 };
