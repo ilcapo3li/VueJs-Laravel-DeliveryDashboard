@@ -104,6 +104,7 @@
                 <div v-else-if="user.role == 'Tayar'">
                 </div>
 
+
             </template>
         </side-bar>
         <div :data="mainPanel" class="main-panel">

@@ -97,6 +97,7 @@ import CompanyLogin from "@/pages/Login/CompanyLogin";
 import AgentLogin from "@/pages/Login/AgentLogin";
 import TayarLogin from "@/pages/Login/TayarLogin";
 import LeadLogin from "@/pages/Login/LeadLogin";
+import TestLogin from "@/pages/Login/TestLogin";
 import NotFound from "@/pages/NotFoundPage.vue"
 
 // Admin pages
@@ -383,6 +384,11 @@ const routes = [
         path: "/admin/bicomatics/login",
         name: "admin-login",
         component: AdminLogin
+    },
+    {
+        path: "/test/login",
+        name: "test-login",
+        component: TestLogin
     },
     {
         path: "/company/login",

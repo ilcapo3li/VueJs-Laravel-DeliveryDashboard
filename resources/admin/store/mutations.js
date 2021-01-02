@@ -7,6 +7,9 @@ export default{
   },
   updateLang(state,lang){
     state.lang=lang; 
-  }
+  },
+  userTypeUpdate(state,payload){
+    state.userType=payload;
+  },
 }
 

@@ -72,7 +72,10 @@ import apiUrls from '../../helpers/apiUrls';
     },
     computed: {
       routeName() {
-      return this.$t(this.$route.name);
+        return this.$t(this.$route.name);
+      },
+      userType() {
+        return this.$store.getters.userType;
       },
       isRTL() {
         return this.$rtl.isRTL;
@@ -115,12 +118,19 @@ import apiUrls from '../../helpers/apiUrls';
       },
       logout(){
         axios.post(apiUrls.logout()).then(()=>{
-           toastr.success('Logged out successfully');
             this.$store.commit('authenticatedValue',false);
+            this.$store.commit('userTypeUpdate',null);
             this.$store.commit('userUpdate',null);
             localStorage.removeItem('access_token')
             delete axios.defaults.headers.common["Authorization"];
-           this.$router.push('/login')
+            toastr.success('Logged Out Successfully');
+            if(this.userType == "admin")
+            {
+              this.$router.push('/admin/bicomatics/login')
+            }else
+            {
+              this.$router.push('/home/login')
+            }
         });
       },
       changeLocale(){

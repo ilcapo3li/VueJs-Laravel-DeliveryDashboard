@@ -21,7 +21,10 @@
     <div v-else-if="$route.name === 'lead-login'">
               <LeadLogin></LeadLogin>
     </div>
-    <div v-else-if="$route.name === 'login'">
+    <div v-else-if="$route.name === 'admin-login'">
+              <AdminLogin></AdminLogin>
+    </div>
+    <div v-else-if="$route.name === 'test-login'">
               <Login></Login>
     </div>
     <div v-else>
@@ -32,6 +35,7 @@
 
 <script>
   import Login from "./pages/Login/Login";
+  import AdminLogin from "./pages/Login/AdminLogin";
   import HomeLogin from "./pages/Login/HomeLogin";
   import CompanyLogin from "./pages/Login/CompanyLogin";
   import AgentLogin from "./pages/Login/AgentLogin";
@@ -45,6 +49,7 @@
         Login,
         HomeLogin,
         CompanyLogin,
+        AdminLogin,
         AgentLogin,
         TayarLogin,
         LeadLogin,
@@ -90,6 +95,7 @@
       resetAuth(){
           this.$store.commit('authenticatedValue',false);
           this.$store.commit('userUpdate',null);
+          this.$store.commit('userTypeUpdate',null);
           localStorage.removeItem('access_token')
           delete axios.defaults.headers.common["Authorization"];
       }

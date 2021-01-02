@@ -18,9 +18,6 @@ window.io = require('socket.io-client');
 window.moment = require('moment-timezone');
 
 
-
-
-
 // TIP: change to import router from "./router/starterRouter"; to start with a clean layout
 import router from "./router/index";
 import BlackDashboard from "./plugins/blackDashboard";
@@ -30,6 +27,7 @@ import swal from 'sweetalert';
 import VeeValidate from 'vee-validate';
 import toastr from 'toastr'
 window.toastr = toastr
+
 
 import 'toastr/build/toastr.min.css';
 Vue.use(BlackDashboard);

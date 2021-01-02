@@ -2,19 +2,19 @@ const makeUrl = route => {
     return `https://${location.hostname}/api${route}`;
 };
 export default {
-    login: () => {
+    adminLogin: () => {
         return makeUrl("/admin/bicomatics/login");
     },
     companyLogin: () => {
         return makeUrl("/company/login");
     },
-    AgentLogin: () => {
+    agentLogin: () => {
         return makeUrl("/agent/login");
     },
-    TayarLogin: () => {
+    tayarLogin: () => {
         return makeUrl("/representative/login");
     },
-    LeadLogin: () => {
+    leadLogin: () => {
         return makeUrl("/lead/login");
     },
     logout() {

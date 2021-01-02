@@ -7,5 +7,8 @@ export default {
   },
   lang :(state)=>{
     return state.lang;
-  }
+  },
+  userType :(state)=>{
+    return state.userType;
+  },
 }
