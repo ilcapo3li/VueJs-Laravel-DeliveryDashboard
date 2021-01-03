@@ -1,4 +1,4 @@
-import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
+import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 
  
 ///////////////////////////////production Admin////////////////////////////////////////
@@ -98,18 +98,19 @@ import AgentLogin from "@/pages/Login/AgentLogin";
 import TayarLogin from "@/pages/Login/TayarLogin";
 import LeadLogin from "@/pages/Login/LeadLogin";
 import TestLogin from "@/pages/Login/TestLogin";
-import NotFound from "@/pages/NotFoundPage.vue"
+import NotFound from "@/pages/NotFoundPage";
 
+import Test from "@/pages/Test";
 // Admin pages
 const Dashboard = () =>
-    import(/* webpackChunkName: "dashboard" */ "@/pages/Dashboard.vue");
+    import(/* webpackChunkName: "dashboard" */ "@/pages/Dashboard");
 const Profile = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Profile.vue");
+    import(/* webpackChunkName: "common" */ "@/pages/Profile");
 const Notifications = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Notifications.vue");
+    import(/* webpackChunkName: "common" */ "@/pages/Notifications");
 const Icons = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Icons.vue");
-const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps.vue");
+    import(/* webpackChunkName: "common" */ "@/pages/Icons");
+const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps");
 
 const routes = [
     {
@@ -414,6 +415,11 @@ const routes = [
         path: "/home/login",
         name: "home-login",
         component: HomeLogin
+    },
+    {
+        path: "/test/package",
+        name: "test-package",
+        component: Test
     },
 
     { path: "*", component: NotFound }
