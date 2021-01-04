@@ -5,22 +5,21 @@
         <div class="row">
             <div class=" col-md-5">
                 <div class="card card-stats" @click="CompanyLogin()">
-                    <div class="card-body">
+                    <div class="card-body">          
                         <div class="col-12">
-                          <vue-flip active-click="" width="200px" height="50px">
-          <template v-slot:front class="front">
-                       <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
+                          <vue-flip  :active-hover="true" width="200px" height="50px" transition="2s">
+                            <template v-slot:front class="front">
+                              <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
+                            </template>
+                            <template :v-slot="this.src1" class="back">
+                              <!-- back -->
+                              <!-- <div  class="img-row"> -->
+                              <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
 
-          </template>
-          <template v-slot:back class="back">
-            <!-- back -->
-            <!-- <div  class="img-row"> -->
-            <!-- <b-img-lazy src="default/default.jpg" alt="Admin image"/> -->
-            <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
-
-          <!-- </div> -->
-          </template>
-        </vue-flip>
+                              <!-- <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow> -->
+                            <!-- </div> -->
+                            </template>
+                          </vue-flip>
                               <!-- <image-shadow :width="400" :src="this.src1" shadow-hover></image-shadow> -->
                         </div>
                     </div>
