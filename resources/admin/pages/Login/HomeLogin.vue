@@ -6,58 +6,101 @@
             <div class=" col-md-5">
                 <div class="card card-stats" @click="CompanyLogin()">
                     <div class="card-body">
-                      <div class="row"><div class="col-5">
-                        <div class="info-icon text-center icon-primary">
-                          <i class="tim-icons icon-shape-star"></i>
+                        <div class="col-12">
+                          <vue-flip active-click="" width="200px" height="50px">
+          <template v-slot:front class="front">
+                       <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
+
+          </template>
+          <template v-slot:back class="back">
+            <!-- back -->
+            <!-- <div  class="img-row"> -->
+            <!-- <b-img-lazy src="default/default.jpg" alt="Admin image"/> -->
+            <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
+
+          <!-- </div> -->
+          </template>
+        </vue-flip>
+                              <!-- <image-shadow :width="400" :src="this.src1" shadow-hover></image-shadow> -->
                         </div>
-                      </div>
-                      <div class="col-7">
-                        <div class="numbers"><p class="card-category"><i class="tim-icons icon-shape-star"></i></p><h3 class="card-title"><i class="tim-icons icon-shape-star"></i></h3></div>
-                      </div>
-                </div></div>
+                    </div>
                 <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Company Login</div></div></div></div>
             </div>
             <div class=" col-md-2">
             </div>
              <div class=" col-md-5">
-                <div class="card card-stats" @click="AgentLogin()"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Agent Login</div></div></div></div>
+                <div class="card card-stats" @click="AgentLogin()">
+                  <div class="card-body">
+                        <div class="col-12">
+                          <vue-flip active-hover width="400px" height="500px">
+                              <template v-slot:front class="front">
+                                <image-shadow :width="400" :src="this.src1" shadow-hover></image-shadow>
+                                asdasd
+                              </template>
+                              <template v-slot:back class="back">
+                                  <image-shadow :width="400" :src="this.src2" shadow-hover></image-shadow>
+                                  asdasda
+                              </template>
+                            </vue-flip> 
+                        </div>
+                    </div>
+                  <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Agent Login</div></div></div></div>
             </div>
         </div>
+       
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <div class="row">
+        <!-- <div class="row">
            <div class=" col-md-5">
-                <div class="card card-stats" @click="TayarLogin()"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Tayar Login</div></div></div></div>
+                <div class="card card-stats" @click="TayarLogin()">
+                  <div class="card-body">
+                        <div class="col-12">
+                              <image-shadow :width="400" :shadow-radius="20" :src="this.src3" shadow-hover></image-shadow>
+                        </div>
+                    </div>
+                    <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Tayar Login</div></div></div></div>
             </div>
             <div class=" col-md-2">
             </div>
              <div class=" col-md-5">
-                <div class="card card-stats" @click="LeadLogin()"><!----><!----><div class="card-body"><div class="row"><div class="col-5"><div class="info-icon text-center icon-primary"><i class="tim-icons icon-shape-star"></i></div></div><div class="col-7"><div class="numbers"><p class="card-category">Followers</p><h3 class="card-title">+45K</h3></div></div></div></div><!----><div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Lead Login</div></div></div></div>
+                <div class="card card-stats" @click="LeadLogin()">
+                  <div class="card-body">
+                        <div class="col-12">
+                              <image-shadow :width="400" :shadow-radius="20" :src="this.src1" shadow-hover></image-shadow>
+                        </div>
+                    </div>
+                  <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Lead Login</div></div></div></div>
             </div>
-        </div>
+        </div> -->
   </b-container>
 </template>
 <script>
-import apiUrls from '../../helpers/apiUrls';
+import ImageShadow from 'vue-image-shadow'
+import VueFlip from 'vue-flip';
+import Flipbook from 'flipbook-vue';
 export default {
     name:'HomeLogin',
+    components: {
+     VueFlip,
+     Flipbook,
+     ImageShadow
+    },
     data(){
       return {
-        
+          src1: 'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
+          src2: 'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
+          src3: 'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
       }
     },
     methods:{
         CompanyLogin(){
-          this.$router.push('/company/login');
+          // this.$router.push('/company/login');
         },
         TayarLogin(){
           this.$router.push('/tayar/login');
         },
         AgentLogin(){
-          this.$router.push('/agent/login');
+          // this.$router.push('/agent/login');
         },
         LeadLogin(){
           this.$router.push('/lead/login');
