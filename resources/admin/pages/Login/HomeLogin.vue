@@ -1,10 +1,8 @@
 <template>
   <b-container>
-    <div class=" col-md-12">
-      <flipbook class="flipbook" :pages="this.pages"></flipbook>
-    </div>
-    <b-col md="3" class="py-3"></b-col>
-      <b-col md="3" class="py-3"></b-col>
+      <flipbook class="flipbook" :pages="this.pages" :singlePage="true"></flipbook>
+    <!-- <b-col md="3" class="py-3"></b-col>
+      <b-col md="3" class="py-3"></b-col> -->
         <div class="row">
             <div class=" col-md-5">
                 <div class="card card-stats" @click="CompanyLogin()">
@@ -147,5 +145,6 @@ export default {
 .flipbook {
   width: 90vw;
   height: 90vh;
+  
 }
 </style>
