@@ -6,21 +6,25 @@
             <div class=" col-md-5">
                 <div class="card card-stats" @click="CompanyLogin()">
                     <div class="card-body">          
-                        <div class="col-12">
-                          <vue-flip  :active-hover="true" width="200px" height="50px" transition="2s">
+                        <!-- <div class="col-12">
+                          <vue-flip  active-click="true" width="200px" height="200px">
                             <template v-slot:front class="front">
-                              <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
+                              <image-shadow :width="400" :src="src2" ></image-shadow>
                             </template>
-                            <template :v-slot="this.src1" class="back">
-                              <!-- back -->
-                              <!-- <div  class="img-row"> -->
-                              <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow>
-
-                              <!-- <image-shadow :width="400" src="/default/default.jpg" shadow-hover></image-shadow> -->
-                            <!-- </div> -->
+                            <template v-slot:back class="back">                             
+                              <image-shadow :width="400" :src="src1" ></image-shadow>                            
                             </template>
                           </vue-flip>
-                              <!-- <image-shadow :width="400" :src="this.src1" shadow-hover></image-shadow> -->
+                        </div> -->
+                        <div class="col-12">
+                          <vue-flip active-hover width="400px" height="200px">
+                              <template v-slot:front class="front">
+                                <image-shadow :width="400" :src="src1"></image-shadow>
+                              </template>
+                              <template v-slot:back class="back">
+                                  <image-shadow :width="400" :src="src2"></image-shadow>
+                              </template>
+                            </vue-flip> 
                         </div>
                     </div>
                 <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-sound-wave"></i>Company Login</div></div></div></div>
@@ -31,14 +35,12 @@
                 <div class="card card-stats" @click="AgentLogin()">
                   <div class="card-body">
                         <div class="col-12">
-                          <vue-flip active-hover width="400px" height="500px">
+                          <vue-flip active-hover width="400px" height="200px">
                               <template v-slot:front class="front">
-                                <image-shadow :width="400" :src="this.src1" shadow-hover></image-shadow>
-                                asdasd
+                                <image-shadow :width="400" :src="src2"></image-shadow>
                               </template>
                               <template v-slot:back class="back">
-                                  <image-shadow :width="400" :src="this.src2" shadow-hover></image-shadow>
-                                  asdasda
+                                  <image-shadow :width="400" :src="src3"></image-shadow>
                               </template>
                             </vue-flip> 
                         </div>

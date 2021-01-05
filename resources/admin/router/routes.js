@@ -1,6 +1,5 @@
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 
- 
 ///////////////////////////////production Admin////////////////////////////////////////
 import Settings from "@/pages/Adminstration/Settings";
 import Notify from "@/pages/Adminstration/Notify";
@@ -28,7 +27,6 @@ import Tayar from "@/pages/Tayar/Tayar";
 import TayarAdd from "@/pages/Tayar/TayarAdd";
 import TayarEdit from "@/pages/Tayar/TayarEdit";
 
-
 ///////////////////////////////production Currencies////////////////////////////////////////
 import Currencies from "@/pages/Currencies/Currencies";
 import CurrencyAdd from "@/pages/Currencies/CurrencyAdd";
@@ -41,7 +39,6 @@ import PricingEdit from "@/pages/Pricing/PricingEdit";
 
 ///////////////////////////////production DeliverySettings////////////////////////////////////////
 import DeliverySettings from "@/pages/DeliverySettings/DeliverySettings";
-
 
 ///////////////////////////////Production Status////////////////////////////////////////
 import Status from "@/pages/OrderStatus/Status";
@@ -241,6 +238,22 @@ const routes = [
                 name: "lead-edit",
                 component: LeadEdit
             },
+            //////////////////////////////////////////////////////
+            {
+                path: "/users",
+                name: "users",
+                component: Users
+            },
+            // {
+            //     path: "/user/add",
+            //     name: "user-add",
+            //     component: UserAdd
+            // },
+            // {
+            //     path: "/user/edit",
+            //     name: "user-edit",
+            //     component: UserEdit
+            // },
 
             //////////////////////////////////////////////////////
             {

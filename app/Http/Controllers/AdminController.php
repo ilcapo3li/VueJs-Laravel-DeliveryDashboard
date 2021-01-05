@@ -14,7 +14,7 @@ class AdminController extends AuthController
 {
     public function index()
     {
-        $admins = Auth::user()->company->admins()
+        $admins = Auth::user('user')->company->admins()
                 ->where('name', 'like', '%'.Input::get('query').'%')
                 ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
                 ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
