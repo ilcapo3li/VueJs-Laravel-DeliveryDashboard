@@ -28,6 +28,30 @@ class UsersController extends AuthController
         );
     }
 
+    public function save(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|unique:users,name',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        } else {
+            $admin = new User();
+            $admin->name = $request->name;
+            $admin->email = $request->email;
+            $admin->password = $request->password;
+            $admin->role_id = 2;
+            $admin->save();
+            $admin->permissions()->attach($request->permissions);
+
+            return response()->json('Admin Created Suceessfully');
+        }
+    }
+
     public function block(User $user)
     {
         $user->blocked = !$user->blocked;

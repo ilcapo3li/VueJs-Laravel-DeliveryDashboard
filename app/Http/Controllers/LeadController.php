@@ -9,7 +9,6 @@ class LeadController extends AuthController
     public function index()
     {
         $users = User::where('name', 'like', '%'.Input::get('query').'%')->orwhere('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 6)->orderBy('id', 'desc')->paginate(10);
-
         return response()->json($users);
     }
 
@@ -31,7 +30,6 @@ class LeadController extends AuthController
             $admin->password = $request->password;
             $admin->role_id = 6;
             $admin->save();
-
             return response()->json('New Lead Created Suceessfully');
         }
     }

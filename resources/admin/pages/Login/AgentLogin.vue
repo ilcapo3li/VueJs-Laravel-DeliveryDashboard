@@ -122,7 +122,7 @@
                       }
                   }).catch((error)=>{
                       if(error.response.status==401){
-                        toastr.error('Unauthorized check your email or password')
+                        toastr.error('Unauthorized check your Email Or Password')
                       }
                   });
               } else {
