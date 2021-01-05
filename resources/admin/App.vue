@@ -34,13 +34,13 @@
 </template>
 
 <script>
-  import Login from "./pages/Login/Login";
-  import AdminLogin from "./pages/Login/AdminLogin";
-  import HomeLogin from "./pages/Login/HomeLogin";
-  import CompanyLogin from "./pages/Login/CompanyLogin";
-  import AgentLogin from "./pages/Login/AgentLogin";
-  import LeadLogin from "./pages/Login/LeadLogin";
-  import TayarLogin from "./pages/Login/TayarLogin";
+  import Login from "./pages/Home/Login";
+  import AdminLogin from "./pages/Home/AdminLogin";
+  import HomeLogin from "./pages/Home/Home";
+  import CompanyLogin from "./pages/Home/CompanyLogin";
+  import AgentLogin from "./pages/Home/AgentLogin";
+  import LeadLogin from "./pages/Home/LeadLogin";
+  import TayarLogin from "./pages/Home/TayarLogin";
   import NotFoundPage from "./pages/NotFoundPage";
   import apiUrls from './helpers/apiUrls';
   export default {

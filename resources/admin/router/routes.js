@@ -88,13 +88,13 @@ import Reports from "@/pages/Report/Reports";
 import ShowReport from "@/pages/Report/ShowReport";
 
 // GeneralViews
-import AdminLogin from "@/pages/Login/AdminLogin";
-import HomeLogin from "@/pages/Login/HomeLogin";
-import CompanyLogin from "@/pages/Login/CompanyLogin";
-import AgentLogin from "@/pages/Login/AgentLogin";
-import TayarLogin from "@/pages/Login/TayarLogin";
-import LeadLogin from "@/pages/Login/LeadLogin";
-import TestLogin from "@/pages/Login/TestLogin";
+import AdminLogin from "@/pages/Home/AdminLogin";
+import Home from "@/pages/Home/Home";
+import CompanyLogin from "@/pages/Home/CompanyLogin";
+import AgentLogin from "@/pages/Home/AgentLogin";
+import TayarLogin from "@/pages/Home/TayarLogin";
+import LeadLogin from "@/pages/Home/LeadLogin";
+import TestLogin from "@/pages/Home/TestLogin";
 import NotFound from "@/pages/NotFoundPage";
 
 import Test from "@/pages/Test";
@@ -425,9 +425,9 @@ const routes = [
         component: TayarLogin
     },
     {
-        path: "/home/login",
-        name: "home-login",
-        component: HomeLogin
+        path: "/home/",
+        name: "home",
+        component: Home
     },
     {
         path: "/test/package",

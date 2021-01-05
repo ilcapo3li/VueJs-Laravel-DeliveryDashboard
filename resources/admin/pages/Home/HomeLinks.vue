@@ -1,6 +1,7 @@
-<template>
+<template> 
   <b-container>
-      <flipbook class="flipbook" :pages="this.pages" :singlePage="true"></flipbook>
+    
+      <!-- <flipbook class="flipbook" :pages="this.pages" :singlePage="true"></flipbook> -->
     <!-- <b-col md="3" class="py-3"></b-col>
       <b-col md="3" class="py-3"></b-col> -->
         <div class="row">
@@ -95,28 +96,29 @@ import ImageShadow from 'vue-image-shadow'
 import VueFlip from 'vue-flip';
 import Flipbook from 'flipbook-vue';
 export default {
-    name:'HomeLogin',
+    name:'HomeLinks',
     components: {
      VueFlip,
      Flipbook,
-     ImageShadow
+     ImageShadow,
     },
     data(){
       return {
           src1: 'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
           src2: 'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
           src3: 'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
-          pages:[
-                'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
-                'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
-          ]
+          // pages:[
+          //       'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/4.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/6.jpg?raw=true',
+          //       'https://github.com/image-component/gallery/blob/main/girl/8.png?raw=true',
+          // ],
+           
       }
     },
     methods:{
@@ -132,12 +134,9 @@ export default {
         LeadLogin(){
           this.$router.push('/lead/login');
         },
+      
     },
-    computed:{
-      isRTL() {
-        return this.$rtl.isRTL;
-      }
-    }
+    
 }
 </script>
 <style>
