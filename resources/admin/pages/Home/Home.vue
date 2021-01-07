@@ -1,8 +1,8 @@
 <template>
-<div>
-  <HomeSlider></HomeSlider>
-  <HomeLinks></HomeLinks>
-</div>
+    <div class="homeLinkImage">
+        <HomeSlider></HomeSlider>
+        <HomeLinks></HomeLinks>
+    </div>
 </template>
 <script>
 import HomeLinks from './HomeLinks';

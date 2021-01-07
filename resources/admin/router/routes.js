@@ -88,8 +88,8 @@ import Reports from "@/pages/Report/Reports";
 import ShowReport from "@/pages/Report/ShowReport";
 
 // GeneralViews
-import AdminLogin from "@/pages/Home/AdminLogin";
 import Home from "@/pages/Home/Home";
+import AdminLogin from "@/pages/Home/AdminLogin";
 import CompanyLogin from "@/pages/Home/CompanyLogin";
 import AgentLogin from "@/pages/Home/AgentLogin";
 import TayarLogin from "@/pages/Home/TayarLogin";
@@ -113,7 +113,7 @@ const routes = [
     {
         path: "/",
         component: DashboardLayout,
-        redirect: "/dashboard",
+        redirect: "/home",
         children: [
 
             ////////////production begain///////////////////////
@@ -425,7 +425,7 @@ const routes = [
         component: TayarLogin
     },
     {
-        path: "/home/",
+        path: "/home",
         name: "home",
         component: Home
     },

@@ -6,8 +6,8 @@
         <router-view :key="$route.fullPath"></router-view>
       </div>
     </div>
-    <div v-else-if="$route.name === 'home-login'">
-              <HomeLogin></HomeLogin>
+    <div v-else-if="$route.name === 'home'">
+              <Home></Home>
     </div>
     <div v-else-if="$route.name === 'company-login'">
               <CompanyLogin></CompanyLogin>
@@ -34,20 +34,20 @@
 </template>
 
 <script>
-  import Login from "./pages/Home/Login";
+  import Home from "./pages/Home/Home";
   import AdminLogin from "./pages/Home/AdminLogin";
-  import HomeLogin from "./pages/Home/Home";
   import CompanyLogin from "./pages/Home/CompanyLogin";
   import AgentLogin from "./pages/Home/AgentLogin";
   import LeadLogin from "./pages/Home/LeadLogin";
   import TayarLogin from "./pages/Home/TayarLogin";
+  import Login from "./pages/Home/Login";
   import NotFoundPage from "./pages/NotFoundPage";
   import apiUrls from './helpers/apiUrls';
   export default {
     name:'App',
     components:{
         Login,
-        HomeLogin,
+        Home,
         CompanyLogin,
         AdminLogin,
         AgentLogin,
