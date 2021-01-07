@@ -4,7 +4,7 @@
             <template slot="links">
                 <div v-if="userType == 'admin'">
 
-                    <!-- <sidebar-link to="/notify" :name="$t('sidebar.notify')" icon="tim-icons icon-atom" /> -->
+                    <sidebar-link to="/notify" :name="$t('sidebar.notify')" icon="tim-icons icon-atom" />
                     <sidebar-link to="/reports" :name="$t('sidebar.reports')" />
                     <sidebar-link to="/settings" :name="$t('sidebar.settings')" />
                     <sidebar-link to="/delivery-settings" :name="$t('sidebar.deliverySettings')" />
@@ -12,9 +12,9 @@
                     <sidebar-link to="/versions" :name="$t('sidebar.versions')" />
                      <hr />
 
-                    <!-- <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" /> -->
+                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
                     <sidebar-link to="/admins" :name="$t('sidebar.admins')" />
-                    <sidebar-link to="/suppliers" :name="$t('sidebar.suppliers')" />
+                    <sidebar-link to="/users" :name="$t('sidebar.users')" />
                     <sidebar-link to="/agents" :name="$t('sidebar.agents')" />
                     <sidebar-link to="/tayar" :name="$t('sidebar.tayar')" />
                     <sidebar-link to="/leads" :name="$t('sidebar.leads')" />
@@ -50,7 +50,14 @@
                 </div>
 
                 <div v-else-if="userType == 'user'">
-                    <div
+                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
+
+                    <sidebar-link to="/zones" :name="$t('sidebar.zones')" />
+                    <sidebar-link to="/prices" :name="$t('sidebar.pricing')" />
+                    <hr />
+                    <sidebar-link to="/material-types" :name="$t('sidebar.materialTypes')" />
+                    <sidebar-link to="/orders" :name="$t('sidebar.orders')" />              
+                    <!-- <div
                         v-for="(permission, index) in user.permissions"
                         v-bind:key="index"
                     >
@@ -60,49 +67,33 @@
                                 :name="$t('sidebar.zones')"
                             />
                         </div>
-
-                        <div v-if="permission.name == 'View Countries'">
-                            <sidebar-link
-                                to="/countries"
-                                :name="$t('sidebar.countries')"
-                            />
-                        </div>
-
-                        <div v-if="permission.name == 'View Cities'">
-                            <sidebar-link
-                                to="/cities"
-                                :name="$t('sidebar.cities')"
-                            />
-                        </div>
-                        
-                      
-                        <div v-if="permission.name == 'Send Notify'">
-                            <sidebar-link
-                                to="/notify"
-                                :name="$t('sidebar.notify')"
-                            />
-                        </div>
-                        <div v-if="permission.name == 'View Reports'">
-                            <sidebar-link
-                                to="/reports"
-                                :name="$t('sidebar.reports')"
-                            />
-                        </div>
-                        <div v-if="permission.name == 'View Settings'">
-                            <sidebar-link
-                                to="/settings"
-                                :name="$t('sidebar.settings')"
-                            />
-                        </div>
-                        
-                    </div>
+                    </div> -->
                 </div>
                 <div v-else-if="userType == 'agent'">
+                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
+
+                    <sidebar-link to="/myLeads" :name="$t('sidebar.myLeads')" />                  
+                    <sidebar-link to="/myLocations" :name="$t('sidebar.myLocations')" />          
+                    <sidebar-link to="/tayarOrders" :name="$t('sidebar.tayarOrders')" />            
+                    <sidebar-link to="/leadOrders" :name="$t('sidebar.leadOrders')" />             
+                    <sidebar-link to="/leadLocations" :name="$t('sidebar.leadLocations')" />      
+                    <sidebar-link to="/orderStatus" :name="$t('sidebar.orderStatus')" />           
+                    <sidebar-link to="/activeOrder" :name="$t('sidebar.activeOrder')" />           
+                    <!-- <hr /> -->
                 </div>
                 <div v-else-if="userType == 'representative'">
+                    <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
+
+                    <sidebar-link to="/myOrders" :name="$t('sidebar.myOrders')" />                 
+
                 </div>
                 <div v-else-if="userType == 'lead'">
+                    <sidebar-link to="/myOrders" :name="$t('sidebar.myOrders')" />    
+
+
                 </div>
+                    <sidebar-link to="/map" :name="$t('sidebar.map')" />             
+                    <sidebar-link to="/searchCode" :name="$t('sidebar.searchCode')" />             
 
 
             </template>

@@ -99,15 +99,11 @@ import NotFound from "@/pages/NotFoundPage";
 
 import Test from "@/pages/Test";
 // Admin pages
-const Dashboard = () =>
-    import(/* webpackChunkName: "dashboard" */ "@/pages/Dashboard");
-const Profile = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Profile");
-const Notifications = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Notifications");
-const Icons = () =>
-    import(/* webpackChunkName: "common" */ "@/pages/Icons");
-const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps");
+const Dashboard = ()     =>import(/* webpackChunkName: "dashboard" */ "@/pages/Dashboard");
+const Profile = ()       =>import(/* webpackChunkName: "common" */ "@/pages/Profile");
+const Notifications = () =>import(/* webpackChunkName: "common" */ "@/pages/Notifications");
+const Icons = ()         => import(/* webpackChunkName: "common" */ "@/pages/Icons");
+const Maps = ()          => import(/* webpackChunkName: "common" */ "@/pages/Maps");
 
 const routes = [
     {
@@ -390,7 +386,12 @@ const routes = [
                 path: "/locations",
                 name: "locations",
                 component: Locations
-            }
+            },
+            {
+                path: "/map",
+                name: "map",
+                component: Maps
+            },
         ],
 
     },
@@ -434,6 +435,7 @@ const routes = [
         name: "test-package",
         component: Test
     },
+  
 
     { path: "*", component: NotFound }
 ];
