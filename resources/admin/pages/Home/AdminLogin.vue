@@ -1,4 +1,5 @@
 <template>
+<div>
       <b-container>
 
       <b-col md="3" class="py-3"></b-col>
@@ -54,14 +55,21 @@
                   <b-button  type="button" variant="success" @click="LoginForm()">Submit</b-button>
               </div>
          </b-form>
+         <div>
+            Email:admin@admin.com
+            <br> 
+            Password:123456
+         </div>
       </b-card>
 
   </b-container>
+  </div>
 </template>
 <script>
   import apiUrls from '../../helpers/apiUrls';
   export default {
       name:'AdminLogin',
+     
       data(){
         return {
             email:null,
@@ -139,7 +147,5 @@
   }
 </script>
 <style>
-div.card{
-  margin-top: 50px !important;
-}
+
 </style>

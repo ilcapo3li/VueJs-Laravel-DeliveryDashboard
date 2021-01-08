@@ -124,7 +124,7 @@ export default {
 <style>
 
 .homeLinkImage{
-  background-image: url("/img/representative.jfif") ;
+  /* background-image: url("/img/representative.jfif") ; */
   background-repeat: no-repeat ;
   background-position: center;
   background-size: cover;

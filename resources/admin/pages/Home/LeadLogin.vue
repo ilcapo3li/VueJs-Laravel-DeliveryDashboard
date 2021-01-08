@@ -54,6 +54,11 @@
                   <b-button  type="button" variant="success" @click="LoginForm()">Submit</b-button>
               </div>
          </b-form>
+         <div>
+            Email:lead1@lead.com
+            <br> 
+            Password:123456
+         </div>
       </b-card>
 
   </b-container>
