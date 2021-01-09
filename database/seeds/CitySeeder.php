@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\City;
+use App\Governorate;
 
 
 class CitySeeder extends Seeder
@@ -13,18 +13,18 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('cities')->delete();
-        // $json = File::get('database/data/cities.json');
-        // foreach (json_decode($json) as $row) {
-        //     City::Create([
-        //     'en_name' => $row->en_country,
-        //     'ar_name' => $row->ar_country,
-        //    ]);
-        // }
-        City::create([
-            'en_name' => 'Alexandria',
-            'ar_name' => 'الاسكندرية',
-            'country_id' => 64,
-        ]);
+        DB::table('governorates')->delete();
+        $json = File::get('database/data/governorates.json');
+        foreach (json_decode($json) as $row) {
+            Governorates::Create([
+            'en_name' => $row->en_name,
+            'ar_name' => $row->ar_name,
+            'lat' => $row->ar_name,
+            'lng' => $row->ar_name,
+            'population'=>$row->population,
+            'country_id'=>$row->country_id,
+           ]);
+        }
+       
     }
 }
