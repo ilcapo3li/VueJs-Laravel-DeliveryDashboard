@@ -128,7 +128,7 @@ import apiUrls from '../../helpers/apiUrls';
               this.$router.push('/admin/bicomatics/login')
             }else
             {
-              this.$router.push('/home/login')
+              this.$router.push('/')
             }
             this.$store.commit('userTypeUpdate',null);
 

@@ -20,7 +20,6 @@
                     <sidebar-link to="/leads" :name="$t('sidebar.leads')" />
                     <hr />
 
-                    
                     <sidebar-link to="/currencies" :name="$t('sidebar.currencies')" />
                     <sidebar-link to="/countries" :name="$t('sidebar.countries')" />
                     <sidebar-link to="/cities" :name="$t('sidebar.cities')" />
@@ -33,7 +32,6 @@
                     <sidebar-link to="/orders" :name="$t('sidebar.orders')" />              
                     <hr />
 
-    
                     <!-- <sidebar-link to="/myLeads" :name="$t('sidebar.myLeads')" />                    ////Lead belongs to (Agent - Supplier)//// -->
                     <!-- <sidebar-link to="/myOrders" :name="$t('sidebar.myOrders')" />                  ////Orders created by (Agent - Supplier) //// -->
                     <!-- <sidebar-link to="/myLocations" :name="$t('sidebar.myLocations')" />            ////locations belongs to (Agent - Supplier)//// -->
@@ -44,8 +42,6 @@
                     <!-- <sidebar-link to="/activeOrder" :name="$t('sidebar.activeOrder')" />            ////active Order//// -->
                     <!-- <sidebar-link to="/searchCode" :name="$t('sidebar.searchCode')" />              ////search Code//// -->
                     <!-- <hr /> -->
-
-                   
 
                 </div>
 
@@ -71,7 +67,6 @@
                 </div>
                 <div v-else-if="userType == 'agent'">
                     <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
-
                     <sidebar-link to="/myLeads" :name="$t('sidebar.myLeads')" />                  
                     <sidebar-link to="/myLocations" :name="$t('sidebar.myLocations')" />          
                     <sidebar-link to="/tayarOrders" :name="$t('sidebar.tayarOrders')" />            

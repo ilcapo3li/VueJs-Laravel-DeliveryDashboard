@@ -1,0 +1,317 @@
+[
+    {
+        "en_name": "Cairo", 
+        "ar_name": "Cairo", 
+        "lat": "30.0561", 
+        "lng": "31.2394", 
+        "country_id": 61, 
+        "population": "19372000"
+        
+    }, 
+    {
+        "en_name": "Alexandria",
+        "ar_name": "Alexandria",
+        "lat": "31.2000", 
+        "lng": "29.9167", 
+        "country_id": 61, 
+        "population": "4870000"
+        
+    }, 
+    {
+        "en_name": "Giza", 
+        "ar_name": "Giza", 
+        "lat": "29.9870", 
+        "lng": "31.2118", 
+        "country_id": 61,   
+        "population": "3021542"
+        
+    }, 
+    {
+        "en_name": "Shubr\u0101 al Khaymah", 
+        "ar_name": "Shubr\u0101 al Khaymah", 
+        "lat": "30.1286", 
+        "lng": "31.2422", 
+        "country_id": 61,    
+        "population": "1025569"
+        
+    }, 
+    {
+        "en_name": "\u1e28alw\u0101n", 
+        "ar_name": "\u1e28alw\u0101n", 
+        "lat": "29.8419", 
+        "lng": "31.3342", 
+        "country_id": 61,     
+        "population": "619293" 
+        
+    }, 
+    {
+        "en_name": "Al Ma\u1e29allah al Kubr\u00e1", 
+        "ar_name": "Al Ma\u1e29allah al Kubr\u00e1", 
+        "lat": "30.9667", 
+        "lng": "31.1667", 
+        "country_id": 61, 
+        "population": "543271" 
+        
+    }, 
+    {
+        "en_name": "Port Said", 
+        "ar_name": "Port Said", 
+        "lat": "31.2500", 
+        "lng": "32.2833", 
+        "country_id": 61,   
+        "population": "524433" 
+        
+    }, 
+    {
+        "en_name": "Mad\u012bnat as S\u0101dis min Ukt\u016bbar", 
+        "ar_name": "Mad\u012bnat as S\u0101dis min Ukt\u016bbar", 
+        "lat": "29.9361", 
+        "lng": "30.9269", 
+        "country_id": 61, 
+        "population": "500000" 
+        
+    }, 
+    {
+        "en_name": "Suez", 
+        "ar_name": "Suez", 
+        "lat": "29.9667", 
+        "lng": "32.5333", 
+        "country_id": 61,  
+        "population": "485342"
+        
+    }, 
+    {
+        "en_name": "Al Man\u015f\u016brah", 
+        "ar_name": "Al Man\u015f\u016brah", 
+        "lat": "31.0500", 
+        "lng": "31.3833", 
+        "country_id": 61, 
+        "population": "439348" 
+        
+    }, 
+    {
+        "en_name": "\u0162an\u0163\u0101", 
+        "ar_name": "\u0162an\u0163\u0101", 
+        "lat": "30.7833", 
+        "lng": "31.0000", 
+        "country_id": 61, 
+        "population": "429503" 
+        
+    }, 
+    {
+        "en_name": "Asy\u016b\u0163", 
+        "ar_name": "Asy\u016b\u0163", 
+        "lat": "27.1869", 
+        "lng": "31.1714", 
+        "country_id": 61, 
+        "population": "389307"
+        
+    }, 
+    {
+        "en_name": "Al Fayy\u016bm", 
+        "ar_name": "Al Fayy\u016bm", 
+        "lat": "29.3000", 
+        "lng": "30.8333", 
+        "country_id": 61, 
+        "population": "315940" 
+        
+    }, 
+    {
+        "en_name": "Az Zaq\u0101z\u012bq", 
+        "ar_name": "Az Zaq\u0101z\u012bq", 
+        "lat": "30.5667", 
+        "lng": "31.5000", 
+        "country_id": 61, 
+        "population": "302840"
+        
+    }, 
+    {
+        "en_name": "Ismailia", 
+        "ar_name": "Ismailia", 
+        "lat": "30.5833", 
+        "lng": "32.2667", 
+        "country_id": 61,
+        "population": "293184"
+        
+    }, 
+    {
+        "en_name": "Asw\u0101n", 
+        "ar_name": "Asw\u0101n", 
+        "lat": "24.0889", 
+        "lng": "32.8997", 
+        "country_id": 61,
+        "population": "267913"
+        
+    }, 
+    {
+        "en_name": "Kafr ad Daww\u0101r", 
+        "ar_name": "Kafr ad Daww\u0101r", 
+        "lat": "31.1417", 
+        "lng": "30.1272", 
+        "country_id": 61,
+        "population": "262748"
+        
+    }, 
+    {
+        "en_name": "Damanh\u016br", 
+        "ar_name": "Damanh\u016br", 
+        "lat": "31.0500", 
+        "lng": "30.4667", 
+        "country_id": 61,
+        "population": "244043"
+        
+    }, 
+    {
+        "en_name": "Al Miny\u0101", 
+        "ar_name": "Al Miny\u0101", 
+        "lat": "28.0833", 
+        "lng": "30.7500", 
+        "country_id": 61,
+        "population": "236043"
+        
+    }, 
+    {
+        "en_name": "Damietta", 
+        "ar_name": "Damietta", 
+        "lat": "31.4167", 
+        "lng": "31.8167", 
+        "country_id": 61,  
+        "population": "206664"
+        
+    }, 
+    {
+        "en_name": "Luxor", 
+        "ar_name": "Luxor", 
+        "lat": "25.6969", 
+        "lng": "32.6422", 
+        "country_id": 61,
+        "population": "202232"
+        
+    }, 
+    {
+        "en_name": "Qin\u0101", 
+        "ar_name": "Qin\u0101", 
+        "lat": "26.1667", 
+        "lng": "32.7167", 
+        "country_id": 61, 
+        "population": "201191"
+        
+    }, 
+    {
+        "en_name": "S\u016bh\u0101j", 
+        "ar_name": "S\u016bh\u0101j", 
+        "lat": "26.5606", 
+        "lng": "31.6917", 
+        "country_id": 61,  
+        "population": "193931"
+        
+    }, 
+    {
+        "en_name": "Ban\u012b Suwayf", 
+        "ar_name": "Ban\u012b Suwayf", 
+        "lat": "29.0667", 
+        "lng": "31.0833", 
+        "country_id": 61,
+        "population": "193048"
+        
+    }, 
+    {
+        "en_name": "Shib\u012bn al Kawm", 
+        "ar_name": "Shib\u012bn al Kawm", 
+        "lat": "30.5920", 
+        "lng": "30.9000", 
+        "country_id": 61,
+        "population": "182900"
+        
+    }, 
+    {
+        "en_name": "Al \u2018Ar\u012bsh", 
+        "ar_name": "Al \u2018Ar\u012bsh", 
+        "lat": "31.1249", 
+        "lng": "33.8006", 
+        "country_id": 61,
+        "population": "178651"
+        
+    }, 
+    {
+        "en_name": "Al Ghardaqah", 
+        "ar_name": "Al Ghardaqah", 
+        "lat": "27.2578", 
+        "lng": "33.8117", 
+        "country_id": 61,   
+        "population": "160901"
+        
+    }, 
+    {
+        "en_name": "Banh\u0101", 
+        "ar_name": "Banh\u0101", 
+        "lat": "30.4628", 
+        "lng": "31.1797", 
+        "country_id": 61,
+        "population": "157701"
+        
+    }, 
+    {
+        "en_name": "Kafr ash Shaykh", 
+        "ar_name": "Kafr ash Shaykh", 
+        "lat": "31.1000", 
+        "lng": "30.9500", 
+        "country_id": 61,
+        "population": "147393"
+        
+    }, 
+    {
+        "en_name": "Mars\u00e1 Ma\u0163r\u016b\u1e29", 
+        "ar_name": "Mars\u00e1 Ma\u0163r\u016b\u1e29", 
+        "lat": "31.3333", 
+        "lng": "27.2333", 
+        "country_id": 61,
+        "population": "68339"
+        
+    }, 
+    {
+        "en_name": "Al Kh\u0101rijah", 
+        "ar_name": "Al Kh\u0101rijah", 
+        "lat": "25.4400", 
+        "lng": "30.5500", 
+        "country_id": 61,
+        "population": "49991"
+        
+    }, 
+    {
+        "en_name": "A\u0163 \u0162\u016br", 
+        "ar_name": "A\u0163 \u0162\u016br", 
+        "lat": "28.2333", 
+        "lng": "33.6167", 
+        "country_id": 61,   
+        "population": "12733"
+        
+    }, 
+    {
+        "en_name": "Rafa\u1e29", 
+        "ar_name": "Rafa\u1e29", 
+        "lat": "31.2820", 
+        "lng": "34.2387", 
+        "country_id": 61,
+        "population": ""
+        
+    }, 
+    {
+        "en_name": "Ash Shaykh Zuwayd", 
+        "ar_name": "Ash Shaykh Zuwayd", 
+        "lat": "31.2119", 
+        "lng": "34.1106", 
+        "country_id": 61,
+        "population": ""
+        
+    }, 
+    {
+        "en_name": "Bi\u2019r al \u2018Abd", 
+        "ar_name": "Bi\u2019r al \u2018Abd", 
+        "lat": "31.0000", 
+        "lng": "33.0167", 
+        "country_id": 61,
+        "population": ""
+        
+    }
+]

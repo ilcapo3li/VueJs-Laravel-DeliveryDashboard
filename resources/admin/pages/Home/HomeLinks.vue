@@ -6,17 +6,17 @@
                   <div class="card card-stats">
                       <div class="card-body">          
                           <div class="col-12">
-                            <vue-flip active-hover width="400px" height="225px" transition="1.5s">
+                            <vue-flip active-hover width="100%" height="150px" transition="1s">
                                 <template v-slot:front class="front">
-                                  <image-shadow :width="400" :src="company1"></image-shadow>
+                                  <image-shadow width="100%" :src="company1"></image-shadow>
                                 </template>
                                 <template v-slot:back class="back">
-                                    <image-shadow :width="400" :src="company2"></image-shadow>
+                                    <image-shadow width="100%" :src="company2"></image-shadow>
                                 </template>
-                              </vue-flip> 
+                            </vue-flip> 
                           </div>
                       </div>
-                  <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-delivery-fast"></i>{{$t('companyLogin')}}</div></div></div><b-button  type="button" variant="success" @click="CompanyLogin()">Log In</b-button></div>
+                  <div class="card-footer text-left"><hr></div><b-button class="tim-icons icon-delivery-fast" type="button" variant="success" @click="CompanyLogin()"> {{$t('companyLogin')}}</b-button></div>
               </div>
               <div class=" col-md-2">
               </div>
@@ -24,17 +24,17 @@
                   <div class="card card-stats">
                     <div class="card-body">
                           <div class="col-12">
-                            <vue-flip active-hover width="400px" height="225px" transition="1.5s">
+                            <vue-flip active-hover width="100%" height="150px" transition="1.5s">
                                 <template v-slot:front class="front">
-                                  <image-shadow :width="400" :src="seller1"></image-shadow>
+                                  <image-shadow  width="100%" :src="seller1"></image-shadow>
                                 </template>
                                 <template v-slot:back class="back">
-                                    <image-shadow :width="400" :src="seller2"></image-shadow>
+                                    <image-shadow width="100%" :src="seller2"></image-shadow>
                                 </template>
                               </vue-flip> 
                           </div>
                       </div>
-                    <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-cart"></i>{{$t('agentLogin')}}</div></div></div><b-button  type="button" variant="primary" @click="AgentLogin()">Log In</b-button></div>
+                    <div class="card-footer text-left"><hr></div><b-button class="tim-icons icon-cart" type="button" variant="primary" @click="AgentLogin()"> {{$t('agentLogin')}}</b-button></div>
               </div>
           </div>
         
@@ -45,17 +45,17 @@
                   <div class="card card-stats">
                     <div class="card-body">
                           <div class="col-12">
-                            <vue-flip active-hover width="400px" height="225px" transition="1.5s">
+                            <vue-flip active-hover width="100%" height="150px" transition="1.5s">
                                 <template v-slot:front class="front">
-                                  <image-shadow :width="400" :src="tayar1"></image-shadow>
+                                  <image-shadow width="100%" :src="tayar1"></image-shadow>
                                 </template>
                                 <template v-slot:back class="back">
-                                    <image-shadow :width="400" :src="tayar2"></image-shadow>
+                                    <image-shadow width="100%" :src="tayar2"></image-shadow>
                                 </template>
                               </vue-flip> 
                           </div>
                       </div>
-                      <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-spaceship"></i>{{$t('tayarLogin')}}</div></div></div><b-button  type="button" variant="warning" @click="TayarLogin()">Log In</b-button></div>
+                      <div class="card-footer text-left"><hr></div><b-button class="tim-icons icon-spaceship"  type="button" variant="warning" @click="TayarLogin()"> {{$t('tayarLogin')}}</b-button></div>
               </div>
               <div class=" col-md-2">
               </div>
@@ -63,17 +63,17 @@
                   <div class="card card-stats" >
                     <div class="card-body">
                         <div class="col-12">
-                          <vue-flip active-hover width="400px" height="225px" transition="1.5s">
+                          <vue-flip active-hover width="100%" height="150px" transition="1.5s">
                               <template v-slot:front class="front">
-                                <image-shadow :width="400" :src="customer1"></image-shadow>
+                                <image-shadow width="100%"  :src="customer1"></image-shadow>
                               </template>
                               <template v-slot:back class="back">
-                                  <image-shadow :width="400" :src="customer2"></image-shadow>
+                                  <image-shadow width="100%" :src="customer2"></image-shadow>
                               </template>
                           </vue-flip> 
                         </div>
                     </div>
-                    <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-satisfied"></i>{{$t('customerLogin')}} </div></div></div><b-button  type="button" variant="default" @click="LeadLogin()">Log In</b-button></div>
+                    <div class="card-footer text-left"><hr></div><b-button class="tim-icons icon-satisfied"  type="button" variant="default" @click="LeadLogin()"> {{$t('customerLogin')}}</b-button></div>
               </div>
           </div>
     </b-container>

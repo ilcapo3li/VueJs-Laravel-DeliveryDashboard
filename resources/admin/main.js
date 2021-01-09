@@ -28,6 +28,15 @@ import VeeValidate from 'vee-validate';
 import toastr from 'toastr'
 window.toastr = toastr
 
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyA5sS8BonLnEpvI3x4wZYJFs9m02TV-JkM",
+    libraries: "places" // necessary for places input
+  }
+});
+
 
 import 'toastr/build/toastr.min.css';
 Vue.use(BlackDashboard);

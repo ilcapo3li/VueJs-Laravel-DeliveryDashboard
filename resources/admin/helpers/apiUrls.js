@@ -1,5 +1,5 @@
 const makeUrl = route => {
-    return `https://${location.hostname}/api${route}`;
+    return `http://${location.hostname}/api${route}`;
 };
 export default {
     adminLogin: () => {
