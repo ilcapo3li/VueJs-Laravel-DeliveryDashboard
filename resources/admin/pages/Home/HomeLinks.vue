@@ -16,7 +16,7 @@
                               </vue-flip> 
                           </div>
                       </div>
-                  <div class="card-footer text-left" @click="CompanyLogin()"><hr><div class="stats"><div><i class="tim-icons icon-delivery-fast"></i>{{$t('companyLogin')}}</div></div></div></div>
+                  <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-delivery-fast"></i>{{$t('companyLogin')}}</div></div></div><b-button  type="button" variant="success" @click="CompanyLogin()">Log In</b-button></div>
               </div>
               <div class=" col-md-2">
               </div>
@@ -34,7 +34,7 @@
                               </vue-flip> 
                           </div>
                       </div>
-                    <div class="card-footer text-left"  @click="AgentLogin()"><hr><div class="stats"><div><i class="tim-icons icon-cart"></i>{{$t('agentLogin')}}</div></div></div></div>
+                    <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-cart"></i>{{$t('agentLogin')}}</div></div></div><b-button  type="button" variant="primary" @click="AgentLogin()">Log In</b-button></div>
               </div>
           </div>
         
@@ -55,7 +55,7 @@
                               </vue-flip> 
                           </div>
                       </div>
-                      <div class="card-footer text-left" @click="TayarLogin()"><hr><div class="stats"><div><i class="tim-icons icon-spaceship"></i>{{$t('tayarLogin')}}</div></div></div></div>
+                      <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-spaceship"></i>{{$t('tayarLogin')}}</div></div></div><b-button  type="button" variant="warning" @click="TayarLogin()">Log In</b-button></div>
               </div>
               <div class=" col-md-2">
               </div>
@@ -73,7 +73,7 @@
                           </vue-flip> 
                         </div>
                     </div>
-                    <div class="card-footer text-left" @click="LeadLogin()"><hr><div class="stats"><div><i class="tim-icons icon-satisfied"></i>{{$t('customerLogin')}}</div></div></div></div>
+                    <div class="card-footer text-left"><hr><div class="stats"><div><i class="tim-icons icon-satisfied"></i>{{$t('customerLogin')}} </div></div></div><b-button  type="button" variant="default" @click="LeadLogin()">Log In</b-button></div>
               </div>
           </div>
     </b-container>

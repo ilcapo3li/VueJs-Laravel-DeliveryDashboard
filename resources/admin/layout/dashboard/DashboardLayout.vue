@@ -10,7 +10,7 @@
                     <sidebar-link to="/delivery-settings" :name="$t('sidebar.deliverySettings')" />
                     <sidebar-link to="/advertisments" :name="$t('sidebar.ads')" />
                     <sidebar-link to="/versions" :name="$t('sidebar.versions')" />
-                     <hr />
+                    <hr />
 
                     <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')"  icon="tim-icons icon-chart-pie-36" />
                     <sidebar-link to="/admins" :name="$t('sidebar.admins')" />
@@ -92,7 +92,7 @@
 
 
                 </div>
-                    <sidebar-link to="/map" :name="$t('sidebar.map')" />             
+                    <sidebar-link to="/maps" :name="$t('sidebar.map')" />             
                     <sidebar-link to="/searchCode" :name="$t('sidebar.searchCode')" />             
 
 

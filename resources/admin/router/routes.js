@@ -388,8 +388,8 @@ const routes = [
                 component: Locations
             },
             {
-                path: "/map",
-                name: "map",
+                path: "/maps",
+                name: "maps",
                 component: Maps
             },
         ],

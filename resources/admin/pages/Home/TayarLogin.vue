@@ -76,7 +76,7 @@
       created() {
         if(localStorage.getItem('access_token')){
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('access_token');
-            axios.post(apiUrls.checkAuth()).then((res)=>{ this.$router.push('/profile')})
+            axios.post(apiUrls.checkAuth()).then((res)=>{ this.$router.push('/profile')});
         }
       },
       mounted(){
@@ -96,7 +96,7 @@
           LoginForm(){
             this.$validator.validateAll().then(result => {
               if (result) {
-                  axios.post(apiUrls.adminLogin(),{
+                  axios.post(apiUrls.tayarLogin(),{
                     email:this.email,
                     password:this.password,
                   })
@@ -107,9 +107,9 @@
                         this.$store.commit('authenticatedValue',true);
                         localStorage.setItem('access_token',response.data.data.access_token);
                         if(localStorage.getItem('lang')==null){
-                          localStorage.setItem('lang','en');
-                          this.$i18n.locale = 'en';
-                          this.$rtl.disableRTL();
+                            localStorage.setItem('lang','en');
+                            this.$i18n.locale = 'en';
+                            this.$rtl.disableRTL();
                         }
                         else{
                           var lang=localStorage.getItem('lang');
