@@ -96,13 +96,18 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
 
-    public function tokens()
+    public function registerTokens()
     {
-        return $this->hasMany(ApiKey::class)->where('owner_type','user');
+        return $this->hasMany(ApiKey::class,'owner');
     }
 
-    public function userTokens()
+    public function authTokens()
     {
-        return $this->hasMany(OwnerToken::class)->where('owner_type','user');
+        return $this->hasMany(OwnerToken::class,'owner');
+    }
+
+    public function locations()
+    {
+        return $this->morphMany(Location::class, 'owner');
     }
 }

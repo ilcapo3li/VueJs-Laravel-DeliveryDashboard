@@ -18,7 +18,9 @@ class Lead extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -57,19 +59,29 @@ class Lead extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function orders()
+    public function registerTokens()
     {
-        return $this->hasMany(Order::class, 'lead_id');
+        return $this->morphMany(ApiKey::class,'owner');
     }
 
-    public function tokens()
+    public function authTokens()
     {
-        return $this->hasMany(ApiKey::class)->where('owner_type','lead');
+        return $this->morphMany(OwnerToken::class,'owner');
     }
 
-    public function laedTokens()
+    public function sentOrders()
     {
-        return $this->hasMany(OwnerToken::class)->where('owner_type','lead');
+        return $this->morphMany(Order::class, 'sender');
+    }
+
+    public function receivedOrders()
+    {
+        return $this->morphMany(Order::class, 'receiver');
+    }
+
+    public function locations()
+    {
+        return $this->morphMany(Location::class, 'owner');
     }
 }
   

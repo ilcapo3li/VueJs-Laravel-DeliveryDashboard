@@ -62,14 +62,30 @@ class Representative extends Authenticatable implements JWTSubject
         return $this->hasMany(Order::class, 'representative_id');
     }
 
-    public function tokens()
+    public function sentOrders()
     {
-        return $this->hasMany(ApiKey::class)->where('owner_type','representative');
+        return $this->morphMany(Order::class, 'sender');
     }
 
-    public function representativeTokens()
+    public function receivedOrders()
     {
-        return $this->hasMany(OwnerToken::class)->where('owner_type','representative');
+        return $this->morphMany(Order::class, 'receiver');
+    }
+
+    public function registerTokens()
+    {
+        return $this->morphMany(ApiKey::class,'owner');
+    }
+
+    public function authTokens()
+    {
+        return $this->morphMany(OwnerToken::class,'owner');
+    }
+
+   
+    public function locations()
+    {
+        return $this->morphMany(Location::class, 'owner');
     }
 }
   

@@ -18,7 +18,9 @@ class Agent extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -57,19 +59,36 @@ class Agent extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'agent_id');
-    }
+   
     
-    public function tokens()
+    public function registerTokens()
     {
-        return $this->hasMany(ApiKey::class)->where('owner_type','agent');
+        return $this->hasMany(ApiKey::class,'owner');
     }
 
-    public function agentTokens()
+    public function authTokens()
     {
-        return $this->hasMany(OwnerToken::class)->where('owner_type','agent');
+        return $this->hasMany(OwnerToken::class,'owner');
+    }
+
+    public function sentOrders()
+    {
+        return $this->morphMany(Order::class, 'sender');
+    }
+
+    public function receivedOrders()
+    {
+        return $this->morphMany(Order::class, 'receiver');
+    }
+
+    public function agents()
+    {
+        return $this->belongsToMany(Lead::class,'agent_leads');
+    }
+
+    public function locations()
+    {
+        return $this->morphMany(Location::class, 'owner');
     }
 }
   

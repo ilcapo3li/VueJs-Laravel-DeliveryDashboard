@@ -22,9 +22,12 @@ class UsersController extends AuthController
     public function index(Request $request)
     {
         return  new UserResource(
-            User::where('name', 'like', '%'.Input::get('query').'%')
-            ->orwhere('email', 'like', '%'.Input::get('query').'%')
-            ->with(['role', 'photo'])->orderBy('id', 'desc')->paginate(10)
+                Auth::user('user')->comapny->users()
+                ->where('email', 'like', '%'.Input::get('query').'%')
+                ->orwhere('name', 'like', '%'.Input::get('query').'%')
+                ->orwhere('phonePrimary', 'like', '%'.Input::get('query').'%')
+                ->orwhere('PhoneSecondary', 'like', '%'.Input::get('query').'%')
+                ->with(['photo','role'])->orderBy('id', 'desc')->paginate(10)
         );
     }
 
@@ -52,13 +55,8 @@ class UsersController extends AuthController
         }
     }
 
-    public function block(User $user)
-    {
-        $user->blocked = !$user->blocked;
-        $user->save();
+    
 
-        return response()->json($user);
-    }
 
     /**
      * Display the specified reuser.
@@ -95,13 +93,18 @@ class UsersController extends AuthController
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            ]);
-        foreach ($user->userTokens as $userToken) {
-            $userToken->blocked = 1;
-            $userToken->save();
-        }
+        ]);
+            $this->blockTokens($user);
+        return response()->json('Company Admin Updated Suceessfully');
+    }
 
-        return response()->json('Recored Updated Suceessfully');
+    public function block(User $user)
+    {
+        $user->disabled = !$user->disabled;
+        $user->save();
+        $this->blockTokens($user);
+
+        return response()->json($user);
     }
 
     /**
@@ -114,7 +117,7 @@ class UsersController extends AuthController
     public function destroy(User $user)
     {
         if ($user->delete()) {
-            return response()->json('Record deleted successfully', 200);
+            return response()->json('Record Deleted Successfully', 200);
         } else {
             return response()->json(['error' => 'Error in Deleting Record'], 422);
         }

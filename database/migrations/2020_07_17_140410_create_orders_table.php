@@ -14,7 +14,6 @@ class CreateOrdersTable extends Migration {
 		Schema::create('orders', function (Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('code');
-			
 			///////////////////////////////Sender and Reciever/////////////////////////////
             $table->morphs('sender');
             $table->morphs('receiver');
@@ -28,12 +27,14 @@ class CreateOrdersTable extends Migration {
 			$table->unsignedBigInteger('zone_id')->nullable();
 			$table->unsignedBigInteger('home_id')->nullable();
 			$table->unsignedBigInteger('away_id')->nullable();
+			$table->unsignedBigInteger('parent_id')->nullable();
 			$table->decimal('cost', 9, 2)->nullable();
 			$table->tinyInteger('payed')->default(1);
 			////////////////////////////////////////////////////////
 			$table->timestamps();
             $table->softDeletes();
 			////////////////////////////////////////////////////////
+			$table->foreign('parent_id')->references('id')->on('orders');
 			$table->foreign('company_id')->references('id')->on('companies');
 			$table->foreign('representative_id')->references('id')->on('representatives');
 			$table->foreign('statue_id')->references('id')->on('status');

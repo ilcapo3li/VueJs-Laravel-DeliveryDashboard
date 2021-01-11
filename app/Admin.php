@@ -57,15 +57,22 @@ class Admin extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function tokens()
+    public function role()
     {
-        return $this->hasMany(ApiKey::class)->where('owner_type','admin');
+        return $this->belongsTo(Role::class);
     }
 
-    public function adminTokens()
+    public function registerTokens()
     {
-        return $this->hasMany(OwnerToken::class)->where('owner_type','admin');
+        return $this->hasMany(ApiKey::class,'owner');
     }
+
+    public function authTokens()
+    {
+        return $this->hasMany(OwnerToken::class,'owner');
+    }
+
+   
 }
   
 

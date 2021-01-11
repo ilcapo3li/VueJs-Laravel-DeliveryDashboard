@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191); 
+        Relation::morphMap([
+            'user' => 'App\User',
+            'lead' => 'App\Lead',
+            'agent' => 'App\Agent',
+            'company' => 'App\Company',
+            'admin' => 'App\Admin',
+        ]);
 
     }
 }

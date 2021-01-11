@@ -17,6 +17,8 @@ class CreateLocationsTable extends Migration {
 			$table->json('location')->nullable();
 			$table->unsignedBigInteger('country_id');
 			$table->foreign('country_id')->references('id')->on('countries');
+			$table->unsignedBigInteger('governorate_id')->nullable();
+			$table->foreign('governorate_id')->references('id')->on('governorates');
 			$table->unsignedBigInteger('city_id');
 			$table->foreign('city_id')->references('id')->on('cities');
 			$table->morphs('owner');

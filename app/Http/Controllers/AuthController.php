@@ -75,11 +75,8 @@ class AuthController extends Controller
                     return response()->json(['status' => 'false', 'message' => 'You Can\'t Use Old Password As New Password'], 422);
                 } else {
                     $user->password = $request->new;
-                    foreach ($user->userTokens as $userToken) {
-                        $userToken->blocked = 1;
-                        $userToken->save();
-                    }
                     $user->save();
+                    $this->blockTokens($user);
                     auth()->logout();
 
                     return response()->json(['status' => 'true']);
@@ -96,6 +93,13 @@ class AuthController extends Controller
         auth()->logout();
     }
     
+    public function blockTokens($auth)
+    {
+        foreach ($auth->authTokens as $token) {
+            $token->blocked = 1;
+            $token->save();
+        }
+    }
 
     public function AuthCheck()
     {

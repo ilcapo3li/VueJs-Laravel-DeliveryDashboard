@@ -10,7 +10,12 @@ class AgentController extends AuthController
     
     public function index()
     {
-        $agents = User::where('role_id', 1)->where('name', 'like', '%'.Input::get('query').'%')->orwhere('role_id', 1)->where('email', 'like', '%'.Input::get('query').'%')->with(['role', 'photo'])->where('role_id', 4)->orderBy('id', 'desc')->paginate(10);
+        $agents = Auth::user('user')->agents()
+                    ->where('name', 'like', '%'.Input::get('query').'%')
+                    ->orwhere('email', 'like', '%'.Input::get('query').'%')
+                    ->orwhere('phonePrimary', 'like', '%'.Input::get('query').'%')
+                    ->orwhere('PhoneSecondary', 'like', '%'.Input::get('query').'%')
+                    ->with(['photo'])->orderBy('id', 'desc')->paginate(10);
 
         return response()->json($agents);
     }
@@ -28,15 +33,43 @@ class AgentController extends AuthController
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         } else {
-            $admin = new User();
+            $admin = new Agent();
             $admin->name = $request->name;
             $admin->email = $request->email;
             $admin->password = $request->password;
-            $admin->role_id = 4;
             $admin->save();
 
-            return response()->json('Admin Created Suceessfully');
+            return response()->json('Agent Created Suceessfully');
         }
+    }
+
+    public function update(Request $request, Agent $agent)
+    {
+        $request->validate([
+            'name' => 'required|string|unique:users,name,'.$agent->id,
+            'email' => 'required|email|unique:users,email,'.$agent->id,
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        $agent->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            ]);
+        $this->blockTokens($agent);
+        $agent->permissions()->detach();
+        $agent->permissions()->attach($request->permissions);
+
+        return response()->json('Agent Updated Suceessfully');
+    }
+
+    public function block(Agent $agent)
+    {
+        $agent->disabled = !$agent->disabled;
+        $agent->save();
+        $this->blockTokens($agent);
+        return response()->json($agent);
     }
 
     /**
