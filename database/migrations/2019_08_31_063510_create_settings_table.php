@@ -23,8 +23,6 @@ class CreateSettingsTable extends Migration
             $table->string('youtube')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instgram')->nullable();
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }

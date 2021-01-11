@@ -20,8 +20,8 @@ class CreateGovernoratesTable extends Migration
 			$table->unsignedBigInteger('country_id')->nullable();
 			$table->foreign('country_id')->references('id')->on('countries');
             $table->decimal('population',12, 7);
-            $table->double('lat',10, 7);
-            $table->double('lng',10, 7);
+            $table->double('lat',12, 7);
+            $table->double('lng',12, 7);
 			$table->timestamps();
             $table->softDeletes();
         });

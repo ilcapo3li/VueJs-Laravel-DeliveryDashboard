@@ -20,8 +20,8 @@ class CreateCitiesTable extends Migration {
 			$table->unsignedBigInteger('governorate_id')->nullable();
 			$table->foreign('governorate_id')->references('id')->on('governorates');
             $table->decimal('population',12, 7);
-            $table->double('lat',10, 7);
-            $table->double('lng',10, 7);
+            $table->double('lat',12, 7);
+            $table->double('lng',12, 7);
 			$table->timestamps();
             $table->softDeletes();
 
