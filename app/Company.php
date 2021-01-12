@@ -52,9 +52,9 @@ class Company extends Model
         return $this->hasOne(Subscription::class, 'company_id');
     }
 
-    public function companySubscriptionHinstory()
+    public function companySubscriptionHistory()
     {
-        return $this->hasOne(SubscriptionLog::class, 'company_id');
+        return $this->hasMany(SubscriptionLog::class, 'company_id');
     }
 
    

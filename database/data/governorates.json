@@ -293,7 +293,7 @@
         "lat": "31.2820", 
         "lng": "34.2387", 
         "country_id": 61,
-        "population": ""
+        "population": null
         
     }, 
     {
@@ -302,7 +302,7 @@
         "lat": "31.2119", 
         "lng": "34.1106", 
         "country_id": 61,
-        "population": ""
+        "population": null
         
     }, 
     {
@@ -311,7 +311,7 @@
         "lat": "31.0000", 
         "lng": "33.0167", 
         "country_id": 61,
-        "population": ""
+        "population": null
         
     }
 ]

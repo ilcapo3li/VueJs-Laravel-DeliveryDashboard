@@ -58,7 +58,7 @@ class AdminController extends AuthController
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            ]);
+        ]);
         foreach ($admin->userTokens as $userToken) {
             $userToken->blocked = 1;
             $userToken->save();

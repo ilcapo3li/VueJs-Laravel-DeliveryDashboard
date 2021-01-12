@@ -10,6 +10,6 @@ class OwnerToken extends Model
 
    public function owner()
     {
-    	return $this->morphTo();
+    	   return $this->morphTo();
     }
 }

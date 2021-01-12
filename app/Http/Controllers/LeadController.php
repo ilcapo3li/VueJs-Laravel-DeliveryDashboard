@@ -9,11 +9,12 @@ class LeadController extends AuthController
 {
     public function index()
     {
-        $customers = Auth::user('lead')->comapny->leads()->orwhere('email', 'like', '%'.Input::get('query').'%')
+        $leads = Auth::user('lead')->comapny->leads()
+                ->orwhere('email', 'like', '%'.Input::get('query').'%')
                 ->orwhere('phonePrimary', 'like', '%'.Input::get('query').'%')
                 ->orwhere('PhoneSecondary', 'like', '%'.Input::get('query').'%')
                 ->with(['photo'])->orderBy('id', 'desc')->paginate(10);
-        return response()->json($customers);
+        return response()->json($leads);
     }
 
     public function save(Request $request)
@@ -53,7 +54,6 @@ class LeadController extends AuthController
         ]);
         $this->blockTokens($lead);
     
-
         return response()->json('Customer Updated Suceessfully');
     }
 

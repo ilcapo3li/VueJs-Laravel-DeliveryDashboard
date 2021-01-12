@@ -15,13 +15,13 @@ class CreateGovernoratesTable extends Migration
     {
         Schema::create('governorates', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('en_name');
-			$table->string('ar_name');
+			$table->string('en_name')->unique();
+			$table->string('ar_name')->unique();
 			$table->unsignedBigInteger('country_id')->nullable();
 			$table->foreign('country_id')->references('id')->on('countries');
-            $table->decimal('population',12, 7);
-            $table->double('lat',12, 7);
-            $table->double('lng',12, 7);
+            $table->bigInteger('population')->nullable();
+            $table->decimal('lat',11, 8)->nullable();
+            $table->decimal('lng',11, 8)->nullable();
 			$table->timestamps();
             $table->softDeletes();
         });

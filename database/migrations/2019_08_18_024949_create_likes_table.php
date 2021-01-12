@@ -18,9 +18,9 @@ class CreateLikesTable extends Migration
             $table->string('review');
             $table->unsignedBigInteger('lead_id');
             $table->foreign('lead_id')->references('id')->on('leads');
-            $table->morphs('type');
+            $table->morphs('owner');
             $table->integer('rate')->nullable();
-            $table->tinyInteger('like')->nullable();
+            $table->tinyInteger('like');
             $table->timestamps();
         });
     }

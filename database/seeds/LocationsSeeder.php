@@ -12,7 +12,7 @@ class LocationsSeeder extends Seeder
     {
         Location::create([
             'owner_id' => '1',
-            'owner_type' => 'Lead',
+            'owner_type' => 'lead',
             'country_id' => 64,
             'city_id' => 1,
 
@@ -31,7 +31,7 @@ class LocationsSeeder extends Seeder
         ]);
         Location::create([
             'owner_id' => '2',
-            'owner_type' => 'Lead',
+            'owner_type' => 'lead',
             'country_id' => 64,
             'city_id' => 1,
 
@@ -50,7 +50,7 @@ class LocationsSeeder extends Seeder
         ]);
         Location::create([
             'owner_id' => '1',
-            'owner_type' => 'Agent',
+            'owner_type' => 'agent',
             'country_id' => 64,
             'city_id' => 1,
 
@@ -71,7 +71,7 @@ class LocationsSeeder extends Seeder
 
         Location::create([
             'owner_id' => '1',
-            'owner_type' => 'Lead',
+            'owner_type' => 'agent',
             'country_id' => 64,
             'city_id' => 1,
 
@@ -91,7 +91,7 @@ class LocationsSeeder extends Seeder
         ]);
         Location::create([
             'owner_id' => '1',
-            'owner_type' => 'Lead',
+            'owner_type' => 'lead',
             'country_id' => 64,
             'city_id' => 1,
 

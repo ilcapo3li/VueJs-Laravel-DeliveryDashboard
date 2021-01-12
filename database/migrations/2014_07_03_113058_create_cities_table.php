@@ -15,13 +15,13 @@ class CreateCitiesTable extends Migration {
 			$table->bigIncrements('id');
 			$table->string('en_name');
 			$table->string('ar_name');
-			$table->unsignedBigInteger('country_id')->nullable();
+			$table->unsignedBigInteger('country_id');
 			$table->foreign('country_id')->references('id')->on('countries');
-			$table->unsignedBigInteger('governorate_id')->nullable();
+			$table->unsignedBigInteger('governorate_id');
 			$table->foreign('governorate_id')->references('id')->on('governorates');
-            $table->decimal('population',12, 7);
-            $table->double('lat',12, 7);
-            $table->double('lng',12, 7);
+            $table->bigInteger('population')->nullable();
+            $table->decimal('lat',11, 8)->nullable();
+            $table->decimal('lng',11, 8)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 
