@@ -429,7 +429,7 @@
       {
             "code": "DO",
             "en_country": "Dominican Republic",
-            "en_nationality": "Dominican",
+            "en_nationality": "Dominican Republic",
             "ar_country": "الجمهورية الدومينيكية",
             "ar_nationality": "دومينيكي"
       },
@@ -534,7 +534,7 @@
       {
             "code": "TF",
             "en_country": "French Southern and Antarctic Lands",
-            "en_nationality": "French",
+            "en_nationality": "FrenchTF",
             "ar_country": "أراض فرنسية جنوبية وأنتارتيكية",
             "ar_nationality": "أراض فرنسية جنوبية وأنتارتيكية"
       },

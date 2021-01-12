@@ -10,7 +10,6 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('countries')->delete();
         $json = File::get('database/data/countries.json');
         foreach (json_decode($json) as $row) {
             Country::Create([

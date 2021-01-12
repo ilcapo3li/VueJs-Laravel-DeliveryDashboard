@@ -30,6 +30,7 @@ class CitySeeder extends Seeder
             "lat" => "31.2000", 
             "lng" => "29.9167", 
             "country_id" => 61, 
+            "governorate_id" => 2, 
             "population" => "4870000"
         ]);
        

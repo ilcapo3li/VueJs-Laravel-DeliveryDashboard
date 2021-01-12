@@ -12,7 +12,6 @@ class GovernorateSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('governorates')->delete();
         $json = File::get('database/data/governorates.json');
         foreach (json_decode($json) as $row) {
             Governorate::Create([
