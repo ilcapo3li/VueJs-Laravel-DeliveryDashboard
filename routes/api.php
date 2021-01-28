@@ -29,32 +29,46 @@ Route::post('/token/check', 'AuthController@AuthCheck');
 /////////////////////////////Bicomatics Admins//////////////////////////////////
 Route::group(['prefix' => 'bicomatics','middleware' => ['assign.guard:admin','jwt.auth']],function ()
 {
-    
+    Route::group(['middleware' => ['isSuper']], function () {
+        /////////////////this route working only with  super admin by issuper middleware //////////////////
+        /////////////////Start super admin only by permissioncheck middleware //////////////////
+       
+        Route::get('/admins', 'AdminController@index');
+        Route::post('/save/admin', 'AdminController@store');
+        Route::put('/update/admin/{admin}', 'AdminController@update');
+       
+        //////////////////////////////////////////////////////////////////
+        Route::get('/permissions', 'PermissionsController@index');
+        Route::get('/ads/{app}', 'AdvertisementsController@ads');
+        Route::put('/ads/{ads}', 'AdvertisementsController@saveAds');
+
+        /////////////////End super admin only by permissioncheck middleware //////////////////
+    });
     
 });
 
 /////////////////////////////Company Users//////////////////////////////////
 Route::group(['prefix' => 'company','middleware' => ['assign.guard:user','jwt.auth']],function ()
 {
-		
+    
 });
 
 /////////////////////////////Representative "Tayaar"//////////////////////////////////
-Route::group(['prefix' => 'tayar','middleware' => ['assign.guard:representative','jwt.auth']],function ()
+Route::group(['prefix' => 'representative','middleware' => ['assign.guard:representative','jwt.auth']],function ()
 {
 
 
 });
 
 /////////////////////////////Agent ,Suppliers//////////////////////////////////
-Route::group(['prefix' => 'suppliers','middleware' => ['assign.guard:agent','jwt.auth']],function ()
+Route::group(['prefix' => 'marchent','middleware' => ['assign.guard:agent','jwt.auth']],function ()
 {
     
     
 });
 
 /////////////////////////////Users Leads//////////////////////////////////
-Route::group(['prefix' => 'user','middleware' => ['assign.guard:lead','jwt.auth']],function ()
+Route::group(['prefix' => 'bicomatics/customer','middleware' => ['assign.guard:lead','jwt.auth']],function ()
 {
     
     
@@ -94,21 +108,7 @@ Route::group(['prefix' => 'user','middleware' => ['assign.guard:lead','jwt.auth'
     ////////////////////////////////////////Start Admin Auth User///////////////////////////////////////
     // Route::group(['prefix' => adminPath(), 'middleware' => ['adminstration']], function () {
 
-    Route::group(['middleware' => ['isSuper']], function () {
-        /////////////////this route working only with  super admin by issuper middleware //////////////////
-        /////////////////Start super admin only by permissioncheck middleware //////////////////
-       
-        Route::get('/admins', 'AdminController@index');
-        Route::post('/save/admin', 'AdminController@save');
-        Route::put('/update/admin/{admin}', 'AdminController@update');
-       
-        //////////////////////////////////////////////////////////////////
-        Route::get('/permissions', 'PermissionsController@index');
-        Route::get('/ads/{app}', 'AdvertisementsController@ads');
-        Route::put('/ads/{ads}', 'AdvertisementsController@saveAds');
-
-        /////////////////End super admin only by permissioncheck middleware //////////////////
-    });
+   
 
 
     // Route::group(['middleware' => ['isPower']], function () {

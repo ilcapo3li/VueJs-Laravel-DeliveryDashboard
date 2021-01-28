@@ -114,9 +114,9 @@
 
 <style>
   .custom-select{
-    color: rgb(255, 255, 255) !important;
-    font-size: 0.80rem !important;
-    font-weight: 600 !important;
+        color: rgb(255, 255, 255) !important;
+        font-size: 0.80rem !important;
+        font-weight: 600 !important;
   }
   .sidebar .nav li > a, off-canvas-sidebar .nav li > a{
         font-size: 0.80rem !important;
@@ -138,7 +138,7 @@
       border-color: #00c3da !important;
   }
   .main-panel { 
-    border-top: 3px solid #306bf6 !important;
+      border-top: 3px solid #306bf6 !important;
   }
   a{
       font-weight: 700 !important;
@@ -166,7 +166,6 @@
       line-height: 1.3 !important;
   }
   .page-item.active .page-link {
-  
       background-color: #25cbdf    !important;
       border-color: #25cbdf    !important;
   }

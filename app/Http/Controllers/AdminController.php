@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use DB; 
+use DB;
 use Auth;
 use App\Admin;
 use Illuminate\Http\Request;
@@ -18,10 +17,10 @@ class AdminController extends AuthController
                 ->where('name', 'like', '%'.Input::get('query').'%')
                 ->orwhere('role_id', 2)->where('email', 'like', '%'.Input::get('query').'%')
                 ->with(['role', 'permissions', 'photo'])->orderBy('id', 'desc')->paginate(10);
-        return response()->json($admins);
+            return response()->json($admins);
     }
 
-    public function save(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|unique:users,name',
@@ -30,9 +29,6 @@ class AdminController extends AuthController
             'password_confirmation' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        } else {
             $admin = new Admin();
             $admin->name = $request->name;
             $admin->email = $request->email;
@@ -42,7 +38,7 @@ class AdminController extends AuthController
             $admin->permissions()->attach($request->permissions);
 
             return response()->json('Admin Created Suceessfully');
-        }
+        
     }
 
     public function update(Request $request, Admin $admin)
@@ -74,7 +70,6 @@ class AdminController extends AuthController
         $admin->disabled = !$admin->disabled;
         $admin->save();
         $admin->blockTokens($admin);
-
         return response()->json($admin);
     }
 
